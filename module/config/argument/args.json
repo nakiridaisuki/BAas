@@ -19,12 +19,7 @@
         "value": "auto",
         "option": [
           "auto",
-          "CN-Official",
-          "CN-Bilibili",
-          "OVERSEA-America",
-          "OVERSEA-Asia",
-          "OVERSEA-Europe",
-          "OVERSEA-TWHKMO"
+          "BAtest"
         ]
       },
       "GameLanguage": {

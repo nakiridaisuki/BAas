@@ -83,4 +83,6 @@ class StarRailCopilot(AzurLaneAutoScript):
 
 if __name__ == '__main__':
     src = StarRailCopilot('src')
-    src.loop()
+    src.start()
+    # src.loop()
+ 

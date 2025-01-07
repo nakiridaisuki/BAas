@@ -41,6 +41,10 @@ class TaskError(Exception):
     # then task will be re-scheduled
     pass
 
+# New add
+class SweepError(Exception):
+    pass
+
 
 class RequestHumanTakeover(Exception):
     # Request human takeover

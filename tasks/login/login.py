@@ -1,80 +1,84 @@
 from module.base.timer import Timer
-from module.exception import GameNotRunningError
+from module.exception import GameNotRunningError, GameStuckError
+from module.ocr.ocr import OcrWhiteLetterOnComplexBackground
 from module.logger import logger
-from tasks.base.page import page_main
+from tasks.base.ui import UI
 from tasks.login.assets.assets_login import *
-from tasks.login.cloud import LoginAndroidCloud
-from tasks.rogue.blessing.ui import RogueUI
+from tasks.base.page import page_main
 
+class Login(UI):
 
-class Login(LoginAndroidCloud, RogueUI):
+    def handle_start_ads(self):
+        ocr = OcrWhiteLetterOnComplexBackground(GAME_START_ADS)
+        result = ocr.ocr_single_line(self.device.image)
+        if result == "Don't show again today":
+            self.device.click(GAME_START_ADS)
+            return True
+        return False
+    
+    def handle_notice(self, interval=0):
+        if self.appear_then_click(INGAME_ADS, interval=interval):
+            logger.info('Appear in-game notice')
+            return True
+        return False
+
     def _handle_app_login(self):
         """
-        Pages:
-            in: Any page
-            out: page_main
-
         Raises:
-            GameStuckError:
-            GameTooManyClickError:
-            GameNotRunningError:
+            GameNotRunningError
+            GameStuckError
         """
-        logger.hr('App login')
-        orientation_timer = Timer(5)
-        startup_timer = Timer(5).start()
+
+        logger.hr('App Login')
+        startup_timer = Timer(20).start()
+        have_closed_ingame_ads = False
         app_timer = Timer(5).start()
-        login_success = False
+        stuck_at_first = True
+        stuck_timer = Timer(120).start()
+        ocr_ad_timer = Timer(5).start()
 
         while 1:
             # Watch if game alive
             if app_timer.reached():
                 if not self.device.app_is_running():
-                    logger.error('Game died during launch')
-                    raise GameNotRunningError('Game not running')
+                    logger.error('Game died during login')
+                    raise GameNotRunningError
                 app_timer.reset()
-            # Watch device rotation
-            if not login_success and orientation_timer.reached():
-                # Screen may rotate after starting an app
-                self.device.get_orientation()
-                orientation_timer.reset()
-
+            
             self.device.screenshot()
 
-            # End
-            # Game client requires at least 5s to start
-            # The first few frames might be captured before app_stop(), ignore them
-            if startup_timer.reached():
+            # Game need at least 20s to start
+            if startup_timer.reached() and have_closed_ingame_ads:
                 if self.ui_page_appear(page_main):
-                    logger.info('Login to main confirm')
                     break
 
-            # Watch resource downloading and loading
-            if self.appear(LOGIN_LOADING, interval=5):
-                logger.info('Game resources downloading or loading')
-                self.device.stuck_record_clear()
-                app_timer.reset()
-                orientation_timer.reset()
-
+            # Check if stuck at initial black page
+            if stuck_at_first and stuck_timer.reached():
+                if not self.appear(STUCK_AT_FIRST):
+                    stuck_at_first = False
+                    continue
+                if stuck_timer.reached():
+                    logger.error('Game stuck during login')
+                    raise GameStuckError
+                continue
+                
             # Login
-            if self.is_in_login_confirm(interval=5):
-                self.device.click(LOGIN_CONFIRM)
-                login_success = True
+            if self.appear_then_click(NEED_DOWNLOAD, interval=2):
                 continue
-            if self.appear_then_click(USER_AGREEMENT_ACCEPT):
-                continue
-            if self.appear_then_click(ACCOUNT_CONFIRM):
-                continue
-            # Additional
-            if self.handle_popup_single():
-                continue
-            if self.handle_popup_confirm():
-                continue
-            if self.ui_additional():
-                continue
-            if self.handle_blessing():
+            if self.appear_then_click(TOUCH_TO_START, interval=2):
                 continue
 
-        return True
+            # Additional
+            if ocr_ad_timer.reached():
+                if self.handle_start_ads():
+                    continue
+                ocr_ad_timer.reset()
+            if self.appear_then_click(ARONA_PAD, interval=2):
+                continue
+            if self.handle_notice(interval=2):
+                have_closed_ingame_ads = True
+                continue
+            
 
     def handle_app_login(self):
         logger.info('handle_app_login')
@@ -86,31 +90,17 @@ class Login(LoginAndroidCloud, RogueUI):
             self.device.screenshot_interval_set()
             self.device.stuck_timer = Timer(60, count=60).start()
 
-    def app_stop(self):
-        logger.hr('App stop')
-        if self.config.is_cloud_game:
-            self.cloud_exit()
-        self.device.app_stop()
-
     def app_start(self):
         logger.hr('App start')
         self.device.app_start()
+        self.handle_app_login()
 
-        if self.config.is_cloud_game:
-            self.device.dump_hierarchy()
-            self.cloud_enter_game()
-        else:
-            self.handle_app_login()
+    def app_stop(self):
+        logger.hr('App stop')
+        self.device.app_stop()
 
     def app_restart(self):
         logger.hr('App restart')
         self.device.app_stop()
         self.device.app_start()
-
-        if self.config.is_cloud_game:
-            self.device.dump_hierarchy()
-            self.cloud_enter_game()
-        else:
-            self.handle_app_login()
-
-        self.config.task_delay(server_update=True)
+        self.handle_app_login()

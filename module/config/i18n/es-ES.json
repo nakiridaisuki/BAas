@@ -114,12 +114,7 @@
       "name": "Región del juego",
       "help": "No es posible detectar regiones que no sean de China, por tanto, ajústalo manualmente si se da la situación.",
       "auto": "Detectar automaticamente",
-      "CN-Official": "[CN]-Oficial",
-      "CN-Bilibili": "[CN]-Bilibili",
-      "OVERSEA-America": "[OVERSEA]-America",
-      "OVERSEA-Asia": "[OVERSEA]-Asia",
-      "OVERSEA-Europe": "[OVERSEA]-Europa",
-      "OVERSEA-TWHKMO": "[OVERSEA]-TW,HK,MO"
+      "BAtest": "BAtest"
     },
     "GameLanguage": {
       "name": "Idioma dentro del juego",

@@ -114,12 +114,7 @@
       "name": "Game Server",
       "help": "Can't distinguish different regions of oversea servers, please select the server manually.",
       "auto": "Auto-detect",
-      "CN-Official": "[CN]-Official",
-      "CN-Bilibili": "[CN]-Bilibili",
-      "OVERSEA-America": "[OVERSEA]-America",
-      "OVERSEA-Asia": "[OVERSEA]-Asia",
-      "OVERSEA-Europe": "[OVERSEA]-Europe",
-      "OVERSEA-TWHKMO": "[OVERSEA]-TW,HK,MO"
+      "BAtest": "BAtest"
     },
     "GameLanguage": {
       "name": "In-game Text Language",

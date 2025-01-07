@@ -114,12 +114,7 @@
       "name": "Emulator.PackageName.name",
       "help": "Emulator.PackageName.help",
       "auto": "auto",
-      "CN-Official": "CN-Official",
-      "CN-Bilibili": "CN-Bilibili",
-      "OVERSEA-America": "OVERSEA-America",
-      "OVERSEA-Asia": "OVERSEA-Asia",
-      "OVERSEA-Europe": "OVERSEA-Europe",
-      "OVERSEA-TWHKMO": "OVERSEA-TWHKMO"
+      "BAtest": "BAtest"
     },
     "GameLanguage": {
       "name": "Emulator.GameLanguage.name",

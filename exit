@@ -1,0 +1,295 @@
+warning: in the working copy of 'tasks/base/page.py', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'tasks/base/ui.py', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'tasks/login/login.py', CRLF will be replaced by LF the next time Git touches it
+[1mdiff --git a/assets/character/Acheron.png b/assets/character/Acheron.png[m
+[1mdeleted file mode 100644[m
+[1mindex 291378a..0000000[m
+Binary files a/assets/character/Acheron.png and /dev/null differ
+[1mdiff --git a/assets/character/Argenti.png b/assets/character/Argenti.png[m
+[1mdeleted file mode 100644[m
+[1mindex 7f5c8cd..0000000[m
+Binary files a/assets/character/Argenti.png and /dev/null differ
+[1mdiff --git a/assets/character/Arlan.png b/assets/character/Arlan.png[m
+[1mdeleted file mode 100644[m
+[1mindex 5b6705a..0000000[m
+Binary files a/assets/character/Arlan.png and /dev/null differ
+[1mdiff --git a/assets/character/Asta.png b/assets/character/Asta.png[m
+[1mdeleted file mode 100644[m
+[1mindex 42231ed..0000000[m
+Binary files a/assets/character/Asta.png and /dev/null differ
+[1mdiff --git a/assets/character/Aventurine.png b/assets/character/Aventurine.png[m
+[1mdeleted file mode 100644[m
+[1mindex 2e1c1de..0000000[m
+Binary files a/assets/character/Aventurine.png and /dev/null differ
+[1mdiff --git a/assets/character/Bailu.png b/assets/character/Bailu.png[m
+[1mdeleted file mode 100644[m
+[1mindex 1190175..0000000[m
+Binary files a/assets/character/Bailu.png and /dev/null differ
+[1mdiff --git a/assets/character/BlackSwan.png b/assets/character/BlackSwan.png[m
+[1mdeleted file mode 100644[m
+[1mindex 0577853..0000000[m
+Binary files a/assets/character/BlackSwan.png and /dev/null differ
+[1mdiff --git a/assets/character/Blade.png b/assets/character/Blade.png[m
+[1mdeleted file mode 100644[m
+[1mindex e92c710..0000000[m
+Binary files a/assets/character/Blade.png and /dev/null differ
+[1mdiff --git a/assets/character/Boothill.png b/assets/character/Boothill.png[m
+[1mdeleted file mode 100644[m
+[1mindex f8f1b08..0000000[m
+Binary files a/assets/character/Boothill.png and /dev/null differ
+[1mdiff --git a/assets/character/Bronya.png b/assets/character/Bronya.png[m
+[1mdeleted file mode 100644[m
+[1mindex c699f29..0000000[m
+Binary files a/assets/character/Bronya.png and /dev/null differ
+[1mdiff --git a/assets/character/CaelumDestruction.png b/assets/character/CaelumDestruction.png[m
+[1mdeleted file mode 100644[m
+[1mindex 0feba90..0000000[m
+Binary files a/assets/character/CaelumDestruction.png and /dev/null differ
+[1mdiff --git a/assets/character/CaelumPreservation.png b/assets/character/CaelumPreservation.png[m
+[1mdeleted file mode 100644[m
+[1mindex 182f4eb..0000000[m
+Binary files a/assets/character/CaelumPreservation.png and /dev/null differ
+[1mdiff --git a/assets/character/Clara.png b/assets/character/Clara.png[m
+[1mdeleted file mode 100644[m
+[1mindex 9938df9..0000000[m
+Binary files a/assets/character/Clara.png and /dev/null differ
+[1mdiff --git a/assets/character/DanHeng.png b/assets/character/DanHeng.png[m
+[1mdeleted file mode 100644[m
+[1mindex c8b3d61..0000000[m
+Binary files a/assets/character/DanHeng.png and /dev/null differ
+[1mdiff --git a/assets/character/DanHengImbibitorLunae.png b/assets/character/DanHengImbibitorLunae.png[m
+[1mdeleted file mode 100644[m
+[1mindex 3c9eada..0000000[m
+Binary files a/assets/character/DanHengImbibitorLunae.png and /dev/null differ
+[1mdiff --git a/assets/character/DrRatio.png b/assets/character/DrRatio.png[m
+[1mdeleted file mode 100644[m
+[1mindex 1383b38..0000000[m
+Binary files a/assets/character/DrRatio.png and /dev/null differ
+[1mdiff --git a/assets/character/Feixiao.png b/assets/character/Feixiao.png[m
+[1mdeleted file mode 100644[m
+[1mindex 4bf1b51..0000000[m
+Binary files a/assets/character/Feixiao.png and /dev/null differ
+[1mdiff --git a/assets/character/Firefly.png b/assets/character/Firefly.png[m
+[1mdeleted file mode 100644[m
+[1mindex d12aedc..0000000[m
+Binary files a/assets/character/Firefly.png and /dev/null differ
+[1mdiff --git a/assets/character/FuXuan.png b/assets/character/FuXuan.png[m
+[1mdeleted file mode 100644[m
+[1mindex db503e7..0000000[m
+Binary files a/assets/character/FuXuan.png and /dev/null differ
+[1mdiff --git a/assets/character/Gallagher.png b/assets/character/Gallagher.png[m
+[1mdeleted file mode 100644[m
+[1mindex dfea049..0000000[m
+Binary files a/assets/character/Gallagher.png and /dev/null differ
+[1mdiff --git a/assets/character/Gepard.png b/assets/character/Gepard.png[m
+[1mdeleted file mode 100644[m
+[1mindex 2208103..0000000[m
+Binary files a/assets/character/Gepard.png and /dev/null differ
+[1mdiff --git a/assets/character/Guinaifen.png b/assets/character/Guinaifen.png[m
+[1mdeleted file mode 100644[m
+[1mindex 777b2c3..0000000[m
+Binary files a/assets/character/Guinaifen.png and /dev/null differ
+[1mdiff --git a/assets/character/Hanya.png b/assets/character/Hanya.png[m
+[1mdeleted file mode 100644[m
+[1mindex 9fd41e7..0000000[m
+Binary files a/assets/character/Hanya.png and /dev/null differ
+[1mdiff --git a/assets/character/Herta.png b/assets/character/Herta.png[m
+[1mdeleted file mode 100644[m
+[1mindex 6f8a1f8..0000000[m
+Binary files a/assets/character/Herta.png and /dev/null differ
+[1mdiff --git a/assets/character/Himeko.png b/assets/character/Himeko.png[m
+[1mdeleted file mode 100644[m
+[1mindex 67c565b..0000000[m
+Binary files a/assets/character/Himeko.png and /dev/null differ
+[1mdiff --git a/assets/character/Hook.png b/assets/character/Hook.png[m
+[1mdeleted file mode 100644[m
+[1mindex 0c5272a..0000000[m
+Binary files a/assets/character/Hook.png and /dev/null differ
+[1mdiff --git a/assets/character/Huohuo.png b/assets/character/Huohuo.png[m
+[1mdeleted file mode 100644[m
+[1mindex d62ae8c..0000000[m
+Binary files a/assets/character/Huohuo.png and /dev/null differ
+[1mdiff --git a/assets/character/Jade.png b/assets/character/Jade.png[m
+[1mdeleted file mode 100644[m
+[1mindex 00e5ec1..0000000[m
+Binary files a/assets/character/Jade.png and /dev/null differ
+[1mdiff --git a/assets/character/Jiaoqiu.png b/assets/character/Jiaoqiu.png[m
+[1mdeleted file mode 100644[m
+[1mindex 6a3a050..0000000[m
+Binary files a/assets/character/Jiaoqiu.png and /dev/null differ
+[1mdiff --git a/assets/character/JingYuan.png b/assets/character/JingYuan.png[m
+[1mdeleted file mode 100644[m
+[1mindex aa101a7..0000000[m
+Binary files a/assets/character/JingYuan.png and /dev/null differ
+[1mdiff --git a/assets/character/Jingliu.png b/assets/character/Jingliu.png[m
+[1mdeleted file mode 100644[m
+[1mindex 1565435..0000000[m
+Binary files a/assets/character/Jingliu.png and /dev/null differ
+[1mdiff --git a/assets/character/Kafka.png b/assets/character/Kafka.png[m
+[1mdeleted file mode 100644[m
+[1mindex 6cb35cb..0000000[m
+Binary files a/assets/character/Kafka.png and /dev/null differ
+[1mdiff --git a/assets/character/Lingsha.png b/assets/character/Lingsha.png[m
+[1mdeleted file mode 100644[m
+[1mindex 639bc3f..0000000[m
+Binary files a/assets/character/Lingsha.png and /dev/null differ
+[1mdiff --git a/assets/character/Luka.png b/assets/character/Luka.png[m
+[1mdeleted file mode 100644[m
+[1mindex 9b91a16..0000000[m
+Binary files a/assets/character/Luka.png and /dev/null differ
+[1mdiff --git a/assets/character/Luocha.png b/assets/character/Luocha.png[m
+[1mdeleted file mode 100644[m
+[1mindex 12dc357..0000000[m
+Binary files a/assets/character/Luocha.png and /dev/null differ
+[1mdiff --git a/assets/character/Lynx.png b/assets/character/Lynx.png[m
+[1mdeleted file mode 100644[m
+[1mindex 854f10b..0000000[m
+Binary files a/assets/character/Lynx.png and /dev/null differ
+[1mdiff --git a/assets/character/March7thPreservation.png b/assets/character/March7thPreservation.png[m
+[1mdeleted file mode 100644[m
+[1mindex 1c7cc21..0000000[m
+Binary files a/assets/character/March7thPreservation.png and /dev/null differ
+[1mdiff --git a/assets/character/Misha.png b/assets/character/Misha.png[m
+[1mdeleted file mode 100644[m
+[1mindex d12010a..0000000[m
+Binary files a/assets/character/Misha.png and /dev/null differ
+[1mdiff --git a/assets/character/Moze.png b/assets/character/Moze.png[m
+[1mdeleted file mode 100644[m
+[1mindex c150737..0000000[m
+Binary files a/assets/character/Moze.png and /dev/null differ
+[1mdiff --git a/assets/character/Natasha.png b/assets/character/Natasha.png[m
+[1mdeleted file mode 100644[m
+[1mindex 71285ab..0000000[m
+Binary files a/assets/character/Natasha.png and /dev/null differ
+[1mdiff --git a/assets/character/Pela.png b/assets/character/Pela.png[m
+[1mdeleted file mode 100644[m
+[1mindex d6d8e41..0000000[m
+Binary files a/assets/character/Pela.png and /dev/null differ
+[1mdiff --git a/assets/character/Qingque.png b/assets/character/Qingque.png[m
+[1mdeleted file mode 100644[m
+[1mindex c701b0e..0000000[m
+Binary files a/assets/character/Qingque.png and /dev/null differ
+[1mdiff --git a/assets/character/Rappa.png b/assets/character/Rappa.png[m
+[1mdeleted file mode 100644[m
+[1mindex ede6575..0000000[m
+Binary files a/assets/character/Rappa.png and /dev/null differ
+[1mdiff --git a/assets/character/Robin.png b/assets/character/Robin.png[m
+[1mdeleted file mode 100644[m
+[1mindex 17046c6..0000000[m
+Binary files a/assets/character/Robin.png and /dev/null differ
+[1mdiff --git a/assets/character/RuanMei.png b/assets/character/RuanMei.png[m
+[1mdeleted file mode 100644[m
+[1mindex 60557a8..0000000[m
+Binary files a/assets/character/RuanMei.png and /dev/null differ
+[1mdiff --git a/assets/character/Sampo.png b/assets/character/Sampo.png[m
+[1mdeleted file mode 100644[m
+[1mindex 5ef6243..0000000[m
+Binary files a/assets/character/Sampo.png and /dev/null differ
+[1mdiff --git a/assets/character/Seele.png b/assets/character/Seele.png[m
+[1mdeleted file mode 100644[m
+[1mindex 25bc6f9..0000000[m
+Binary files a/assets/character/Seele.png and /dev/null differ
+[1mdiff --git a/assets/character/Serval.png b/assets/character/Serval.png[m
+[1mdeleted file mode 100644[m
+[1mindex e646e8f..0000000[m
+Binary files a/assets/character/Serval.png and /dev/null differ
+[1mdiff --git a/assets/character/SilverWolf.png b/assets/character/SilverWolf.png[m
+[1mdeleted file mode 100644[m
+[1mindex 9ab2c95..0000000[m
+Binary files a/assets/character/SilverWolf.png and /dev/null differ
+[1mdiff --git a/assets/character/Sparkle.png b/assets/character/Sparkle.png[m
+[1mdeleted file mode 100644[m
+[1mindex fc5b3e4..0000000[m
+Binary files a/assets/character/Sparkle.png and /dev/null differ
+[1mdiff --git a/assets/character/StelleDestruction.png b/assets/character/StelleDestruction.png[m
+[1mdeleted file mode 100644[m
+[1mindex cdacb9d..0000000[m
+Binary files a/assets/character/StelleDestruction.png and /dev/null differ
+[1mdiff --git a/assets/character/StellePreservation.png b/assets/character/StellePreservation.png[m
+[1mdeleted file mode 100644[m
+[1mindex f933f6b..0000000[m
+Binary files a/assets/character/StellePreservation.png and /dev/null differ
+[1mdiff --git a/assets/character/Sushang.png b/assets/character/Sushang.png[m
+[1mdeleted file mode 100644[m
+[1mindex 5a4cd0a..0000000[m
+Binary files a/assets/character/Sushang.png and /dev/null differ
+[1mdiff --git a/assets/character/Tingyun.png b/assets/character/Tingyun.png[m
+[1mdeleted file mode 100644[m
+[1mindex 0eeeb7b..0000000[m
+Binary files a/assets/character/Tingyun.png and /dev/null differ
+[1mdiff --git a/assets/character/TopazNumby.png b/assets/character/TopazNumby.png[m
+[1mdeleted file mode 100644[m
+[1mindex 6313e85..0000000[m
+Binary files a/assets/character/TopazNumby.png and /dev/null differ
+[1mdiff --git a/assets/character/Welt.png b/assets/character/Welt.png[m
+[1mdeleted file mode 100644[m
+[1mindex 278aa7d..0000000[m
+Binary files a/assets/character/Welt.png and /dev/null differ
+[1mdiff --git a/assets/character/Xueyi.png b/assets/character/Xueyi.png[m
+[1mdeleted file mode 100644[m
+[1mindex 86a310a..0000000[m
+Binary files a/assets/character/Xueyi.png and /dev/null differ
+[1mdiff --git a/assets/character/Yanqing.png b/assets/character/Yanqing.png[m
+[1mdeleted file mode 100644[m
+[1mindex 0f6b765..0000000[m
+Binary files a/assets/character/Yanqing.png and /dev/null differ
+[1mdiff --git a/assets/character/Yukong.png b/assets/character/Yukong.png[m
+[1mdeleted file mode 100644[m
+[1mindex 84b6977..0000000[m
+Binary files a/assets/character/Yukong.png and /dev/null differ
+[1mdiff --git a/assets/character/Yunli.png b/assets/character/Yunli.png[m
+[1mdeleted file mode 100644[m
+[1mindex d731873..0000000[m
+Binary files a/assets/character/Yunli.png and /dev/null differ
+[1mdiff --git a/assets/cn/assignment/claim/REPORT.png b/assets/cn/assignment/claim/REPORT.png[m
+[1mdeleted file mode 100644[m
+[1mindex 2517443..0000000[m
+Binary files a/assets/cn/assignment/claim/REPORT.png and /dev/null differ
+[1mdiff --git a/assets/cn/assignment/dispatch/ASSIGNMENT_START.2.png b/assets/cn/assignment/dispatch/ASSIGNMENT_START.2.png[m
+[1mdeleted file mode 100644[m
+[1mindex a22711f..0000000[m
+Binary files a/assets/cn/assignment/dispatch/ASSIGNMENT_START.2.png and /dev/null differ
+[1mdiff --git a/assets/cn/assignment/dispatch/ASSIGNMENT_START.SEARCH.png b/assets/cn/assignment/dispatch/ASSIGNMENT_START.SEARCH.png[m
+[1mdeleted file mode 100644[m
+[1mindex 5123c6c..0000000[m
+Binary files a/assets/cn/assignment/dispatch/ASSIGNMENT_START.SEARCH.png and /dev/null differ
+[1mdiff --git a/assets/cn/assignment/dispatch/ASSIGNMENT_START.png b/assets/cn/assignment/dispatch/ASSIGNMENT_START.png[m
+[1mdeleted file mode 100644[m
+[1mindex 94ecc60..0000000[m
+Binary files a/assets/cn/assignment/dispatch/ASSIGNMENT_START.png and /dev/null differ
+[1mdiff --git a/assets/cn/assignment/dispatch/CHARACTER_LIST.png b/assets/cn/assignment/dispatch/CHARACTER_LIST.png[m
+[1mdeleted file mode 100644[m
+[1mindex 50adb0d..0000000[m
+Binary files a/assets/cn/assignment/dispatch/CHARACTER_LIST.png and /dev/null differ
+[1mdiff --git a/assets/cn/assignment/dispatch/CHARACTER_SUPPORT_LIST.png b/assets/cn/assignment/dispatch/CHARACTER_SUPPORT_LIST.png[m
+[1mdeleted file mode 100644[m
+[1mindex a60e2cc..0000000[m
+Binary files a/assets/cn/assignment/dispatch/CHARACTER_SUPPORT_LIST.png and /dev/null differ
+[1mdiff --git a/assets/cn/assignment/dispatch/CONFIRM_ASSIGNMENT.BUTTON.png b/assets/cn/assignment/dispatch/CONFIRM_ASSIGNMENT.BUTTON.png[m
+[1mdeleted file mode 100644[m
+[1mindex c3a3b9d..0000000[m
+Binary files a/assets/cn/assignment/dispatch/CONFIRM_ASSIGNMENT.BUTTON.png and /dev/null differ
+[1mdiff --git a/assets/cn/assignment/dispatch/CONFIRM_ASSIGNMENT.png b/assets/cn/assignment/dispatch/CONFIRM_ASSIGNMENT.png[m
+[1mdeleted file mode 100644[m
+[1mindex b29392b..0000000[m
+Binary files a/assets/cn/assignment/dispatch/CONFIRM_ASSIGNMENT.png and /dev/null differ
+[1mdiff --git a/assets/cn/assignment/ui/ALL_ABOUT_BOOTHILL_CHECK.png b/assets/cn/assignment/ui/ALL_ABOUT_BOOTHILL_CHECK.png[m
+[1mdeleted file mode 100644[m
+[1mindex 2fd1087..0000000[m
+Binary files a/assets/cn/assignment/ui/ALL_ABOUT_BOOTHILL_CHECK.png and /dev/null differ
+[1mdiff --git a/assets/cn/assignment/ui/ALL_ABOUT_BOOTHILL_CLICK.png b/assets/cn/assignment/ui/ALL_ABOUT_BOOTHILL_CLICK.png[m
+[1mdeleted file mode 100644[m
+[1mindex 96e08de..0000000[m
+Binary files a/assets/cn/assignment/ui/ALL_ABOUT_BOOTHILL_CLICK.png and /dev/null differ
+[1mdiff --git a/assets/cn/assignment/ui/CHARACTER_MATERIALS_CHECK.png b/assets/cn/assignment/ui/CHARACTER_MATERIALS_CHECK.png[m
+[1mdeleted file mode 100644[m
+[1mindex d88e9ea..0000000[m
+Binary files a/assets/cn/assignment/ui/CHARACTER_MATERIALS_CHECK.png and /dev/null differ
+[1mdiff --git a/assets/cn/assignment/ui/CHARACTER_MATERIALS_CLICK.png b/assets/cn/assignment/ui/CHARACTER_MATERIALS_CLICK.png[m
+[1mdeleted file mode 100644[m
+[1mindex 542ef36..0000000[m
+Binary files a/assets/cn/assignment/ui/CHARACTER_MATERIALS_CLICK.png and /dev/null differ
+[1mdiff --git a/assets/cn/assignment/ui/DISPATCHED.png b/assets/cn/assignment/ui/DISPATCHED.png[m
+[1mdeleted file mode 100644[m
+[1mindex 3b69f92..0000000[m
+Binary files a/assets/cn/assignment/ui/DISPATCHED.pn

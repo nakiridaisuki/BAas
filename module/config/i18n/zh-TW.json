@@ -114,12 +114,7 @@
       "name": "遊戲伺服器",
       "help": "無法區分國際服的不同地區，請手動選擇伺服器",
       "auto": "自動檢測",
-      "CN-Official": "[國服]-官服",
-      "CN-Bilibili": "[國服]-B服 ",
-      "OVERSEA-America": "[國際服]-美洲",
-      "OVERSEA-Asia": "[國際服]-亞洲",
-      "OVERSEA-Europe": "[國際服]-歐洲",
-      "OVERSEA-TWHKMO": "[國際服]-台港澳"
+      "BAtest": "BAtest"
     },
     "GameLanguage": {
       "name": "遊戲內文本語言",
