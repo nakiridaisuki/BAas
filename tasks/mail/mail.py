@@ -5,7 +5,7 @@ from tasks.mail.assets.assets_mail import *
 
 class Mail(UI):
     def run(self):
-        self.ui_goto(page_mail, skip_first_screenshot=False)
+        self.ui_ensure(page_mail, skip_first_screenshot=False)
         while 1:
             self.device.screenshot()
             if self.color_appear_then_click(MAIL_CLAIM):

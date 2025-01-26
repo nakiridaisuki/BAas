@@ -1,6 +1,5 @@
 from module.base.timer import Timer
-from module.exception import GameNotRunningError, GameStuckError
-from module.ocr.ocr import OcrWhiteLetterOnComplexBackground
+from module.exception import GameNotRunningError, GameStuckError, RequestHumanTakeover
 from module.logger import logger
 from tasks.base.ui import UI
 from tasks.login.assets.assets_login import *
@@ -8,14 +7,6 @@ from tasks.base.page import page_main
 
 class Login(UI):
 
-    def handle_start_ads(self):
-        ocr = OcrWhiteLetterOnComplexBackground(GAME_START_ADS)
-        result = ocr.ocr_single_line(self.device.image)
-        if result == "Don't show again today":
-            self.device.click(GAME_START_ADS)
-            return True
-        return False
-    
     def handle_notice(self, interval=0):
         if self.appear_then_click(INGAME_ADS, interval=interval):
             logger.info('Appear in-game notice')
@@ -30,53 +21,59 @@ class Login(UI):
         """
 
         logger.hr('App Login')
-        startup_timer = Timer(20).start()
         have_closed_ingame_ads = False
-        app_timer = Timer(5).start()
+        unknow_timer = Timer(5).start()
         stuck_at_first = True
         stuck_timer = Timer(120).start()
-        ocr_ad_timer = Timer(5).start()
 
         while 1:
-            # Watch if game alive
-            if app_timer.reached():
+            # Handle unknow condition
+            if unknow_timer.reached():
                 if not self.device.app_is_running():
                     logger.error('Game died during login')
                     raise GameNotRunningError
-                app_timer.reset()
+                self.ui_touch()
+                unknow_timer.reset()
             
             self.device.screenshot()
 
-            # Game need at least 20s to start
-            if startup_timer.reached() and have_closed_ingame_ads:
+            # Game always have in-game ads
+            if have_closed_ingame_ads:
                 if self.ui_page_appear(page_main):
                     break
 
-            # Check if stuck at initial black page
+            # Check if stucked
             if stuck_at_first and stuck_timer.reached():
-                if not self.appear(STUCK_AT_FIRST):
-                    stuck_at_first = False
-                    continue
-                if stuck_timer.reached():
-                    logger.error('Game stuck during login')
-                    raise GameStuckError
-                continue
+                logger.error('Game stuck during login')
+                raise GameStuckError
+
+            # Need game update in google play
+            if self.appear(GOOGLEPLAY_DOWNLOAD):
+                logger.error('Need google play update game')
+                raise RequestHumanTakeover
                 
             # Login
             if self.appear_then_click(NEED_DOWNLOAD, interval=2):
+                unknow_timer.reset()
+                stuck_at_first = False
                 continue
             if self.appear_then_click(TOUCH_TO_START, interval=2):
+                unknow_timer.reset()
+                stuck_at_first = False
                 continue
 
             # Additional
-            if ocr_ad_timer.reached():
-                if self.handle_start_ads():
-                    continue
-                ocr_ad_timer.reset()
-            if self.appear_then_click(ARONA_PAD, interval=2):
+            if self.appear_then_click(GAME_START_ADS, interval=2):
+                unknow_timer.reset()
+                logger.info('Close game start ad')
                 continue
-            if self.handle_notice(interval=2):
-                have_closed_ingame_ads = True
+            if self.appear_then_click(DAILY_ATTENDANCE, interval=2):
+                unknow_timer.reset()
+                logger.info('Get daily attendance reward')
+                continue
+            if self.appear_then_click(INGAME_ADS, interval=2):
+                unknow_timer.reset()
+                logger.info('Close in-game ad')
                 continue
             
 

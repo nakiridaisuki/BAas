@@ -10,7 +10,7 @@ class Cafe(UI):
     #TODO cafe invite
 
     def reward(self):
-        self.ui_goto(page_cafe)
+        self.ui_ensure(page_cafe)
 
         ocr = Digit(CAFE_EARNING)
         ocr_timer = Timer(2)
@@ -27,10 +27,10 @@ class Cafe(UI):
                 ocr_timer.reset()
                 result = ocr.ocr_single_line(self.device.image)
                 if result > 10:
-                    logger.info('Cafe earning less then 10%')
                     self.device.click(CAFE_EARNING)
                     continue
                 else:
+                    logger.info('Cafe earning less then 10%')
                     break
 
     def run(self):

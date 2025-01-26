@@ -27,20 +27,20 @@ START_MISSION = ButtonWrapper(
     name='START_MISSION',
     en=Button(
         file='./assets/en/campaign/share/START_MISSION.png',
-        area=(791, 513, 1062, 567),
-        search=(771, 493, 1082, 587),
-        color=(218, 202, 66),
-        button=(791, 513, 1062, 567),
+        area=(766, 509, 824, 574),
+        search=(746, 489, 844, 594),
+        color=(246, 231, 73),
+        button=(766, 509, 824, 574),
     ),
 )
 START_SWEEP = ButtonWrapper(
     name='START_SWEEP',
     en=Button(
         file='./assets/en/campaign/share/START_SWEEP.png',
-        area=(833, 389, 1031, 429),
-        search=(813, 369, 1051, 449),
-        color=(101, 189, 223),
-        button=(833, 389, 1031, 429),
+        area=(782, 379, 853, 434),
+        search=(762, 359, 873, 454),
+        color=(115, 219, 254),
+        button=(782, 379, 853, 434),
     ),
 )
 SWEEP_COMPLETE = ButtonWrapper(

@@ -3,7 +3,7 @@ from module.exception import TaskError
 from module.logger import logger
 from module.base.timer import Timer
 from tasks.base.ui import UI
-from tasks.base.page import page_overpass, page_desert_railroad, page_classroom
+from tasks.base.page import page_overpass, page_desert_railroad, page_classroom, page_campaign
 from tasks.campaign.assets.assets_campaign_bounty import *
 from tasks.campaign.assets.assets_campaign_share import *
 
@@ -38,6 +38,7 @@ class Bounty(UI):
     def find_level(self):
         button: ButtonWrapper = None
         is_current_max = 0
+        scrolled = False
         retry = Timer(0.5)
         while 1:
             if retry.reached():
@@ -47,10 +48,12 @@ class Bounty(UI):
                     break
                 if is_current_max:
                     self.ui_scroll((0, -1), SWIPE_AREA)
+                    scrolled = True
                     continue
         
-        # Wait stage list recover
-        Timer(1.5).start().wait()
+        # Wait stage list recover if scrolled
+        if scrolled:
+            Timer(1.5).start().wait()
         button = self.ui_find_level(area=BOUNTY_LEVEL_AREA)[0]
         return button
     
@@ -73,53 +76,61 @@ class Bounty(UI):
     
     def sweep(self, time):
         self.open_mission_info()
-        self.ui_ensure_index(time, SWEEP_TIME, MINUS_SWEEP_TIME, ADD_SWEEP_TIME, wait_recover=0.6)
+        self.ui_ensure_index(time, SWEEP_TIME, MINUS_SWEEP_TIME, ADD_SWEEP_TIME)
         timeout = Timer(60).start()
         started = False
+        finished = False
         while 1:
             if timeout.reached():
                 logger.warning('Sweep faild')
                 break
             
             self.device.screenshot()
-            if self.appear_then_click(SWEEP_COMPLETE):
+            if finished and self.color_appear(START_SWEEP, interval=2):
                 break
-            if self.appear_then_click(SWEEP_CONFIRM, interval=2):
+            if self.color_appear_then_click(SWEEP_COMPLETE, interval=2):
+                finished = True
+                continue
+            if self.color_appear_then_click(SWEEP_CONFIRM, interval=2):
                 started = True
                 continue
-            if self.appear_then_click(SWEEP_SKIP, interval=2):
-                continue
-            if not started and self.appear_then_click(START_SWEEP):
+            if not started and self.color_appear_then_click(START_SWEEP, interval=2):
                 continue
 
-    def bounty(self):
-        self.device.screenshot()
+    def run(self):
+        self.ui_ensure(page_campaign)
 
         # Overpass
-        self.ui_goto(page_overpass)
-        self.for_overpass = self.check_tickets(self.for_overpass, 'overpass')
-        self.sweep(self.for_overpass)
+        if self.for_overpass > 0:
+            self.ui_goto(page_overpass)
+            self.for_overpass = self.check_tickets(self.for_overpass, 'overpass')
+            self.sweep(self.for_overpass)
 
         # Desert_railroad
-        self.ui_goto(page_desert_railroad)
-        self.for_desert_railrode = self.check_tickets(self.for_desert_railrode, 'desert_railrode')
-        self.sweep(self.for_desert_railrode)
+        if self.for_desert_railrode > 0:
+            self.ui_goto(page_desert_railroad)
+            self.for_desert_railrode = self.check_tickets(self.for_desert_railrode, 'desert_railrode')
+            self.sweep(self.for_desert_railrode)
 
         # Classroom
-        self.ui_goto(page_classroom)
-        self.for_classroom = self.check_tickets(self.for_classroom, 'classroom')
-        self.sweep(self.for_classroom)
+        if self.for_classroom > 0:
+            self.ui_goto(page_classroom)
+            self.for_classroom = self.check_tickets(self.for_classroom, 'classroom')
+            self.sweep(self.for_classroom)
 
 
 # Test
 if __name__ == '__main__':
     test = Bounty('src')
-    test.device.screenshot()
-    # test.ui_goto(page_overpass)
-    # test.ui_goto(page_desert_railroad)
-    # test.ui_goto(page_classroom)
-    # test.sweep(1)
-    test.check_tickets(1, 'test')
+    test.for_overpass = 0
+    test.for_desert_railrode = 0
+    test.run()
+    # test.device.screenshot()
+    # # test.ui_goto(page_overpass)
+    # # test.ui_goto(page_desert_railroad)
+    # # test.ui_goto(page_classroom)
+    # # test.sweep(1)
+    # test.check_tickets(1, 'test')
 
         
 

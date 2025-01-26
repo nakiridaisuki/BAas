@@ -3,7 +3,7 @@ from module.exception import TaskError
 from module.logger import logger
 from module.base.timer import Timer
 from tasks.base.ui import UI
-from tasks.base.page import page_trinity, page_gehenna, page_millennium
+from tasks.base.page import page_trinity, page_gehenna, page_millennium, page_campaign
 from tasks.campaign.assets.assets_campaign_bounty import BOUNTY_LEVEL_AREA
 from tasks.campaign.assets.assets_campaign_scrimmage import *
 from tasks.campaign.assets.assets_campaign_share import *
@@ -67,46 +67,51 @@ class Scrimmage(UI):
                 continue
     
     def sweep(self, time):
-        self.ui_ensure_index(time, SWEEP_TIME, MINUS_SWEEP_TIME, ADD_SWEEP_TIME, wait_recover=0.6)
+        self.ui_ensure_index(time, SWEEP_TIME, MINUS_SWEEP_TIME, ADD_SWEEP_TIME)
         timeout = Timer(60).start()
         started = False
+        finished = False
         while 1:
             if timeout.reached():
                 logger.warning('Sweep faild')
                 break
             
             self.device.screenshot()
-            if self.appear_then_click(SWEEP_COMPLETE):
+            if finished and self.color_appear(START_SWEEP, interval=2):
                 break
-            if self.appear_then_click(SWEEP_CONFIRM, interval=2):
+            if self.color_appear_then_click(SWEEP_COMPLETE, interval=2):
+                finished = True
+                continue
+            if self.color_appear_then_click(SWEEP_CONFIRM, interval=2):
                 started = True
                 continue
-            if self.appear_then_click(SWEEP_SKIP, interval=2):
-                continue
-            if not started and self.appear_then_click(START_SWEEP):
+            if not started and self.color_appear_then_click(START_SWEEP, interval=2):
                 continue
 
     def run(self):
-        self.device.screenshot()
+        self.ui_ensure(page_campaign)
         self.AP_own = self.ui_get_AP(skip_first_screenshot=True)
 
         # Trinity
-        self.ui_goto(page_trinity)
-        self.for_trinity = self.check_tickets(self.for_trinity, 'trinity')
-        self.open_mission_info()
-        self.sweep(self.for_trinity)
+        if self.for_trinity > 0:
+            self.ui_goto(page_trinity)
+            self.for_trinity = self.check_tickets(self.for_trinity, 'trinity')
+            self.open_mission_info()
+            self.sweep(self.for_trinity)
 
         # Gehenna
-        self.ui_goto(page_gehenna)
-        self.for_gehenna = self.check_tickets(self.for_gehenna, 'gehenna')
-        self.open_mission_info()
-        self.sweep(self.for_gehenna)
+        if self.for_gehenna > 0:
+            self.ui_goto(page_gehenna)
+            self.for_gehenna = self.check_tickets(self.for_gehenna, 'gehenna')
+            self.open_mission_info()
+            self.sweep(self.for_gehenna)
 
         # Trinity
-        self.ui_goto(page_millennium)
-        self.for_millennium = self.check_tickets(self.for_millennium, 'millennium')
-        self.open_mission_info()
-        self.sweep(self.for_millennium)
+        if self.for_trinity > 0:
+            self.ui_goto(page_millennium)
+            self.for_millennium = self.check_tickets(self.for_millennium, 'millennium')
+            self.open_mission_info()
+            self.sweep(self.for_millennium)
 
 
 # Test

@@ -3,14 +3,14 @@ from module.base.button import Button, ButtonWrapper
 # This file was auto-generated, do not modify it manually. To generate:
 # ``` python -m dev_tools.button_extract ```
 
-ARONA_PAD = ButtonWrapper(
-    name='ARONA_PAD',
+DAILY_ATTENDANCE = ButtonWrapper(
+    name='DAILY_ATTENDANCE',
     en=Button(
-        file='./assets/en/login/ARONA_PAD.png',
-        area=(594, 82, 1100, 173),
-        search=(574, 62, 1120, 193),
-        color=(180, 200, 201),
-        button=(594, 82, 1100, 173),
+        file='./assets/en/login/DAILY_ATTENDANCE.png',
+        area=(0, 197, 115, 394),
+        search=(0, 177, 135, 414),
+        color=(155, 196, 224),
+        button=(0, 197, 115, 394),
     ),
 )
 GAME_START_ADS = ButtonWrapper(
@@ -21,6 +21,16 @@ GAME_START_ADS = ButtonWrapper(
         search=(38, 655, 258, 716),
         color=(56, 72, 109),
         button=(58, 675, 238, 696),
+    ),
+)
+GOOGLEPLAY_DOWNLOAD = ButtonWrapper(
+    name='GOOGLEPLAY_DOWNLOAD',
+    en=Button(
+        file='./assets/en/login/GOOGLEPLAY_DOWNLOAD.png',
+        area=(533, 471, 747, 532),
+        search=(513, 451, 767, 552),
+        color=(110, 207, 241),
+        button=(533, 471, 747, 532),
     ),
 )
 INGAME_ADS = ButtonWrapper(

@@ -93,9 +93,7 @@ class UI(ModuleBase):
                     return page
 
             # Unknown page but able to handle
-            logger.info("Unknown ui page")
-            if self.ui_additional():
-                timeout.reset()
+            if self.ui_touch():
                 continue
 
             app_check()
@@ -164,6 +162,27 @@ class UI(ModuleBase):
         # Reset connection
         Page.clear_connection()
 
+    def ui_ensure(self, destination, skip_first_screenshot=False):
+        """
+        Args:
+            destination (Page):
+            acquire_lang_checked:
+            skip_first_screenshot:
+
+        Returns:
+            bool: If UI switched.
+        """
+        logger.hr("UI ensure")
+        self.ui_get_current_page(skip_first_screenshot=skip_first_screenshot)
+
+        if self.ui_current == destination:
+            logger.info("Already at %s" % destination)
+            return False
+        else:
+            logger.info("Goto %s" % destination)
+            self.ui_goto(destination, skip_first_screenshot=True)
+            return True
+
     reward_timer = Timer(2)
     def ui_reward_acquired(self, interval=2):
         """
@@ -182,12 +201,15 @@ class UI(ModuleBase):
             return True
         return False
 
-    def ui_touch(self):
+    touch_timer = Timer(5)
+    def ui_touch(self, interval=5):
         """
         Try to leave from unknow page, it's usually work
         """
-        logger.info('Handle unknow page by click home button')
-        self.device.click(GOTO_MAIN)
+        if self.touch_timer.reached():
+            logger.info('Handle unknow page by click home button')
+            self.device.click(GOTO_MAIN)
+            self.touch_timer = Timer(interval).start()
         return True
     
     def ui_get_AP(self, skip_first_screenshot=False):
@@ -293,7 +315,7 @@ class UI(ModuleBase):
             next_button,
             fast=True,
             skip_first_screenshot=False,
-            interval=0.25
+            interval=0.3
             ):
         
         logger.hr('UI ensure index')

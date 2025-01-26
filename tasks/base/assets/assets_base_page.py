@@ -277,10 +277,10 @@ PAGE_BASE_DEFENSE = ButtonWrapper(
     name='PAGE_BASE_DEFENSE',
     en=Button(
         file='./assets/en/base/page/PAGE_BASE_DEFENSE.png',
-        area=(90, 200, 616, 520),
-        search=(70, 180, 636, 540),
-        color=(127, 140, 155),
-        button=(90, 200, 616, 520),
+        area=(90, 340, 616, 520),
+        search=(70, 320, 636, 540),
+        color=(121, 125, 135),
+        button=(90, 340, 616, 520),
     ),
 )
 PAGE_BOUNTY = ButtonWrapper(
@@ -317,10 +317,10 @@ PAGE_CLASSROOM = ButtonWrapper(
     name='PAGE_CLASSROOM',
     en=Button(
         file='./assets/en/base/page/PAGE_CLASSROOM.png',
-        area=(95, 220, 618, 418),
-        search=(75, 200, 638, 438),
-        color=(207, 190, 185),
-        button=(95, 220, 618, 418),
+        area=(95, 295, 618, 418),
+        search=(75, 275, 638, 438),
+        color=(219, 203, 194),
+        button=(95, 295, 618, 418),
     ),
 )
 PAGE_CLUB = ButtonWrapper(
@@ -337,10 +337,10 @@ PAGE_COMMISSION = ButtonWrapper(
     name='PAGE_COMMISSION',
     en=Button(
         file='./assets/en/base/page/PAGE_COMMISSION.png',
-        area=(667, 160, 915, 356),
-        search=(647, 140, 935, 376),
-        color=(105, 127, 147),
-        button=(667, 160, 915, 356),
+        area=(806, 160, 915, 356),
+        search=(786, 140, 935, 376),
+        color=(136, 166, 186),
+        button=(806, 160, 915, 356),
     ),
 )
 PAGE_CRAFTING = ButtonWrapper(
@@ -357,10 +357,10 @@ PAGE_DESERT_RAILROAD = ButtonWrapper(
     name='PAGE_DESERT_RAILROAD',
     en=Button(
         file='./assets/en/base/page/PAGE_DESERT_RAILROAD.png',
-        area=(94, 220, 617, 418),
-        search=(74, 200, 637, 438),
-        color=(203, 164, 134),
-        button=(94, 220, 617, 418),
+        area=(94, 292, 617, 418),
+        search=(74, 272, 637, 438),
+        color=(204, 167, 136),
+        button=(94, 292, 617, 418),
     ),
 )
 PAGE_FORMATION = ButtonWrapper(
@@ -377,10 +377,10 @@ PAGE_GEHENNA = ButtonWrapper(
     name='PAGE_GEHENNA',
     en=Button(
         file='./assets/en/base/page/PAGE_GEHENNA.png',
-        area=(94, 223, 613, 541),
-        search=(74, 203, 633, 561),
-        color=(145, 134, 126),
-        button=(94, 223, 613, 541),
+        area=(94, 346, 613, 541),
+        search=(74, 326, 633, 561),
+        color=(132, 118, 108),
+        button=(94, 346, 613, 541),
     ),
 )
 PAGE_GRAND_ASSAULT = ButtonWrapper(
@@ -397,10 +397,10 @@ PAGE_ITEM_RETRIEVAL = ButtonWrapper(
     name='PAGE_ITEM_RETRIEVAL',
     en=Button(
         file='./assets/en/base/page/PAGE_ITEM_RETRIEVAL.png',
-        area=(90, 196, 618, 518),
-        search=(70, 176, 638, 538),
-        color=(103, 115, 114),
-        button=(90, 196, 618, 518),
+        area=(90, 344, 618, 518),
+        search=(70, 324, 638, 538),
+        color=(102, 114, 108),
+        button=(90, 344, 618, 518),
     ),
 )
 PAGE_JOINT_FIRING_DRILL = ButtonWrapper(
@@ -447,10 +447,10 @@ PAGE_MILLENNIUM = ButtonWrapper(
     name='PAGE_MILLENNIUM',
     en=Button(
         file='./assets/en/base/page/PAGE_MILLENNIUM.png',
-        area=(89, 221, 616, 546),
-        search=(69, 201, 636, 566),
-        color=(139, 168, 206),
-        button=(89, 221, 616, 546),
+        area=(89, 355, 616, 546),
+        search=(69, 335, 636, 566),
+        color=(146, 174, 211),
+        button=(89, 355, 616, 546),
     ),
 )
 PAGE_MISSION = ButtonWrapper(
@@ -477,20 +477,20 @@ PAGE_OVERPASS = ButtonWrapper(
     name='PAGE_OVERPASS',
     en=Button(
         file='./assets/en/base/page/PAGE_OVERPASS.png',
-        area=(93, 221, 620, 414),
-        search=(73, 201, 640, 434),
-        color=(145, 136, 144),
-        button=(93, 221, 620, 414),
+        area=(93, 291, 620, 414),
+        search=(73, 271, 640, 434),
+        color=(136, 134, 144),
+        button=(93, 291, 620, 414),
     ),
 )
 PAGE_SCRIMMAGE = ButtonWrapper(
     name='PAGE_SCRIMMAGE',
     en=Button(
         file='./assets/en/base/page/PAGE_SCRIMMAGE.png',
-        area=(663, 157, 881, 462),
-        search=(643, 137, 901, 482),
-        color=(164, 181, 193),
-        button=(663, 157, 881, 462),
+        area=(781, 157, 881, 462),
+        search=(761, 137, 901, 482),
+        color=(169, 191, 205),
+        button=(781, 157, 881, 462),
     ),
 )
 PAGE_SELECT_LOCATION = ButtonWrapper(
@@ -567,10 +567,10 @@ PAGE_TRINITY = ButtonWrapper(
     name='PAGE_TRINITY',
     en=Button(
         file='./assets/en/base/page/PAGE_TRINITY.png',
-        area=(93, 222, 618, 543),
-        search=(73, 202, 638, 563),
-        color=(184, 181, 176),
-        button=(93, 222, 618, 543),
+        area=(93, 361, 618, 543),
+        search=(73, 341, 638, 563),
+        color=(175, 177, 149),
+        button=(93, 361, 618, 543),
     ),
 )
 SCRIMMAGE_GOTO_GEHENNA = ButtonWrapper(

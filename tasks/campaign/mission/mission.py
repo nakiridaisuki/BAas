@@ -89,7 +89,7 @@ class Mission(UI):
         return times
     
     def mission(self, mode='normal', level='1-1', times=1):
-        self.ui_goto(page_mission)
+        self.ui_ensure(page_mission)
 
         ap = self.ui_get_AP()
         times = self.check_AP(times, mode+level, ap)
@@ -104,22 +104,24 @@ class Mission(UI):
         
         button = self.find_level(level, in_normal = mode=='normal')
         retry = Timer(2)
-        confirmed = False
+        started = False
+        finished = False
         while 1:
             self.device.screenshot()
-            if self.color_appear_then_click(SWEEP_COMPLETE, interval=2):
+            if finished and self.color_appear(MISSION_START_SWEEP):
                 break
-            if self.color_appear_then_click(SWEEP_CONFIRM, interval=2):
-                confirmed = True
+            if self.color_appear_then_click(SWEEP_COMPLETE, interval=2):
+                finished = True
                 continue
-            if self.color_appear_then_click(SWEEP_SKIP, interval=1):
+            if self.color_appear_then_click(SWEEP_CONFIRM, interval=2):
+                started = True
                 continue
 
-            if confirmed:
+            if started:
                 continue
 
             if self.color_appear(MISSION_START_SWEEP, interval=3):
-                self.ui_ensure_index(times, MISSION_SWEEP_TIME, MISSION_SWEEP_MINUS, MISSION_SWEEP_ADD, interval=0.4)
+                self.ui_ensure_index(times, MISSION_SWEEP_TIME, MISSION_SWEEP_MINUS, MISSION_SWEEP_ADD)
                 self.interval_reset(MISSION_START_SWEEP, interval=3)
                 self.device.click(MISSION_START_SWEEP)
                 retry.reset()
@@ -132,4 +134,4 @@ class Mission(UI):
 if __name__ == '__main__':
     test = Mission('src')
     test.device.screenshot()
-    test.mission(mode='hard', level='19-1', times=3)
+    test.mission(mode='normal', level='20-4', times=20)

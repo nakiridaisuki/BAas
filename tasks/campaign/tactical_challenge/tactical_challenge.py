@@ -45,7 +45,7 @@ class TacticalChallenge(UI):
                 continue
 
     def run(self):
-        self.ui_goto(page_tactical_challenge, skip_first_screenshot=False)
+        self.ui_ensure(page_tactical_challenge)
         self.get_reward()
         self.start_challenge()
 

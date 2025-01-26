@@ -74,22 +74,22 @@ class Commission(UI):
         self.ui_ensure_index(time, SWEEP_TIME, MINUS_SWEEP_TIME, ADD_SWEEP_TIME)
         timeout = Timer(60).start()
         started = False
+        finished = False
         while 1:
             if timeout.reached():
                 logger.warning('Sweep faild')
                 break
             
             self.device.screenshot()
-            if self.color_appear_then_click(SWEEP_COMPLETE):
+            if finished and self.color_appear(START_SWEEP, interval=2):
                 break
-            if self.color_appear_then_click(SWEEP_SKIP, interval=2):
+            if self.color_appear_then_click(SWEEP_COMPLETE, interval=2):
+                finished = True
                 continue
             if self.color_appear_then_click(SWEEP_CONFIRM, interval=2):
                 started = True
                 continue
-            if self.color_appear_then_click(SWEEP_SKIP, interval=2):
-                continue
-            if not started and self.color_appear_then_click(START_SWEEP):
+            if not started and self.color_appear_then_click(START_SWEEP, interval=2):
                 continue
 
     def run(self):
@@ -101,24 +101,27 @@ class Commission(UI):
             -> sweep
         """
         self.device.screenshot()
-        self.ui_goto(page_commissions)
+        self.ui_ensure(page_commissions)
         self.AP_own = self.ui_get_AP(skip_first_screenshot=True)
 
         # Base defense
-        self.ui_goto(page_base_defense)
-        self.open_mission_info()
-        self.for_base_defense = self.check_AP(self.for_base_defense, 'base defense')
-        self.sweep(self.for_base_defense)
+        if self.for_base_defense > 0:
+            self.ui_goto(page_base_defense)
+            self.open_mission_info()
+            self.for_base_defense = self.check_AP(self.for_base_defense, 'base defense')
+            self.sweep(self.for_base_defense)
 
         # Item retrieval
-        self.ui_goto(page_item_retrieval)
-        self.open_mission_info()
-        self.for_item_retrieval = self.check_AP(self.for_item_retrieval, 'item retrieval')
-        self.sweep(self.for_item_retrieval)
+        if self.for_item_retrieval > 0:
+            self.ui_goto(page_item_retrieval)
+            self.open_mission_info()
+            self.for_item_retrieval = self.check_AP(self.for_item_retrieval, 'item retrieval')
+            self.sweep(self.for_item_retrieval)
 
 
 if __name__ == '__main__':
     test = Commission('src')
+    test.for_item_retrieval = 20
     # test.for_base_defense = 100000
     # test.AP_needed = 40
     # test.AP_own = test.ui_get_AP()
