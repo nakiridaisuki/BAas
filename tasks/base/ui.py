@@ -30,13 +30,13 @@ class WhiteDigit(OcrWhiteLetterOnComplexBackground):
 
 class UI(ModuleBase):
 
-    def color_appear_then_click(self, button, interval=3, threshold=10):
+    def color_appear_then_click(self, button, interval=2, threshold=10):
         if self.match_color(button, interval=interval, threshold=threshold):
             self.device.click(button)
             return True
         return False
     
-    def color_appear(self, button, interval=3, threshold=10):
+    def color_appear(self, button, interval=0, threshold=10):
         return self.match_color(button, interval=interval, threshold=threshold)
     
     def ui_page_appear(self, page: Page, interval=0):
