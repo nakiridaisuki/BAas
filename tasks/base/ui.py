@@ -211,7 +211,7 @@ class UI(ModuleBase):
             self.device.click(GOTO_MAIN)
             self.touch_timer = Timer(interval).start()
         return True
-    
+
     def ui_get_AP(self, skip_first_screenshot=False):
         if skip_first_screenshot:
             skip_first_screenshot = True

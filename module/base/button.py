@@ -113,6 +113,7 @@ class Button(Resource):
         """
         if not direct_match:
             image = crop(image, self.search, copy=False)
+        
         res = cv2.matchTemplate(self.image, image, cv2.TM_CCOEFF_NORMED)
         _, sim, _, point = cv2.minMaxLoc(res)
 

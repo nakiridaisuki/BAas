@@ -63,6 +63,16 @@ LESSON_CONFIRM = ButtonWrapper(
         button=(530, 529, 575, 588),
     ),
 )
+LESSON_TICKETS = ButtonWrapper(
+    name='LESSON_TICKETS',
+    en=Button(
+        file='./assets/en/lesson/LESSON_TICKETS.png',
+        area=(238, 86, 280, 117),
+        search=(218, 66, 300, 137),
+        color=(208, 217, 223),
+        button=(238, 86, 280, 117),
+    ),
+)
 LOCATION_1 = ButtonWrapper(
     name='LOCATION_1',
     en=Button(

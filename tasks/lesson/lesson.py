@@ -1,19 +1,20 @@
 from module.base.timer import Timer
 from module.logger import logger
 from module.exception import ScriptError
+from module.ocr.ocr import DigitCounter
 from tasks.base.ui import UI
 from tasks.base.page import page_lesson, Page
 from tasks.lesson.assets.assets_lesson import *
 
 class Lesson(UI):
 
-    for_schale_office = 0
-    for_schale_residence_hall = 0
-    for_gehenna = 0
-    for_abydos = 0
-    for_millennium = 0
-    for_trinity = 0
-    for_red_winter = 0
+    for_schale_office = 1
+    for_schale_residence_hall = 1
+    for_gehenna = 1
+    for_abydos = 1
+    for_millennium = 1
+    for_trinity = 1
+    for_red_winter = 1
     for_hyakkiyako = 0
     for_du_shiratori = 0
     for_shanhaijing = 0
@@ -104,17 +105,37 @@ class Lesson(UI):
                     retry.reset()
                     continue
                 if self.color_appear_then_click(START_LESSON):
-                    retry.reset()
+                    retry.stop()
                     continue
                 if self.color_appear_then_click(LESSON_CONFIRM):
-                    retry.reset()
                     finished = True
                     continue
                 if self.color_appear_then_click(RELATIONSHIP):
-                    retry.reset()
                     continue
                 if finished and self.appear(LOCATION_LIST):
                     break
+
+    def check_tickets(self, times=0, location:str = None):
+        """
+        Check if the current number of tickets is enough for sweeping
+        Args:
+            sweep times
+        Return:
+            min(maximum times can sweep, times),
+            raise TaskError if don't have any ticket
+        """
+        ocr = DigitCounter(LESSON_TICKETS)
+        ticket, remain, total = ocr.ocr_single_line(self.device.image)
+        if ticket == 0:
+            logger.warning("Lesson faild at " + location)
+            logger.warning(f"Don't have any tickets")
+            times = 0
+        elif ticket < times:
+            logger.warning("Lesson warning at " + location)
+            logger.warning(f"Don't have enough tickets, need {times} but only have {ticket}")
+            logger.warning(f"Will only do {ticket} times")
+            times = ticket
+        return times
 
     def run(self):
         self.ui_ensure(self.page_location)
@@ -123,9 +144,15 @@ class Lesson(UI):
         for location in locations:
             time = self.__getattribute__('for_' + location)
             page = self.__getattribute__(location)
+            
             if time == 0:
                 continue
+            
+            time = self.check_tickets(times=time, location=location)
+            if time == 0:
+                break
             self.lesson(location=page, time=time)
+            self.ui_goto(self.page_location)
 
 
 
@@ -133,5 +160,5 @@ if __name__ == '__main__':
     test = Lesson('src')
     test.device.screenshot()
     # test.for_millennium = 1
-    # test.run()
-    print(test.get_location_button(4))
+    test.run()
+    # print(test.get_location_button(4))
