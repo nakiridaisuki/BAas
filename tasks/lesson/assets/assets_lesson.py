@@ -203,10 +203,10 @@ RED_WINTER = ButtonWrapper(
         button=(999, 103, 1239, 128),
     ),
 )
-RELATIONSHIP = ButtonWrapper(
-    name='RELATIONSHIP',
+RELATIONSHIP_RANKUP = ButtonWrapper(
+    name='RELATIONSHIP_RANKUP',
     en=Button(
-        file='./assets/en/lesson/RELATIONSHIP.png',
+        file='./assets/en/lesson/RELATIONSHIP_RANKUP.png',
         area=(5, 667, 559, 694),
         search=(0, 647, 579, 714),
         color=(47, 71, 100),

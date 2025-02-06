@@ -63,6 +63,16 @@ CAMPAIGN_GOTO_COMMISSION = ButtonWrapper(
         button=(651, 505, 778, 536),
     ),
 )
+CAMPAIGN_GOTO_EVENT = ButtonWrapper(
+    name='CAMPAIGN_GOTO_EVENT',
+    en=Button(
+        file='./assets/en/base/page/CAMPAIGN_GOTO_EVENT.png',
+        area=(68, 133, 142, 196),
+        search=(48, 113, 162, 216),
+        color=(181, 201, 213),
+        button=(68, 133, 142, 196),
+    ),
+)
 CAMPAIGN_GOTO_GRAND_ASSAULT = ButtonWrapper(
     name='CAMPAIGN_GOTO_GRAND_ASSAULT',
     en=Button(
@@ -361,6 +371,16 @@ PAGE_DESERT_RAILROAD = ButtonWrapper(
         search=(74, 272, 637, 438),
         color=(204, 167, 136),
         button=(94, 292, 617, 418),
+    ),
+)
+PAGE_EVENT = ButtonWrapper(
+    name='PAGE_EVENT',
+    en=Button(
+        file='./assets/en/base/page/PAGE_EVENT.png',
+        area=(106, 10, 184, 39),
+        search=(86, 0, 204, 59),
+        color=(188, 198, 207),
+        button=(106, 10, 184, 39),
     ),
 )
 PAGE_FORMATION = ButtonWrapper(

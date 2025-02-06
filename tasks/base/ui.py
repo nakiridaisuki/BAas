@@ -237,50 +237,73 @@ class UI(ModuleBase):
                 logger.error('UI get AP faild')
                 raise TaskError
     
-    def ui_find_level(self, area=None, in_mission=False, keyword='1-1'):
+    # TODO fix other things which use it
+    def ui_find_level(self, area=None, swipe_area=None, level=None, check:ButtonWrapper = None):
         """
         Find maximum or specific level which can be swept
 
         Args:
-            area: (ButtonWrapper) the area you want find
-            in_mission: (bool) if you are in mission
-            keyword: (str) mission id
+            area: (ButtonWrapper) the level area
+            swipe_area: (ButtonWrapper) 
+            level: (int) the level you want find
 
-        Return: A Tuple: (a enter button with offset if finded or None 
-                          , if it's current maximum level)
-                or just a button if in mission is True
+        Return:
+            if is the maximum level of all
         """
         if area is None:
             logger.error('Need area argument')
             raise ScriptError
         
-        ocr = Ocr(area)
-        self.device.screenshot()
-        result = ocr.detect_and_ocr(self.device.image)
-        idx = 0
-        for level in result[::-1]:
-            if in_mission and level.ocr_text != keyword:
+        if swipe_area is None:
+            logger.error('Need swipe area argument')
+            raise ScriptError
+        
+        if level is None:
+            level = 999
+
+        ocr = Digit(area)
+        max_level = 0
+        while 1:
+            self.device.screenshot()
+            result = ocr.detect_and_ocr(self.device.image)
+            level_result = [int(x.ocr_text) for x in result]
+
+            current_min = min(level_result)
+            current_max = max(level_result)
+            if max_level == current_max and level == 999:
+                return True
+            max_level = max(max_level, current_max)
+
+            if level in level_result and check is None:
+                return False
+
+            # Find level
+            if level < current_min:
+                self.ui_scroll((0, 1), swipe_area)
+                self.ui_wait_recover(0.5)
                 continue
-
-            idx += 1
-            x1, y1, x2, y2 = level.box
-            m = (x1 + x2) // 2
-            x1 = m - 30
-            x2 = m + 30
-            y2 += 30
-            image = crop(self.device.image, (x1, y1, x2, y2))
-            if STARS_3.match_template(image, similarity=0.7, direct_match=True):
-                button = ENTER
-                button.clear_offset()
-                button.buttons[0]._button_offset = (x1 - (button.button[0] - 390), y1 - button.button[1])
-
-                if in_mission:
-                    button.name = 'MISSION_' + keyword
-                    return button
+            if level > current_max:
+                self.ui_scroll((0, -1), swipe_area)
+                self.ui_wait_recover(0.5)
+                continue
                 
-                button.name = f'LEVEL_{int(level.ocr_text)}'
-                return button, idx < 3
-        return None
+            # Check
+            matched = False
+            for now_level in result[::-1]:
+                if int(now_level.ocr_text) > level:
+                    continue
+                x1, y1, x2, y2 = now_level.box
+                m = (x1 + x2) // 2
+                x1 = m - 30
+                x2 = m + 30
+                y2 += 30
+                check.load_search((x1, y1, x2, y2))
+                if check.match_template(self.device.image, similarity=0.7):
+                    matched = True
+                    return False
+            if not matched:
+                level = current_min - 1
+            
 
     def ui_scroll(self, vector=(0, 0), swipe_area=None, duration=(0.1, 0.2)):
         """

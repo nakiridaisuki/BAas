@@ -219,6 +219,16 @@ page_tactical_challenge.link(BACK, destination=page_campaign)
 page_tactical_challenge.link(GOTO_MAIN, destination=page_main)
 page_campaign.link(CAMPAIGN_GOTO_TACTICAL_CHALLENGE, destination=page_tactical_challenge)
 
+#############
+### Event ###
+#############
+# From campaign to event
+page_event = Page(PAGE_EVENT)
+page_event.link(BACK, destination=page_campaign)
+page_event.link(GOTO_MAIN, destination=page_main)
+page_campaign.link(CAMPAIGN_GOTO_EVENT, destination=page_event)
+
+
 # From campaign to mission
 page_mission = Page(PAGE_MISSION)
 page_mission.link(BACK, destination=page_campaign)

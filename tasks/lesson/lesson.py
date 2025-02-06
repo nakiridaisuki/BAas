@@ -110,7 +110,7 @@ class Lesson(UI):
                 if self.color_appear_then_click(LESSON_CONFIRM):
                     finished = True
                     continue
-                if self.color_appear_then_click(RELATIONSHIP):
+                if self.color_appear_then_click(RELATIONSHIP_RANKUP):
                     continue
                 if finished and self.appear(LOCATION_LIST):
                     break
