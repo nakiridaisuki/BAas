@@ -13,6 +13,16 @@ ADD_SWEEP_TIME = ButtonWrapper(
         button=(1030, 282, 1035, 320),
     ),
 )
+LEVEL_AREA = ButtonWrapper(
+    name='LEVEL_AREA',
+    en=Button(
+        file='./assets/en/campaign/share/LEVEL_AREA.png',
+        area=(686, 143, 752, 664),
+        search=(666, 123, 772, 684),
+        color=(207, 211, 210),
+        button=(686, 143, 752, 664),
+    ),
+)
 MINUS_SWEEP_TIME = ButtonWrapper(
     name='MINUS_SWEEP_TIME',
     en=Button(

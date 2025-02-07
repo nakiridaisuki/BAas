@@ -33,16 +33,6 @@ SKIP_STORY = ButtonWrapper(
         button=(1187, 106, 1234, 135),
     ),
 )
-STORY_ENTER = ButtonWrapper(
-    name='STORY_ENTER',
-    en=Button(
-        file='./assets/en/campaign/event/story/STORY_ENTER.png',
-        area=(1082, 168, 1174, 219),
-        search=(1062, 148, 1194, 239),
-        color=(123, 207, 237),
-        button=(1082, 168, 1174, 219),
-    ),
-)
 STORY_MENU = ButtonWrapper(
     name='STORY_MENU',
     en=Button(

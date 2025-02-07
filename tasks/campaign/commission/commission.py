@@ -3,7 +3,7 @@ from module.logger import logger
 from module.base.timer import Timer
 from tasks.base.ui import UI
 from tasks.base.page import page_base_defense, page_item_retrieval, page_commissions
-from tasks.campaign.assets.assets_campaign_bounty import *
+from tasks.base.assets.assets_base_ui import ENTER, STARS_3
 from tasks.campaign.assets.assets_campaign_share import *
 
 class Commission(UI):
@@ -29,32 +29,24 @@ class Commission(UI):
         return times
 
     def find_level(self):
-        button: ButtonWrapper = None
-        scrolled = False
-        retry = Timer(0.5)
-        while 1:
-            if retry.reached():
-                retry.reset()
-                button, is_current_max = self.ui_find_level(area=BOUNTY_LEVEL_AREA)
-                if button.name == 'LEVEL_13':
-                    break
-                if is_current_max:
-                    self.ui_scroll((0, -1), SWIPE_AREA)
-                    scrolled = True
-                    continue
-                else:
-                    break
+        """
+        Find maximum level that have 3 star for sweeping
+        You need call it before use button ENTER
+        """
 
-        # Wait stage list recover if scrolled
-        if scrolled:
-            Timer(1.5).start().wait()
-        button = self.ui_find_level(area=BOUNTY_LEVEL_AREA)[0]
-        self.AP_needed = min((int(button.name.split('_')[1])-1) // 2 * 10 + 10, 40)
-        return button
+        result = self.ui_find_level(LEVEL_AREA, SWIPE_AREA, check=STARS_3)
+        for now_level in result[::-1]:
+            x1, y1, x2, y2 = now_level.box
+            x2 += 450
+            y1 -= 30
+            y2 += 50
+            ENTER.load_search((x1, y1, x2, y2))
+            if ENTER.match_template(self.device.image):
+                self.AP_needed = min((int(now_level.ocr_text)-1) // 2 * 10 + 10, 40)
+                return
     
     def open_mission_info(self, skip_first_screenshot=True):
-        button = self.find_level()
-        retry = Timer(1)
+        self.find_level()
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -63,10 +55,7 @@ class Commission(UI):
 
             if self.color_appear(START_MISSION):
                 break
-
-            if retry.reached():
-                retry.reset()
-                self.device.click(button)
+            if self.appear_then_click(ENTER, interval=2):
                 continue
     
     def sweep(self, time):
@@ -121,7 +110,8 @@ class Commission(UI):
 
 if __name__ == '__main__':
     test = Commission('src')
-    test.for_item_retrieval = 20
+    test.for_item_retrieval = 5
+    test.for_base_defense = 5
     # test.for_base_defense = 100000
     # test.AP_needed = 40
     # test.AP_own = test.ui_get_AP()

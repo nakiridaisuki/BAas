@@ -3,16 +3,6 @@ from module.base.button import Button, ButtonWrapper
 # This file was auto-generated, do not modify it manually. To generate:
 # ``` python -m dev_tools.button_extract ```
 
-BOUNTY_LEVEL_AREA = ButtonWrapper(
-    name='BOUNTY_LEVEL_AREA',
-    en=Button(
-        file='./assets/en/campaign/bounty/BOUNTY_LEVEL_AREA.png',
-        area=(686, 143, 752, 664),
-        search=(666, 123, 772, 684),
-        color=(207, 211, 210),
-        button=(686, 143, 752, 664),
-    ),
-)
 BOUNTY_TICKETS = ButtonWrapper(
     name='BOUNTY_TICKETS',
     en=[

@@ -237,7 +237,6 @@ class UI(ModuleBase):
                 logger.error('UI get AP faild')
                 raise TaskError
     
-    # TODO fix other things which use it
     def ui_find_level(self, area=None, swipe_area=None, level=None, check:ButtonWrapper = None):
         """
         Find maximum or specific level which can be swept
@@ -245,10 +244,11 @@ class UI(ModuleBase):
         Args:
             area: (ButtonWrapper) the level area
             swipe_area: (ButtonWrapper) 
-            level: (int) the level you want find
+            level: (int) the level you want find, find max if None
+            check: (ButtonWrapper) 
 
         Return:
-            if is the maximum level of all
+            the boxed result of level area with check (optional)
         """
         if area is None:
             logger.error('Need area argument')
@@ -261,23 +261,49 @@ class UI(ModuleBase):
         if level is None:
             level = 999
 
+        def find_matched(result):
+            matched = []
+            for now_level in result:
+                if int(now_level.ocr_text) > level:
+                    break
+                x1, y1, x2, y2 = now_level.box
+                m = (x1 + x2) // 2
+                x1 = m - 30
+                x2 = m + 30
+                y2 += 30
+                check.load_search((x1, y1, x2, y2))
+                if check.match_template(self.device.image, similarity=0.7):
+                    matched.append(now_level)
+            return matched
+
         ocr = Digit(area)
         max_level = 0
         while 1:
             self.device.screenshot()
             result = ocr.detect_and_ocr(self.device.image)
+            result = [x for x in result if x.ocr_text.isdigit()]
             level_result = [int(x.ocr_text) for x in result]
 
             current_min = min(level_result)
             current_max = max(level_result)
             if max_level == current_max and level == 999:
-                return True
+                if check is None:
+                    logger.info('Find max level')
+                    return result
+                matched = find_matched(result)
+                if len(matched) == 0:
+                    level = current_min - 1
+                    continue
+                logger.info('Find max level with check')
+                return matched
             max_level = max(max_level, current_max)
 
             if level in level_result and check is None:
-                return False
+                logger.info('Find target level')
+                return result
 
             # Find level
+            logger.info(f'Finding level {level}')
             if level < current_min:
                 self.ui_scroll((0, 1), swipe_area)
                 self.ui_wait_recover(0.5)
@@ -288,21 +314,12 @@ class UI(ModuleBase):
                 continue
                 
             # Check
-            matched = False
-            for now_level in result[::-1]:
-                if int(now_level.ocr_text) > level:
-                    continue
-                x1, y1, x2, y2 = now_level.box
-                m = (x1 + x2) // 2
-                x1 = m - 30
-                x2 = m + 30
-                y2 += 30
-                check.load_search((x1, y1, x2, y2))
-                if check.match_template(self.device.image, similarity=0.7):
-                    matched = True
-                    return False
-            if not matched:
+            matched = find_matched(result)
+            if len(matched) == 0:
                 level = current_min - 1
+                continue
+            logger.info('Find target level with check')
+            return matched
             
 
     def ui_scroll(self, vector=(0, 0), swipe_area=None, duration=(0.1, 0.2)):

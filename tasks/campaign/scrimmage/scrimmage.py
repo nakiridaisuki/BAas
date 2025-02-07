@@ -4,7 +4,7 @@ from module.logger import logger
 from module.base.timer import Timer
 from tasks.base.ui import UI
 from tasks.base.page import page_trinity, page_gehenna, page_millennium, page_campaign
-from tasks.campaign.assets.assets_campaign_bounty import BOUNTY_LEVEL_AREA
+from tasks.base.assets.assets_base_ui import ENTER, STARS_3
 from tasks.campaign.assets.assets_campaign_scrimmage import *
 from tasks.campaign.assets.assets_campaign_share import *
 
@@ -44,29 +44,37 @@ class Scrimmage(UI):
         return times
 
     def find_level(self):
-        button = self.ui_find_level(area=BOUNTY_LEVEL_AREA)[0]
-        if int(button.name.split('_')[1]) > 1:
-            self.AP_needed = 15
-        return button
+        """
+        Find maximum level that have 3 star for sweeping
+        You need call it before use button ENTER
+        """
+        result = self.ui_find_level(LEVEL_AREA, SWIPE_AREA, check=STARS_3)
+        for now_level in result[::-1]:
+            x1, y1, x2, y2 = now_level.box
+            x2 += 450
+            y1 -= 30
+            y2 += 50
+            ENTER.load_search((x1, y1, x2, y2))
+            if ENTER.match_template(self.device.image):
+                if int(now_level.ocr_text) > 1:
+                    self.AP_needed = 15
+                return
     
     def open_mission_info(self, skip_first_screenshot=True):
-        button = self.find_level()
-        retry = Timer(1)
+        self.find_level()
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
             else:
                 self.device.screenshot()
 
-            if self.appear(START_MISSION):
+            if self.color_appear(START_MISSION):
                 break
-
-            if retry.reached():
-                retry.reset()
-                self.device.click(button)
+            if self.appear_then_click(ENTER, interval=2):
                 continue
     
     def sweep(self, time):
+        self.AP_own -= self.AP_needed * time
         self.ui_ensure_index(time, SWEEP_TIME, MINUS_SWEEP_TIME, ADD_SWEEP_TIME)
         timeout = Timer(60).start()
         started = False
@@ -117,7 +125,10 @@ class Scrimmage(UI):
 # Test
 if __name__ == '__main__':
     test = Scrimmage('src')
-    test.run()
+    # test.run()
+    result = test.ui_find_level(LEVEL_AREA, SWIPE_AREA, check=STARS_3)
+    print(result)
+
     # test.device.screenshot()
     # test.ui_goto(page_trinity)
     # test.ui_goto(page_gehenna)

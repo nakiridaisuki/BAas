@@ -20,18 +20,22 @@ class Quest(UI):
         Args:
             level: (int)
             time: (int) how many time you want to sweep
+        Return:
+            if is the last level
         """
 
         logger.info('Finding quest enter button')
 
         if level is not None:
-            self.ui_find_level(LEVEL_AREA, SWIPE_AREA, level, STARS_3)
+            result = self.ui_find_level(LEVEL_AREA, SWIPE_AREA, level, STARS_3)
         else:
             level = 999
+            self.device.screenshot()
+            ocr = Digit(LEVEL_AREA)
+            result = ocr.detect_and_ocr(self.device.image)
+            result = [x for x in result if x.ocr_text.isdigit()]
 
-        self.device.screenshot()
-        ocr = Digit(LEVEL_AREA)
-        result = ocr.detect_and_ocr(self.device.image)
+        cnt = 0
         for now_level in result[::-1]:
             if int(now_level.ocr_text) > level:
                 continue
@@ -42,7 +46,8 @@ class Quest(UI):
             y2 += 50
             ENTER.load_search((x1, y1, x2, y2))
             if ENTER.match_template(self.device.image):
-                return now_level
+                return cnt > 0
+            cnt += 1
         
         logger.warning("Didn't find enter button")
         raise TaskError

@@ -23,13 +23,3 @@ GOTO_QUEST = ButtonWrapper(
         button=(863, 86, 1022, 134),
     ),
 )
-QUEST_ENTER = ButtonWrapper(
-    name='QUEST_ENTER',
-    en=Button(
-        file='./assets/en/campaign/event/quest/QUEST_ENTER.png',
-        area=(1085, 169, 1173, 233),
-        search=(1065, 149, 1193, 253),
-        color=(126, 210, 240),
-        button=(1085, 169, 1173, 233),
-    ),
-)
