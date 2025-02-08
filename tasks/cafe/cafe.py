@@ -133,8 +133,7 @@ class Cafe(Charater):
         self.relationship()
 
     def reward(self):
-        self.ui_ensure(page_cafe)
-
+        logger.info('Get cafe earning')
         ocr = Digit(CAFE_EARNING)
         ocr_timer = Timer(2)
         while 1:
@@ -157,9 +156,19 @@ class Cafe(Charater):
                     break
 
     def run(self):
-        self.device.screenshot()
-        logger.info('Get cafe earning')
-        self.reward()
+        
+        # TODO invite cool is 20hr i think, try to fix it some day
+        self.ui_ensure(page_cafe)
+        if self.config.CafeReward_ServerUpdate is True:
+            self.invite_then_relationship()
+            self.reward()
+            self.config.task_delay(720)
+            self.config.CafeReward_ServerUpdate = False
+        else:
+            self.reward()
+            self.config.task_delay(server_update=True)
+            self.config.CafeReward_ServerUpdate = True
+            
 
 if __name__ == '__main__':
     test = Cafe('src')

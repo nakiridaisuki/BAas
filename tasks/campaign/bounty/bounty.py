@@ -90,8 +90,15 @@ class Bounty(UI):
                 continue
 
     def run(self):
-        self.ui_ensure(page_campaign)
 
+        # Initialize data
+        self.overpass = self.config.Bounty_Overpass
+        self.desert_railrode = self.config.Bounty_DesertRailrode
+        self.classroom = self.config.Bounty_Classroom
+
+        # Start Bounty
+        self.ui_ensure(page_campaign)
+        
         # Overpass
         if self.for_overpass > 0:
             self.ui_goto(page_overpass)
@@ -109,6 +116,9 @@ class Bounty(UI):
             self.ui_goto(page_classroom)
             self.for_classroom = self.check_tickets(self.for_classroom, 'classroom')
             self.sweep(self.for_classroom)
+
+        # Delay task
+        self.config.task_delay(server_update=True)
 
 
 # Test

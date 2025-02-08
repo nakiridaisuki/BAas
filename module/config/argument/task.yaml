@@ -22,50 +22,62 @@ Daily:
   menu: 'list'
   page: 'setting'
   tasks:
-    Dungeon:
+    Cafe:
       - Scheduler
-      - Planner
-      - Dungeon
-      - DungeonSupport
-      - DungeonStorage
-      - TrailblazePower
-    Ornament:
+      - Invite
+      - CafeReward
+    Lesson:
       - Scheduler
-      - Ornament
-      - DungeonSupport
-      - TrailblazePower
-    DailyQuest:
+      - Lesson
+    Club:
       - Scheduler
-      - DailyStorage
-    BattlePass:
+    Crafting:
       - Scheduler
-      - BattlePassStorage
-    Assignment:
+    HardMission:
       - Scheduler
-      - Assignment
-    DataUpdate:
+    Bounty:
       - Scheduler
-      - ItemStorage
-      - CloudStorage
-    Freebies:
+      - Bounty
+    Scrimmage:
       - Scheduler
-      - SupportReward
+      - Scrimmage
+    TacticalChallenge:
+      - Scheduler
+      - TacticalChallenge
+    Task:
+      - Scheduler
+      - Task
+    Mail:
+      - Scheduler
 
-# ==================== Weekly ====================
+# ==================== Dungeon ====================
 
-Weekly:
+Dungeon:
   menu: 'list'
   page: 'setting'
   tasks:
-    Weekly:
+    Commission:
       - Scheduler
-      - Weekly
-      - DungeonSupport
-    Rogue:
+      - Commission
+    NormalMission:
       - Scheduler
-      - RogueWorld
-      - RogueBlessing
-      - RogueDebug
+    HardMission:
+      - Scheduler
+    Quest:
+      - Scheduler
+    Crafting:
+      - Scheduler
+
+# ==================== Event ====================
+
+Event:
+  menu: 'list'
+  page: 'setting'
+  tasks:
+    EventAutoStory:
+      - Scheduler
+    EventAutoQuest:
+      - Scheduler
 
 # ==================== Tool ====================
 

@@ -63,61 +63,6 @@ class ConfigGenerator:
 
         # Insert packages
         option_add(keys='Emulator.PackageName.option', options=list(VALID_SERVER.keys()))
-        # Insert dungeons
-        from tasks.dungeon.keywords import DungeonList
-        calyx_golden = [dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Calyx_Golden_Memories] \
-                       + [dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Calyx_Golden_Aether] \
-                       + [dungeon.name for dungeon in DungeonList.instances.values() if
-                          dungeon.is_Calyx_Golden_Treasures]
-        # calyx_crimson
-        from tasks.rogue.keywords import KEYWORDS_ROGUE_PATH as Path
-        order = [Path.Destruction, Path.Preservation, Path.The_Hunt, Path.Abundance,
-                 Path.Erudition, Path.Harmony, Path.Nihility]
-        calyx_crimson = []
-        for path in order:
-            calyx_crimson += [dungeon.name for dungeon in DungeonList.instances.values()
-                              if dungeon.Calyx_Crimson_Path == path]
-        # stagnant_shadow
-        from tasks.character.keywords import CombatType
-        stagnant_shadow = []
-        for type_ in CombatType.instances.values():
-            stagnant_shadow += [dungeon.name for dungeon in DungeonList.instances.values()
-                                if dungeon.Stagnant_Shadow_Combat_Type == type_]
-        cavern_of_corrosion = [dungeon.name for dungeon in DungeonList.instances.values() if
-                               dungeon.is_Cavern_of_Corrosion]
-        option_add(
-            keys='Dungeon.Name.option',
-            options=calyx_golden + calyx_crimson + stagnant_shadow + cavern_of_corrosion
-        )
-        # Double events
-        option_add(keys='Dungeon.NameAtDoubleCalyx.option', options=calyx_golden + calyx_crimson)
-        option_add(keys='Dungeon.NameAtDoubleRelic.option', options=cavern_of_corrosion)
-        option_add(
-            keys='Weekly.Name.option',
-            options=[dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Echo_of_War])
-        # OrnamentExtraction
-        ornament = [dungeon.name for dungeon in DungeonList.instances.values() if dungeon.is_Ornament_Extraction]
-        option_add(keys='Ornament.Dungeon.option', options=ornament)
-        # Insert characters
-        from tasks.character.keywords import CharacterList
-        unsupported_characters = []
-        characters = [character.name for character in CharacterList.instances.values()
-                      if character.name not in unsupported_characters]
-        option_add(keys='DungeonSupport.Character.option', options=characters)
-        # Insert assignments
-        from tasks.assignment.keywords import AssignmentEntry
-        assignments = [entry.name for entry in AssignmentEntry.instances.values()]
-        for i in range(4):
-            option_add(keys=f'Assignment.Name_{i + 1}.option', options=assignments)
-        # Insert planner items
-        from tasks.planner.keywords.classes import ItemBase
-        for item in ItemBase.instances.values():
-            base = item.group_base
-            deep_set(raw, keys=['Planner', f'Item_{base.name}'], value={
-                'stored': 'StoredPlanner',
-                'display': 'display',
-                'type': 'planner',
-            })
 
         # Load
         for path, value in deep_iter(raw, depth=2):
@@ -302,10 +247,14 @@ class ConfigGenerator:
         gen.CommentAutoGenerage('module/config/config_updater.py')
 
         with gen.Class('StoredGenerated'):
+            has_stored = False
             for path, data in deep_iter(self.args, depth=3):
                 cls = data.get('stored')
                 if cls:
+                    has_stored = True
                     gen.add(f'{path[-1]} = {cls}("{".".join(path)}")')
+            if not has_stored:
+                gen.add('pass')
 
         gen.write('module/config/stored/stored_generated.py')
 
@@ -366,187 +315,187 @@ class ConfigGenerator:
         #         prefix = '国服' if prefix == 'CN' else prefix
         #         deep_set(new, keys=path, value=f'[{prefix}] {_list[index]}')
 
-        ingame_lang = gui_lang_to_ingame_lang(lang)
-        dailies = deep_get(self.argument, keys='Dungeon.Name.option')
-        # Dungeon names
-        i18n_memories = {
-            'cn': '材料：角色经验（{dungeon} {world}）',
-            'cht': '材料：角色經驗（{dungeon} {world}）',
-            'jp': '素材：役割経験（{dungeon} {world}）：',
-            'en': 'Material: Character EXP ({dungeon}, {world})',
-            'es': 'Material: EXP de personaje ({dungeon}, {world})',
-        }
-        i18n_aether = {
-            'cn': '材料：武器经验（{dungeon}）',
-            'cht': '材料：武器經驗（{dungeon}）',
-            'jp': '素材：武器経験（{dungeon}）',
-            'en': 'Material: Light Cone EXP ({dungeon})',
-            'es': 'Material: EXP de conos de luz ({dungeon})',
-        }
-        i18n_treasure = {
-            'cn': '材料：信用点（{dungeon}）',
-            'cht': '材料：信用點（{dungeon}）',
-            'jp': '素材：クレジット（{dungeon}）',
-            'en': 'Material: Credit ({dungeon})',
-            'es': 'Material: Créditos ({dungeon})',
-        }
-        i18n_crimson = {
-            'cn': '行迹材料：{path}（{plane}）',
-            'cht': '行跡材料：{path}（{plane}）',
-            'jp': '軌跡素材：{path}（{plane}）',
-            'en': 'Trace: {path} ({plane})',
-            'es': 'Rastros: {path} ({plane})',
-        }
-        i18n_relic = {
-            'cn': '（{dungeon}）',
-            'cht': '（{dungeon}）',
-            'jp': '（{dungeon}）',
-            'en': ' ({dungeon})',
-            'es': ' ({dungeon})',
-        }
-        from tasks.dungeon.keywords import DungeonList, DungeonDetailed
-        for dungeon in DungeonList.instances.values():
-            dungeon: DungeonList = dungeon
-            dungeon_name = dungeon.__getattribute__(ingame_lang)
-            dungeon_name = re.sub('[「」]', '', dungeon_name)
-            if dungeon.world:
-                world_name = re.sub('[「」]', '', dungeon.world.__getattribute__(ingame_lang))
-            else:
-                world_name = ''
-            if dungeon.is_Calyx_Golden_Memories:
-                deep_set(new, keys=['Dungeon', 'Name', dungeon.name],
-                         value=i18n_memories[ingame_lang].format(dungeon=dungeon_name, world=world_name))
-            if dungeon.is_Calyx_Golden_Aether:
-                deep_set(new, keys=['Dungeon', 'Name', dungeon.name],
-                         value=i18n_aether[ingame_lang].format(dungeon=dungeon_name, world=world_name))
-            if dungeon.is_Calyx_Golden_Treasures:
-                deep_set(new, keys=['Dungeon', 'Name', dungeon.name],
-                         value=i18n_treasure[ingame_lang].format(dungeon=dungeon_name, world=world_name))
-            if dungeon.is_Calyx_Crimson:
-                plane = dungeon.plane.__getattribute__(ingame_lang)
-                plane = re.sub('[「」]', '', plane)
-                path = dungeon.Calyx_Crimson_Path.__getattribute__(ingame_lang)
-                deep_set(new, keys=['Dungeon', 'Name', dungeon.name],
-                         value=i18n_crimson[ingame_lang].format(path=path, plane=plane))
-            if dungeon.is_Cavern_of_Corrosion:
-                value = deep_get(new, keys=['Dungeon', 'Name', dungeon.name], default='')
-                suffix = i18n_relic[ingame_lang].format(dungeon=dungeon_name).replace('Cavern of Corrosion: ', '')
-                if not value.endswith(suffix):
-                    deep_set(new, keys=['Dungeon', 'Name', dungeon.name], value=f'{value}{suffix}')
-            if dungeon.is_Ornament_Extraction:
-                value = deep_get(new, keys=['Ornament', 'Dungeon', dungeon.name], default='')
-                suffix = i18n_relic[ingame_lang].format(dungeon=dungeon_name)
-                suffix = re.sub(
-                    r'(•差分宇宙'
-                    r'|Divergent Universe: '
-                    r'|階差宇宙・'
-                    r'|: Universo Diferenciado'
-                    r'|Universo Diferenciado: '
-                    r')', '', suffix)
-                if not value.endswith(suffix):
-                    deep_set(new, keys=['Ornament', 'Dungeon', dungeon.name], value=f'{value}{suffix}')
+        # ingame_lang = gui_lang_to_ingame_lang(lang)
+        # dailies = deep_get(self.argument, keys='Dungeon.Name.option')
+        # # Dungeon names
+        # i18n_memories = {
+        #     'cn': '材料：角色经验（{dungeon} {world}）',
+        #     'cht': '材料：角色經驗（{dungeon} {world}）',
+        #     'jp': '素材：役割経験（{dungeon} {world}）：',
+        #     'en': 'Material: Character EXP ({dungeon}, {world})',
+        #     'es': 'Material: EXP de personaje ({dungeon}, {world})',
+        # }
+        # i18n_aether = {
+        #     'cn': '材料：武器经验（{dungeon}）',
+        #     'cht': '材料：武器經驗（{dungeon}）',
+        #     'jp': '素材：武器経験（{dungeon}）',
+        #     'en': 'Material: Light Cone EXP ({dungeon})',
+        #     'es': 'Material: EXP de conos de luz ({dungeon})',
+        # }
+        # i18n_treasure = {
+        #     'cn': '材料：信用点（{dungeon}）',
+        #     'cht': '材料：信用點（{dungeon}）',
+        #     'jp': '素材：クレジット（{dungeon}）',
+        #     'en': 'Material: Credit ({dungeon})',
+        #     'es': 'Material: Créditos ({dungeon})',
+        # }
+        # i18n_crimson = {
+        #     'cn': '行迹材料：{path}（{plane}）',
+        #     'cht': '行跡材料：{path}（{plane}）',
+        #     'jp': '軌跡素材：{path}（{plane}）',
+        #     'en': 'Trace: {path} ({plane})',
+        #     'es': 'Rastros: {path} ({plane})',
+        # }
+        # i18n_relic = {
+        #     'cn': '（{dungeon}）',
+        #     'cht': '（{dungeon}）',
+        #     'jp': '（{dungeon}）',
+        #     'en': ' ({dungeon})',
+        #     'es': ' ({dungeon})',
+        # }
+        # from tasks.dungeon.keywords import DungeonList, DungeonDetailed
+        # for dungeon in DungeonList.instances.values():
+        #     dungeon: DungeonList = dungeon
+        #     dungeon_name = dungeon.__getattribute__(ingame_lang)
+        #     dungeon_name = re.sub('[「」]', '', dungeon_name)
+        #     if dungeon.world:
+        #         world_name = re.sub('[「」]', '', dungeon.world.__getattribute__(ingame_lang))
+        #     else:
+        #         world_name = ''
+        #     if dungeon.is_Calyx_Golden_Memories:
+        #         deep_set(new, keys=['Dungeon', 'Name', dungeon.name],
+        #                  value=i18n_memories[ingame_lang].format(dungeon=dungeon_name, world=world_name))
+        #     if dungeon.is_Calyx_Golden_Aether:
+        #         deep_set(new, keys=['Dungeon', 'Name', dungeon.name],
+        #                  value=i18n_aether[ingame_lang].format(dungeon=dungeon_name, world=world_name))
+        #     if dungeon.is_Calyx_Golden_Treasures:
+        #         deep_set(new, keys=['Dungeon', 'Name', dungeon.name],
+        #                  value=i18n_treasure[ingame_lang].format(dungeon=dungeon_name, world=world_name))
+        #     if dungeon.is_Calyx_Crimson:
+        #         plane = dungeon.plane.__getattribute__(ingame_lang)
+        #         plane = re.sub('[「」]', '', plane)
+        #         path = dungeon.Calyx_Crimson_Path.__getattribute__(ingame_lang)
+        #         deep_set(new, keys=['Dungeon', 'Name', dungeon.name],
+        #                  value=i18n_crimson[ingame_lang].format(path=path, plane=plane))
+        #     if dungeon.is_Cavern_of_Corrosion:
+        #         value = deep_get(new, keys=['Dungeon', 'Name', dungeon.name], default='')
+        #         suffix = i18n_relic[ingame_lang].format(dungeon=dungeon_name).replace('Cavern of Corrosion: ', '')
+        #         if not value.endswith(suffix):
+        #             deep_set(new, keys=['Dungeon', 'Name', dungeon.name], value=f'{value}{suffix}')
+        #     if dungeon.is_Ornament_Extraction:
+        #         value = deep_get(new, keys=['Ornament', 'Dungeon', dungeon.name], default='')
+        #         suffix = i18n_relic[ingame_lang].format(dungeon=dungeon_name)
+        #         suffix = re.sub(
+        #             r'(•差分宇宙'
+        #             r'|Divergent Universe: '
+        #             r'|階差宇宙・'
+        #             r'|: Universo Diferenciado'
+        #             r'|Universo Diferenciado: '
+        #             r')', '', suffix)
+        #         if not value.endswith(suffix):
+        #             deep_set(new, keys=['Ornament', 'Dungeon', dungeon.name], value=f'{value}{suffix}')
 
-        # Stagnant shadows with character names
-        for dungeon in DungeonDetailed.instances.values():
-            if dungeon.name in dailies:
-                value = dungeon.__getattribute__(ingame_lang)
-                deep_set(new, keys=['Dungeon', 'Name', dungeon.name], value=value)
+        # # Stagnant shadows with character names
+        # for dungeon in DungeonDetailed.instances.values():
+        #     if dungeon.name in dailies:
+        #         value = dungeon.__getattribute__(ingame_lang)
+        #         deep_set(new, keys=['Dungeon', 'Name', dungeon.name], value=value)
 
-        # Copy dungeon i18n to double events
-        def update_dungeon_names(keys):
-            for dungeon in deep_get(self.argument, keys=f'{keys}.option', default=[]):
-                value = deep_get(new, keys=['Dungeon', 'Name', dungeon])
-                if value:
-                    deep_set(new, keys=f'{keys}.{dungeon}', value=value)
+        # # Copy dungeon i18n to double events
+        # def update_dungeon_names(keys):
+        #     for dungeon in deep_get(self.argument, keys=f'{keys}.option', default=[]):
+        #         value = deep_get(new, keys=['Dungeon', 'Name', dungeon])
+        #         if value:
+        #             deep_set(new, keys=f'{keys}.{dungeon}', value=value)
 
-        update_dungeon_names('Dungeon.NameAtDoubleCalyx')
-        update_dungeon_names('Dungeon.NameAtDoubleRelic')
+        # update_dungeon_names('Dungeon.NameAtDoubleCalyx')
+        # update_dungeon_names('Dungeon.NameAtDoubleRelic')
 
-        # Character names
-        from tasks.character.keywords import CharacterList
-        characters = deep_get(self.argument, keys='DungeonSupport.Character.option')
-        for character in CharacterList.instances.values():
-            if character.name in characters:
-                value = character.__getattribute__(ingame_lang)
-                if "Trailblazer" in value:
-                    continue
-                deep_set(new, keys=['DungeonSupport', 'Character', character.name], value=value)
+        # # Character names
+        # from tasks.character.keywords import CharacterList
+        # characters = deep_get(self.argument, keys='DungeonSupport.Character.option')
+        # for character in CharacterList.instances.values():
+        #     if character.name in characters:
+        #         value = character.__getattribute__(ingame_lang)
+        #         if "Trailblazer" in value:
+        #             continue
+        #         deep_set(new, keys=['DungeonSupport', 'Character', character.name], value=value)
 
-        # Assignments
-        from tasks.assignment.keywords import AssignmentEntryDetailed
-        for entry in AssignmentEntryDetailed.instances.values():
-            entry: AssignmentEntryDetailed
-            value = entry.__getattribute__(ingame_lang)
-            for i in range(4):
-                deep_set(new, keys=['Assignment', f'Name_{i + 1}', entry.name], value=value)
+        # # Assignments
+        # from tasks.assignment.keywords import AssignmentEntryDetailed
+        # for entry in AssignmentEntryDetailed.instances.values():
+        #     entry: AssignmentEntryDetailed
+        #     value = entry.__getattribute__(ingame_lang)
+        #     for i in range(4):
+        #         deep_set(new, keys=['Assignment', f'Name_{i + 1}', entry.name], value=value)
 
-        # Echo of War
-        dungeons = [d for d in DungeonList.instances.values() if d.is_Echo_of_War]
-        for dungeon in dungeons:
-            world = dungeon.plane.world
-            world_name = world.__getattribute__(ingame_lang)
-            dungeon_name = dungeon.__getattribute__(ingame_lang).replace('Echo of War: ', '')
-            value = f'{dungeon_name} ({world_name})'
-            deep_set(new, keys=['Weekly', 'Name', dungeon.name], value=value)
-        # Rogue worlds
-        for dungeon in [d for d in DungeonList.instances.values() if d.is_Simulated_Universe]:
-            name = deep_get(new, keys=['RogueWorld', 'World', dungeon.name], default=None)
-            if name:
-                deep_set(new, keys=['RogueWorld', 'World', dungeon.name], value=dungeon.__getattribute__(ingame_lang))
-        # Planner items
-        from tasks.planner.keywords.classes import ItemBase
-        for item in ItemBase.instances.values():
-            item: ItemBase = item
-            name = f'Item_{item.name}'
-            if item.is_ItemCurrency or item.name == 'Tracks_of_Destiny':
-                i18n = item.__getattribute__(ingame_lang)
-            elif item.is_ItemExp and item.is_group_base:
-                dungeon = item.dungeon
-                if dungeon is None:
-                    i18n = item.__getattribute__(ingame_lang)
-                elif dungeon.is_Calyx_Golden_Memories:
-                    i18n = i18n_memories[ingame_lang]
-                elif dungeon.is_Calyx_Golden_Aether:
-                    i18n = i18n_aether[ingame_lang]
-                else:
-                    continue
-                if res := re.search(r'[:：](.*)[(（]', i18n):
-                    i18n = res.group(1).strip()
-            elif item.is_ItemAscension or (item.is_ItemTrace and item.is_group_base):
-                dungeon = item.group_base.dungeon.name
-                i18n = deep_get(new, keys=['Dungeon', 'Name', dungeon], default='Unknown_Dungeon_Come_From')
-            elif item.is_ItemWeekly:
-                dungeon = item.dungeon.name
-                i18n = deep_get(new, keys=['Weekly', 'Name', dungeon], default='Unknown_Dungeon_Come_From')
-            elif item.is_ItemCalyx and item.is_group_base:
-                i18n = item.__getattribute__(ingame_lang)
-            else:
-                continue
-            deep_set(new, keys=['Planner', name, 'name'], value=i18n)
-            deep_set(new, keys=['Planner', name, 'help'], value='')
+        # # Echo of War
+        # dungeons = [d for d in DungeonList.instances.values() if d.is_Echo_of_War]
+        # for dungeon in dungeons:
+        #     world = dungeon.plane.world
+        #     world_name = world.__getattribute__(ingame_lang)
+        #     dungeon_name = dungeon.__getattribute__(ingame_lang).replace('Echo of War: ', '')
+        #     value = f'{dungeon_name} ({world_name})'
+        #     deep_set(new, keys=['Weekly', 'Name', dungeon.name], value=value)
+        # # Rogue worlds
+        # for dungeon in [d for d in DungeonList.instances.values() if d.is_Simulated_Universe]:
+        #     name = deep_get(new, keys=['RogueWorld', 'World', dungeon.name], default=None)
+        #     if name:
+        #         deep_set(new, keys=['RogueWorld', 'World', dungeon.name], value=dungeon.__getattribute__(ingame_lang))
+        # # Planner items
+        # from tasks.planner.keywords.classes import ItemBase
+        # for item in ItemBase.instances.values():
+        #     item: ItemBase = item
+        #     name = f'Item_{item.name}'
+        #     if item.is_ItemCurrency or item.name == 'Tracks_of_Destiny':
+        #         i18n = item.__getattribute__(ingame_lang)
+        #     elif item.is_ItemExp and item.is_group_base:
+        #         dungeon = item.dungeon
+        #         if dungeon is None:
+        #             i18n = item.__getattribute__(ingame_lang)
+        #         elif dungeon.is_Calyx_Golden_Memories:
+        #             i18n = i18n_memories[ingame_lang]
+        #         elif dungeon.is_Calyx_Golden_Aether:
+        #             i18n = i18n_aether[ingame_lang]
+        #         else:
+        #             continue
+        #         if res := re.search(r'[:：](.*)[(（]', i18n):
+        #             i18n = res.group(1).strip()
+        #     elif item.is_ItemAscension or (item.is_ItemTrace and item.is_group_base):
+        #         dungeon = item.group_base.dungeon.name
+        #         i18n = deep_get(new, keys=['Dungeon', 'Name', dungeon], default='Unknown_Dungeon_Come_From')
+        #     elif item.is_ItemWeekly:
+        #         dungeon = item.dungeon.name
+        #         i18n = deep_get(new, keys=['Weekly', 'Name', dungeon], default='Unknown_Dungeon_Come_From')
+        #     elif item.is_ItemCalyx and item.is_group_base:
+        #         i18n = item.__getattribute__(ingame_lang)
+        #     else:
+        #         continue
+        #     deep_set(new, keys=['Planner', name, 'name'], value=i18n)
+        #     deep_set(new, keys=['Planner', name, 'help'], value='')
 
-        # GUI i18n
-        for path, _ in deep_iter(self.gui, depth=2):
-            group, key = path
-            deep_load(keys=['Gui', group], words=(key,))
+        # # GUI i18n
+        # for path, _ in deep_iter(self.gui, depth=2):
+        #     group, key = path
+        #     deep_load(keys=['Gui', group], words=(key,))
 
-        # zh-TW
-        dic_repl = {
-            '設置': '設定',
-            '支持': '支援',
-            '啓': '啟',
-            '异': '異',
-            '服務器': '伺服器',
-            '文件': '檔案',
-            '自定義': '自訂'
-        }
-        if lang == 'zh-TW':
-            for path, value in deep_iter(new, depth=3):
-                for before, after in dic_repl.items():
-                    value = value.replace(before, after)
-                deep_set(new, keys=path, value=value)
+        # # zh-TW
+        # dic_repl = {
+        #     '設置': '設定',
+        #     '支持': '支援',
+        #     '啓': '啟',
+        #     '异': '異',
+        #     '服務器': '伺服器',
+        #     '文件': '檔案',
+        #     '自定義': '自訂'
+        # }
+        # if lang == 'zh-TW':
+        #     for path, value in deep_iter(new, depth=3):
+        #         for before, after in dic_repl.items():
+        #             value = value.replace(before, after)
+        #         deep_set(new, keys=path, value=value)
 
-        write_file(filepath_i18n(lang), new)
+        # write_file(filepath_i18n(lang), new)
 
     @cached_property
     def menu(self):

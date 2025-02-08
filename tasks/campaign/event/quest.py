@@ -31,7 +31,7 @@ class Quest(UI):
         else:
             level = 999
             self.device.screenshot()
-            ocr = Digit(LEVEL_AREA)
+            ocr = Digit(EVENT_LEVEL_AREA)
             result = ocr.detect_and_ocr(self.device.image)
             result = [x for x in result if x.ocr_text.isdigit()]
 
@@ -99,7 +99,7 @@ class Quest(UI):
 
             # Start story
             if not started:
-                if self.appear_then_click(QUEST_ENTER, interval=3):
+                if self.appear_then_click(ENTER, interval=3):
                     continue
             if self.color_appear_then_click(START_MISSION):
                 continue

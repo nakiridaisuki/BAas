@@ -97,6 +97,13 @@ class Scrimmage(UI):
                 continue
 
     def run(self):
+
+        # Initialize data
+        self.for_trinity = self.config.Scrimmage_Trinity
+        self.for_gehenna = self.config.Scrimmage_Gehenna
+        self.for_millennium = self.config.Scrimmage_Millennium
+
+        # Start Scrimmage
         self.ui_ensure(page_campaign)
         self.AP_own = self.ui_get_AP(skip_first_screenshot=True)
 
@@ -120,6 +127,9 @@ class Scrimmage(UI):
             self.for_millennium = self.check_tickets(self.for_millennium, 'millennium')
             self.open_mission_info()
             self.sweep(self.for_millennium)
+
+        # Delay task
+        self.config.task_delay(server_update=True)
 
 
 # Test

@@ -20,7 +20,7 @@ class Story(UI):
 
         logger.info('Finding story enter button')
         self.device.screenshot()
-        ocr = Digit(LEVEL_AREA)
+        ocr = Digit(EVENT_LEVEL_AREA)
         result = ocr.detect_and_ocr(self.device.image)
         
         count = 0

@@ -45,9 +45,19 @@ class TacticalChallenge(UI):
                 continue
 
     def run(self):
+
+        count = self.config.TacticalChallenge_Counter
+        if count >= 5:
+            self.config.task_delay(server_update=True)
+            self.config.TacticalChallenge_Counter = 0
+            return
+        
         self.ui_ensure(page_tactical_challenge)
-        self.get_reward()
+        if count == 0:
+            self.get_reward()
         self.start_challenge()
+        self.config.TacticalChallenge_Counter = count + 1
+        self.config.task_delay(minute=1.1)
 
 # Test
 if __name__ == '__main__':

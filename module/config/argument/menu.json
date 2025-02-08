@@ -11,21 +11,35 @@
     "menu": "list",
     "page": "setting",
     "tasks": [
-      "Dungeon",
-      "Ornament",
-      "DailyQuest",
-      "BattlePass",
-      "Assignment",
-      "DataUpdate",
-      "Freebies"
+      "Cafe",
+      "Lesson",
+      "Club",
+      "Crafting",
+      "HardMission",
+      "Bounty",
+      "Scrimmage",
+      "TacticalChallenge",
+      "Task",
+      "Mail"
     ]
   },
-  "Weekly": {
+  "Dungeon": {
     "menu": "list",
     "page": "setting",
     "tasks": [
-      "Weekly",
-      "Rogue"
+      "Commission",
+      "NormalMission",
+      "HardMission",
+      "Quest",
+      "Crafting"
+    ]
+  },
+  "Event": {
+    "menu": "list",
+    "page": "setting",
+    "tasks": [
+      "EventAutoStory",
+      "EventAutoQuest"
     ]
   },
   "Tool": {

@@ -138,8 +138,21 @@ class Lesson(UI):
         return times
 
     def run(self):
-        self.ui_ensure(self.page_location)
 
+        # Initialize data
+        self.for_schale_office = self.config.Lesson_SchaleOffice
+        self.for_schale_residence_hall = self.config.Lesson_SchaleResidenceHall
+        self.for_gehenna = self.config.Lesson_Gehenna
+        self.for_abydos = self.config.Lesson_Abydos
+        self.for_millennium = self.config.Lesson_Millennium
+        self.for_trinity = self.config.Lesson_Trinity
+        self.for_red_winter = self.config.Lesson_Red_winter
+        self.for_hyakkiyako = self.config.Lesson_Hyakkiyako
+        self.for_du_shiratori = self.config.Lesson_DuShiratori
+        self.for_shanhaijing = self.config.Lesson_Shanhaijing
+
+        # Start Lesson
+        self.ui_ensure(self.page_location)
         locations = ['schale_office', 'schale_residence_hall', 'gehenna', 'abydos', 'millennium', 'trinity', 'red_winter', 'hyakkiyako', 'du_shiratori', 'shanhaijing']
         for location in locations:
             time = self.__getattribute__('for_' + location)
@@ -154,7 +167,8 @@ class Lesson(UI):
             self.lesson(location=page, time=time)
             self.ui_goto(self.page_location)
 
-
+        # Delay task
+        self.config.task_delay(server_update=True)
 
 if __name__ == '__main__':
     test = Lesson('src')

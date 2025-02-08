@@ -25,9 +25,16 @@ class BAAutoScript(AzurLaneAutoScript):
             Login(self.config, device=self.device).app_start()
         UI(self.config, device=self.device).ui_goto(page_main)
 
-    def cafe(self):
-        from tasks.cafe.cafe import Cafe
-        Cafe(config=self.config, device=self.device).run()
+    def lesson(self):
+        from tasks.lesson.lesson import Lesson
+        Lesson(config=self.config, device=self.device).run()
+
+    def club(self):
+        from tasks.club.club import Club
+        Club(config=self.config, device=self.device).run()
+
+    def crafting(self):
+        pass
 
     def bounty(self):
         from tasks.campaign.bounty.bounty import Bounty
@@ -37,22 +44,45 @@ class BAAutoScript(AzurLaneAutoScript):
         from tasks.campaign.commission.commission import Commission
         Commission(config=self.config, device=self.device).run()
 
-    def mission(self):
-        from tasks.campaign.mission.mission import Mission
-        Mission(config=self.config, device=self.device).run()
-
     def scrimmage(self):
         from tasks.campaign.scrimmage.scrimmage import Scrimmage
         Scrimmage(config=self.config, device=self.device).run()
 
-    def tactical_challenge(self):
+    def tacticalchallenge(self):
         from tasks.campaign.tactical_challenge.tactical_challenge import TacticalChallenge
         TacticalChallenge(config=self.config, device=self.device).run()
 
-    def club(self):
-        from tasks.club.club import Club
-        Club(config=self.config, device=self.device).run()
+    def task(self):
+        from tasks.task.task import Task
+        Task(config=self.config, device=self.device).run()
 
+    def mail(self):
+        from tasks.mail.mail import Mail
+        Mail(config=self.config, device=self.device).run()
+    
+    def cafe(self):
+        from tasks.cafe.cafe import Cafe
+        Cafe(config=self.config, device=self.device).run()
+
+    def normalmission(self):
+        from tasks.campaign.mission.mission import Mission
+        Mission(config=self.config, device=self.device).normal()
+
+    def hardmission(self):
+        from tasks.campaign.mission.mission import Mission
+        Mission(config=self.config, device=self.device).hard()
+
+    def quest(self):
+        from tasks.campaign.event.quest import Quest
+        Quest(config=self.config, device=self.device).run()
+
+    def eventautostory(self):
+        from tasks.campaign.event.story import Story
+        Story(config=self.config, device=self.device).run()
+    
+    def eventautoquest(self):
+        from tasks.campaign.event.quest import Quest
+        Quest(config=self.config, device=self.device).auto_clear()
 
 if __name__ == '__main__':
     baas = BAAutoScript('baas')

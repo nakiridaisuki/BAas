@@ -7,24 +7,30 @@
 
 # ==================== Daily ====================
 
-Dungeon:
+Lesson:
   Scheduler:
-    Enable: true
-DailyQuest:
+    Enable: True
+Club:
   Scheduler:
-    Enable: true
-BattlePass:
+    Enable: True
+Crafting:
   Scheduler:
-    Enable: true
-Assignment:
+    Enable: True
+HardMission:
   Scheduler:
-    Enable: true
-Freebies:
+    Enable: True
+Bounty:
   Scheduler:
-    Enable: true
-
-# ==================== Weekly ====================
-
-Weekly:
-  DungeonSupport:
-    Use: do_not_use
+    Enable: True
+Scrimmage:
+  Scheduler:
+    Enable: True
+TacticalChallenge:
+  Scheduler:
+    Enable: True
+Task:
+  Scheduler:
+    Enable: True
+Mail:
+  Scheduler:
+    Enable: True

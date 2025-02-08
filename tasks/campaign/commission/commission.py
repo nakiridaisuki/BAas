@@ -89,7 +89,12 @@ class Commission(UI):
             -> check if AP is enough(check_AP)
             -> sweep
         """
-        self.device.screenshot()
+
+        # Initialize data
+        self.for_base_defense = self.config.Commission_BaseDefense
+        self.for_item_retrieval = self.config.Commission_ItemRetrieval
+
+        # Start Commission
         self.ui_ensure(page_commissions)
         self.AP_own = self.ui_get_AP(skip_first_screenshot=True)
 
