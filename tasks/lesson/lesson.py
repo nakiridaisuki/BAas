@@ -4,6 +4,7 @@ from module.exception import ScriptError
 from module.ocr.ocr import DigitCounter
 from tasks.base.ui import UI
 from tasks.base.page import page_lesson, Page
+from tasks.base.assets.assets_base_page import GOTO_MAIN
 from tasks.lesson.assets.assets_lesson import *
 
 class Lesson(UI):
@@ -115,6 +116,16 @@ class Lesson(UI):
                 if finished and self.appear(LOCATION_LIST):
                     break
 
+        while 1:
+            self.device.screenshot()
+            if self.ui_page_appear(location):
+                break
+            if self.appear(LOCATION_LIST, interval=2):
+                logger.info('Close location list')
+                self.device.click(GOTO_MAIN)
+                continue
+
+    # TODO fix check tickets
     def check_tickets(self, times=0, location:str = None):
         """
         Check if the current number of tickets is enough for sweeping
@@ -137,8 +148,12 @@ class Lesson(UI):
             times = ticket
         return times
 
-    # TODO fix it
     def run(self):
+        """
+        Page:
+            in: any
+            out: page_main
+        """
 
         # Initialize data
         self.for_schale_office = self.config.Lesson_SchaleOffice
@@ -162,7 +177,7 @@ class Lesson(UI):
             if time == 0:
                 continue
             
-            time = self.check_tickets(times=time, location=location)
+            # time = self.check_tickets(times=time, location=location)
             if time == 0:
                 break
             self.lesson(location=page, time=time)
