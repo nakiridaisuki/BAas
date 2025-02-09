@@ -222,12 +222,9 @@ page_campaign.link(CAMPAIGN_GOTO_TACTICAL_CHALLENGE, destination=page_tactical_c
 #############
 ### Event ###
 #############
-# From campaign to event
-page_event = Page(PAGE_EVENT)
-page_event.link(BACK, destination=page_campaign)
-page_event.link(GOTO_MAIN, destination=page_main)
-page_campaign.link(CAMPAIGN_GOTO_EVENT, destination=page_event)
-
+# You don't need page_event.
+# Since event icon always change,
+# Please use ui_goto_event to goto event
 
 # From campaign to mission
 page_mission = Page(PAGE_MISSION)

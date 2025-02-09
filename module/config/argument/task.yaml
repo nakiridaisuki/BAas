@@ -74,10 +74,10 @@ Event:
   menu: 'list'
   page: 'setting'
   tasks:
-    EventAutoStory:
+    Quest:
       - Scheduler
-    EventAutoQuest:
-      - Scheduler
+      - EventQuest
+      - EventStory
 
 # ==================== Tool ====================
 

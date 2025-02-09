@@ -131,6 +131,21 @@ class Mission(UI):
                 self.device.click(button)
                 continue
 
+    def hard(self):
+        area = self.config.HardMission_Area
+        time = self.config.HardMission_Time
+
+        self.mission('hard', area, time)
+        self.config.task_delay(server_update=True)
+
+    def normal(self):
+        area = self.config.NormalMission_Area
+        time = self.config.NormalMission_Time
+
+        self.mission('normal', area, time)
+        self.config.task_delay(server_update=True)
+
+
 if __name__ == '__main__':
     test = Mission('src')
     test.device.screenshot()

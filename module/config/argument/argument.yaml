@@ -103,64 +103,76 @@ Invite:
 CafeReward:
   ServerUpdate:
     value: True
-    dispaly: hide
+    display: hide
 
 Lesson:
-  SchaleOffice:
-    value: 1
-  SchaleResidenceHall:
-    value: 1
-  Gehenna:
-    value: 1
-  Abydos:
-    value: 1
-  Millennium:
-    value: 1
-  Trinity:
-    value: 1
-  Red_winter:
-    value: 1
-  Hyakkiyako:
-    value: 0
-  DuShiratori:
-    value: 0
-  Shanhaijing:
-    value: 0
+  SchaleOffice: 1
+  SchaleResidenceHall: 1
+  Gehenna: 1
+  Abydos: 1
+  Millennium: 1
+  Trinity: 1
+  Red_winter: 1
+  Hyakkiyako: 0
+  DuShiratori: 0
+  Shanhaijing: 0
 
 Bounty:
-  Overpass:
-    value: 2
-  DesertRailrode:
-    value: 2
-  Classroom:
-    value: 2
+  Overpass: 2
+  DesertRailrode: 2
+  Classroom: 2
 
 Scrimmage:
-  Trinity:
-    value: 2
-  Gehenna:
-    value: 2
-  Millennium:
-    value: 2
+  Trinity: 2
+  Gehenna: 2
+  Millennium: 2
 
 TacticalChallenge:
   Counter:
     value: 0
-    dispaly: hide
+    display: hide
 
 Task:
   NewDay:
     value: True
-    dispaly: hide
+    display: hide
 
 
 # ==================== Dungeon ====================
 
 Commission:
-  BaseDefense:
-    value: 1
-  ItemRetrieval:
-    value: 1
+  BaseDefense: 1
+  ItemRetrieval: 1
+
+HardMission:
+  Area: 19-3
+  Time: 3
+
+NormalMission:
+  Area: 20-4
+  Time: 1
+
+# ==================== Event ====================
+
+EventStory:
+  AutoPass:
+    type: checkbox
+    value: false
+    option: [ true, false ]
+  State:
+    value: True
+    display: hide
+
+EventQuest:
+  Area: 9
+  Time: 1
+  AutoPass:
+    type: checkbox
+    value: false
+    option: [ true, false ]
+  State:
+    value: True
+    display: hide
 
 # ==================== Tool ====================
 

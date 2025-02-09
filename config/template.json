@@ -176,22 +176,16 @@
       "NextRun": "2020-01-01 00:00:00",
       "Command": "Quest",
       "ServerUpdate": "04:00"
-    }
-  },
-  "EventAutoStory": {
-    "Scheduler": {
-      "Enable": false,
-      "NextRun": "2020-01-01 00:00:00",
-      "Command": "EventAutoStory",
-      "ServerUpdate": "04:00"
-    }
-  },
-  "EventAutoQuest": {
-    "Scheduler": {
-      "Enable": false,
-      "NextRun": "2020-01-01 00:00:00",
-      "Command": "EventAutoQuest",
-      "ServerUpdate": "04:00"
+    },
+    "EventQuest": {
+      "Area": 9,
+      "Time": 1,
+      "AutoPass": false,
+      "State": true
+    },
+    "EventStory": {
+      "AutoPass": false,
+      "State": true
     }
   },
   "Daemon": {

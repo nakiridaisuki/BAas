@@ -3,7 +3,6 @@ from module.exception import TaskError, ScriptError
 from module.logger import logger
 from module.base.timer import Timer
 from tasks.base.ui import UI
-from tasks.base.page import page_event
 from tasks.base.assets.assets_base_page import PAGE_EVENT
 from tasks.base.assets.assets_base_ui import ENTER, STARS_3
 from tasks.campaign.assets.assets_campaign_share import *
@@ -132,6 +131,7 @@ class Quest(UI):
             if self.appear_then_click(ENTER, interval=2):
                 continue
 
+    # TODO add ap check
     def sweep(self, level=None, time=None):
         if level is None:
             logger.warning('Need level')
@@ -163,8 +163,8 @@ class Quest(UI):
             if not started and self.color_appear_then_click(START_SWEEP, interval=2):
                 continue
 
-    def auto_clear(self):
-        self.ui_ensure(page_event)
+    def auto_quest(self):
+        self.ui_goto_event()
         self.switch_quest()
 
         while 1:
@@ -174,15 +174,6 @@ class Quest(UI):
             if at_bottom:
                 break
             self.ui_wait_recover(3)
-
-    # TODO complete it for scheduler
-    def run(self):
-        level = 1
-        time = 1
-
-        self.sweep(9, 5)
-
-
 
 # Test
 if __name__ == '__main__':

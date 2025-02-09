@@ -137,6 +137,7 @@ class Lesson(UI):
             times = ticket
         return times
 
+    # TODO fix it
     def run(self):
 
         # Initialize data
@@ -172,7 +173,9 @@ class Lesson(UI):
 
 if __name__ == '__main__':
     test = Lesson('src')
-    test.device.screenshot()
-    # test.for_millennium = 1
+    # test.device.screenshot()
+    # # test.for_millennium = 1
+    # buttons = test.get_location_button()
+    # print(buttons)
     test.run()
     # print(test.get_location_button(4))

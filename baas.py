@@ -48,7 +48,7 @@ class BAAutoScript(AzurLaneAutoScript):
         from tasks.campaign.scrimmage.scrimmage import Scrimmage
         Scrimmage(config=self.config, device=self.device).run()
 
-    def tacticalchallenge(self):
+    def tactical_challenge(self):
         from tasks.campaign.tactical_challenge.tactical_challenge import TacticalChallenge
         TacticalChallenge(config=self.config, device=self.device).run()
 
@@ -64,25 +64,17 @@ class BAAutoScript(AzurLaneAutoScript):
         from tasks.cafe.cafe import Cafe
         Cafe(config=self.config, device=self.device).run()
 
-    def normalmission(self):
+    def normal_mission(self):
         from tasks.campaign.mission.mission import Mission
         Mission(config=self.config, device=self.device).normal()
 
-    def hardmission(self):
+    def hard_mission(self):
         from tasks.campaign.mission.mission import Mission
         Mission(config=self.config, device=self.device).hard()
 
     def quest(self):
-        from tasks.campaign.event.quest import Quest
-        Quest(config=self.config, device=self.device).run()
-
-    def eventautostory(self):
-        from tasks.campaign.event.story import Story
-        Story(config=self.config, device=self.device).run()
-    
-    def eventautoquest(self):
-        from tasks.campaign.event.quest import Quest
-        Quest(config=self.config, device=self.device).auto_clear()
+        from tasks.campaign.event.event import Event
+        Event(config=self.config, device=self.device).run()
 
 if __name__ == '__main__':
     baas = BAAutoScript('baas')

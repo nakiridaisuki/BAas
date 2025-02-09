@@ -2,7 +2,6 @@ from module.ocr.ocr import Digit
 from module.exception import TaskError
 from module.logger import logger
 from tasks.base.ui import UI
-from tasks.base.page import page_event
 from tasks.base.assets.assets_base_page import PAGE_EVENT
 from tasks.base.assets.assets_base_ui import ENTER
 from tasks.campaign.assets.assets_campaign_share import START_MISSION
@@ -122,8 +121,8 @@ class Story(UI):
                     finished = True
                     continue
 
-    def run(self):
-        self.ui_ensure(page_event)
+    def auto_story(self):
+        self.ui_goto_event()
         self.switch_story()
 
         while 1:

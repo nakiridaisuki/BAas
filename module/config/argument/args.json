@@ -213,7 +213,7 @@
       "ServerUpdate": {
         "type": "checkbox",
         "value": true,
-        "dispaly": "hide"
+        "display": "hide"
       }
     }
   },
@@ -479,7 +479,7 @@
       "Counter": {
         "type": "input",
         "value": 0,
-        "dispaly": "hide"
+        "display": "hide"
       }
     }
   },
@@ -513,7 +513,7 @@
       "NewDay": {
         "type": "checkbox",
         "value": true,
-        "dispaly": "hide"
+        "display": "hide"
       }
     }
   },
@@ -633,11 +633,17 @@
         "value": "04:00",
         "display": "hide"
       }
-    }
-  },
-  "EventAutoStory": {
-    "Scheduler": {
-      "Enable": {
+    },
+    "EventQuest": {
+      "Area": {
+        "type": "input",
+        "value": 9
+      },
+      "Time": {
+        "type": "input",
+        "value": 1
+      },
+      "AutoPass": {
         "type": "checkbox",
         "value": false,
         "option": [
@@ -645,26 +651,14 @@
           false
         ]
       },
-      "NextRun": {
-        "type": "datetime",
-        "value": "2020-01-01 00:00:00",
-        "validate": "datetime"
-      },
-      "Command": {
-        "type": "input",
-        "value": "EventAutoStory",
-        "display": "hide"
-      },
-      "ServerUpdate": {
-        "type": "input",
-        "value": "04:00",
+      "State": {
+        "type": "checkbox",
+        "value": true,
         "display": "hide"
       }
-    }
-  },
-  "EventAutoQuest": {
-    "Scheduler": {
-      "Enable": {
+    },
+    "EventStory": {
+      "AutoPass": {
         "type": "checkbox",
         "value": false,
         "option": [
@@ -672,19 +666,9 @@
           false
         ]
       },
-      "NextRun": {
-        "type": "datetime",
-        "value": "2020-01-01 00:00:00",
-        "validate": "datetime"
-      },
-      "Command": {
-        "type": "input",
-        "value": "EventAutoQuest",
-        "display": "hide"
-      },
-      "ServerUpdate": {
-        "type": "input",
-        "value": "04:00",
+      "State": {
+        "type": "checkbox",
+        "value": true,
         "display": "hide"
       }
     }

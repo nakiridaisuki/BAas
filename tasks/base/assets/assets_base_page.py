@@ -457,10 +457,10 @@ PAGE_MAIN = ButtonWrapper(
     name='PAGE_MAIN',
     en=Button(
         file='./assets/en/base/page/PAGE_MAIN.png',
-        area=(1022, 21, 1257, 57),
-        search=(1002, 1, 1277, 77),
-        color=(207, 219, 233),
-        button=(1022, 21, 1257, 57),
+        area=(1038, 25, 1237, 53),
+        search=(1018, 5, 1257, 73),
+        color=(196, 209, 226),
+        button=(1038, 25, 1237, 53),
     ),
 )
 PAGE_MILLENNIUM = ButtonWrapper(

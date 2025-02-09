@@ -38,8 +38,7 @@
     "menu": "list",
     "page": "setting",
     "tasks": [
-      "EventAutoStory",
-      "EventAutoQuest"
+      "Quest"
     ]
   },
   "Tool": {

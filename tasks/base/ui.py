@@ -119,6 +119,10 @@ class UI(ModuleBase):
             skip_first_screenshot:
         """
 
+        if 'event' in destination.name:
+            logger.error("Since event icon alwayse change, please use ui_goto_event to goto event")
+            raise ScriptError
+
         # Find the path
         Page.init_connection(destination)
         self.interval_clear(list(Page.iter_check_buttons()))
@@ -161,6 +165,31 @@ class UI(ModuleBase):
 
         # Reset connection
         Page.clear_connection()
+
+    def ui_goto_event(self, skip_first_screenshot=False):
+        """
+        This is for going to event page, equal to ui_ensure(page_event)
+        """
+        
+        from tasks.base.page import page_campaign
+        self.ui_ensure(page_campaign)
+
+        retry = Timer(2)
+        while 1:
+            if skip_first_screenshot:
+                skip_first_screenshot = False
+            else:
+                self.device.screenshot()
+
+            if retry.reached():
+                retry.reset()
+                logger.info(f'Page switch: page_campaign -> page_event')
+                self.device.click(CAMPAIGN_GOTO_EVENT)
+                continue
+            if self.appear(PAGE_EVENT):
+                break
+        logger.info(f'Page arrive: page_event')
+
 
     def ui_ensure(self, destination, skip_first_screenshot=False):
         """
@@ -210,7 +239,8 @@ class UI(ModuleBase):
             logger.info('Handle unknow page by click home button')
             self.device.click(GOTO_MAIN)
             self.touch_timer = Timer(interval).start()
-        return True
+            return True
+        return False
 
     def ui_get_AP(self, skip_first_screenshot=False):
         if skip_first_screenshot:

@@ -17,10 +17,10 @@ LEVEL_AREA = ButtonWrapper(
     name='LEVEL_AREA',
     en=Button(
         file='./assets/en/campaign/share/LEVEL_AREA.png',
-        area=(686, 143, 752, 664),
-        search=(666, 123, 772, 684),
-        color=(207, 211, 210),
-        button=(686, 143, 752, 664),
+        area=(685, 135, 754, 633),
+        search=(665, 115, 774, 653),
+        color=(209, 212, 211),
+        button=(685, 135, 754, 633),
     ),
 )
 MINUS_SWEEP_TIME = ButtonWrapper(

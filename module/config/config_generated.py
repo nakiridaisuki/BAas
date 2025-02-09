@@ -80,6 +80,24 @@ class GeneratedConfig:
     Commission_BaseDefense = 1
     Commission_ItemRetrieval = 1
 
+    # Group `HardMission`
+    HardMission_Area = '19-3'
+    HardMission_Time = 3
+
+    # Group `NormalMission`
+    NormalMission_Area = '20-4'
+    NormalMission_Time = 1
+
+    # Group `EventStory`
+    EventStory_AutoPass = False  # True, False
+    EventStory_State = True
+
+    # Group `EventQuest`
+    EventQuest_Area = 9
+    EventQuest_Time = 1
+    EventQuest_AutoPass = False  # True, False
+    EventQuest_State = True
+
     # Group `Daemon`
     Daemon_Enable = True  # True
     Daemon_AimClicker = 'do_not_click'  # item_enemy, item, enemy, do_not_click
