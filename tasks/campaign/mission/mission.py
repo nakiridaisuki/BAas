@@ -6,6 +6,7 @@ from module.base.utils import *
 from tasks.base.ui import UI
 from tasks.campaign.assets.assets_campaign_mission import *
 from tasks.campaign.assets.assets_campaign_share import *
+from tasks.base.assets.assets_base_ui import ENTER, STARS_3
 from tasks.base.page import page_mission
 
 # TODO add auto push mission
@@ -42,17 +43,20 @@ class Mission(UI):
                 retry.reset()
                 self.device.click(NORMAL)
 
-    def find_level(self, level='1-1', in_normal=True):
+    def find_level(self, level='1-1', mode='normal'):
         """
         Arg:
             level: (str) A mission id like 3-4, 18-4
-            in_normal: (bool) if in normal mode
+            mode: (str) normal or hard
         """
         area, id = int(level.split('-')[0]), int(level.split('-')[1])
         self.set_mission_area(area)
 
-        button = self.ui_find_level(MISSION_LEVEL_AREA, in_mission=True, keyword=level)
-        if button is None and in_normal:
+        if not mode == 'normal' and not mode == 'hard':
+            logger.error(f'Get error argument {mode}')
+            raise ScriptError
+
+        if mode == 'normal':
             if id <= 2:
                 self.ui_scroll((0, 1), SWIPE_AREA)
                 self.ui_scroll((0, 1), SWIPE_AREA)
@@ -61,14 +65,26 @@ class Mission(UI):
                 self.ui_scroll((0, -1), SWIPE_AREA)
             self.ui_wait_recover()
 
-            self.device.screenshot()
-            button = self.ui_find_level(MISSION_LEVEL_AREA, in_mission=True, keyword=level)
+        ocr = Ocr(MISSION_LEVEL_AREA)
+        self.device.screenshot()
+        result = ocr.detect_and_ocr(self.device.image)
 
-        if button is None:
+        matched = False
+        for now_level in result:
+            if now_level.ocr_text == level:
+                x1, y1, x2, y2 = now_level.box
+                m = (x1 + x2) // 2
+                STARS_3.load_search((m-30, y1, m+30, y2+30))
+                ENTER.load_search((x1, y1-20, x2+450, y2+40))
+                if STARS_3.match_template(self.device.image, similarity=0.7):
+                    matched = True
+
+                break
+
+        if not matched:
             logger.warning("Can't find mission " + level)
-            logger.warning("Please check if it's three stars")
+            logger.warning("Please check if it has three stars")
             raise TaskError
-        return button
     
     def check_AP(self, times=0, location:str = None, ap=0):
         """
@@ -102,7 +118,8 @@ class Mission(UI):
             logger.error('Unknow mission mode' + mode)
             raise ScriptError
         
-        button = self.find_level(level, in_normal = mode=='normal')
+        self.find_level(level=level, mode=mode)
+
         retry = Timer(2)
         started = False
         finished = False
@@ -126,9 +143,7 @@ class Mission(UI):
                 self.device.click(MISSION_START_SWEEP)
                 retry.reset()
                 continue
-            if retry.reached():
-                retry.reset()
-                self.device.click(button)
+            if self.appear_then_click(ENTER, interval=2):
                 continue
 
     def hard(self):
@@ -149,4 +164,5 @@ class Mission(UI):
 if __name__ == '__main__':
     test = Mission('src')
     test.device.screenshot()
-    test.mission(mode='normal', level='20-4', times=20)
+    # test.mission(mode='normal', level='20-4', times=20)
+    test.mission(mode='hard', level='20-3', times=3)

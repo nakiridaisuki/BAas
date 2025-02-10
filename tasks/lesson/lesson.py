@@ -1,7 +1,7 @@
 from module.base.timer import Timer
 from module.logger import logger
 from module.exception import ScriptError
-from module.ocr.ocr import DigitCounter
+from module.ocr.ocr import Digit
 from tasks.base.ui import UI
 from tasks.base.page import page_lesson, Page
 from tasks.base.assets.assets_base_page import GOTO_MAIN
@@ -61,20 +61,24 @@ class Lesson(UI):
         self.ui_wait_recover()
 
         buttons = []
+        self.device.screenshot()
         for i in range(8, 0, -1):
             if nums <= 0:
                 break
 
             button = globals()['LOCATION_' + str(i)]
-            if self.color_appear(button, threshold=10):
+            if self.appear(button) and self.color_appear(button, threshold=5):
                 buttons.append(button)
                 nums -= 1
 
         if len(buttons) == 0:
             logger.error("Can't find any button for lesson")
+            self.device.image_show(self.device.image)
             raise ScriptError
         if nums > 0:
             logger.warning("Can't find enough button for lesson")
+            logger.warning(f'Want to find {nums+len(buttons)} but only find {len(buttons)}')
+            logger.warning(f'Will only do {len(buttons)} time(s)')
         return buttons
 
     def lesson(self, location: Page = None, time=0):
@@ -126,7 +130,7 @@ class Lesson(UI):
                 continue
 
     # TODO fix check tickets
-    def check_tickets(self, times=0, location:str = None):
+    def check_tickets(self, times=0, location=None):
         """
         Check if the current number of tickets is enough for sweeping
         Args:
@@ -135,8 +139,10 @@ class Lesson(UI):
             min(maximum times can sweep, times),
             raise TaskError if don't have any ticket
         """
-        ocr = DigitCounter(LESSON_TICKETS)
-        ticket, remain, total = ocr.ocr_single_line(self.device.image)
+        self.ui_goto(self.page_location)
+
+        ocr = Digit(LESSON_TICKETS)
+        ticket = ocr.ocr_single_line(self.device.image)
         if ticket == 0:
             logger.warning("Lesson faild at " + location)
             logger.warning(f"Don't have any tickets")
@@ -166,7 +172,7 @@ class Lesson(UI):
         self.for_hyakkiyako = self.config.Lesson_Hyakkiyako
         self.for_du_shiratori = self.config.Lesson_DuShiratori
         self.for_shanhaijing = self.config.Lesson_Shanhaijing
-
+        
         # Start Lesson
         self.ui_ensure(self.page_location)
         locations = ['schale_office', 'schale_residence_hall', 'gehenna', 'abydos', 'millennium', 'trinity', 'red_winter', 'hyakkiyako', 'du_shiratori', 'shanhaijing']
@@ -177,20 +183,20 @@ class Lesson(UI):
             if time == 0:
                 continue
             
-            # time = self.check_tickets(times=time, location=location)
+            time = self.check_tickets(times=time, location=location)
             if time == 0:
                 break
             self.lesson(location=page, time=time)
-            self.ui_goto(self.page_location)
 
         # Delay task
         self.config.task_delay(server_update=True)
 
 if __name__ == '__main__':
     test = Lesson('src')
-    # test.device.screenshot()
+    test.device.screenshot()
     # # test.for_millennium = 1
-    # buttons = test.get_location_button()
+    # buttons = test.get_location_button(8)
     # print(buttons)
+    # print(test.check_tickets(3))
     test.run()
     # print(test.get_location_button(4))

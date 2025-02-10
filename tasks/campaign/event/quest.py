@@ -2,6 +2,7 @@ from module.ocr.ocr import Digit
 from module.exception import TaskError, ScriptError
 from module.logger import logger
 from module.base.timer import Timer
+from module.base.decorator import retry
 from tasks.base.ui import UI
 from tasks.base.assets.assets_base_page import PAGE_EVENT
 from tasks.base.assets.assets_base_ui import ENTER, STARS_3
@@ -12,7 +13,11 @@ from tasks.campaign.assets.assets_campaign_event_battle import *
 
 class Quest(UI):
 
-    def find_enter_button(self, level:int = None):
+    # This value won't be change I think
+    max_quest_level = 12
+
+    @retry()
+    def find_quest_enter_button(self, level:int = None):
         """
         Set the level you want find.
         If not, use the maximum availabal level
@@ -20,7 +25,7 @@ class Quest(UI):
             level: (int)
             time: (int) how many time you want to sweep
         Return:
-            if is the last level
+            finded button's level
         """
 
         logger.info('Finding quest enter button')
@@ -34,7 +39,6 @@ class Quest(UI):
             result = ocr.detect_and_ocr(self.device.image)
             result = [x for x in result if x.ocr_text.isdigit()]
 
-        cnt = 0
         for now_level in result[::-1]:
             if int(now_level.ocr_text) > level:
                 continue
@@ -45,8 +49,7 @@ class Quest(UI):
             y2 += 50
             ENTER.load_search((x1, y1, x2, y2))
             if ENTER.match_template(self.device.image):
-                return cnt > 0
-            cnt += 1
+                return int(now_level.ocr_text)
         
         logger.warning("Didn't find enter button")
         raise TaskError
@@ -119,7 +122,7 @@ class Quest(UI):
                 continue
 
     def open_mission_info(self, level, skip_first_screenshot=True):
-        self.find_enter_button(level)
+        self.find_quest_enter_button(level)
         while 1:
             if skip_first_screenshot:
                 skip_first_screenshot = False
@@ -167,11 +170,16 @@ class Quest(UI):
         self.ui_goto_event()
         self.switch_quest()
 
+        level = None
         while 1:
-            at_bottom = self.find_enter_button()
+            if level is None:
+                level = self.find_quest_enter_button()
+            else:
+                level = self.find_quest_enter_button(level=level+1)
+            logger.hr(f'Quest autp pass {level}')
             self.quest_pass()
             
-            if at_bottom:
+            if level == self.max_quest_level:
                 break
             self.ui_wait_recover(3)
 

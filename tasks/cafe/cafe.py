@@ -85,8 +85,6 @@ class Cafe(Charater):
                 reflashed = True
                 continue
 
-
-
     def relationship(self):
         RELATIONSHIP_HINT.load_search((0, 0, 1280, 720))
 
@@ -177,4 +175,5 @@ if __name__ == '__main__':
     test.device.screenshot()
     # test.invite_then_relationship()
     # test.relationship()
-    test.invite('hoshino')
+    # test.invite('hoshino')
+    test.find_student('yuuka')

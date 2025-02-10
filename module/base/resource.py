@@ -83,9 +83,9 @@ def release_resources(next_task=''):
 
     # If no task, check in-game text language again at next run
     # cause user may change it
-    if not next_task:
-        from tasks.base.main_page import MainPage
-        MainPage._lang_checked = False
+    # if not next_task:
+    #     from tasks.base.main_page import MainPage
+    #     MainPage._lang_checked = False
 
     # Useless in most cases, but just call it
     # gc.collect()

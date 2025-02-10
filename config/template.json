@@ -92,6 +92,10 @@
       "NextRun": "2020-01-01 00:00:00",
       "Command": "HardMission",
       "ServerUpdate": "04:00"
+    },
+    "HardMission": {
+      "Area": "19-3",
+      "Time": 3
     }
   },
   "Bounty": {
@@ -168,6 +172,10 @@
       "NextRun": "2020-01-01 00:00:00",
       "Command": "NormalMission",
       "ServerUpdate": "04:00"
+    },
+    "NormalMission": {
+      "Area": "20-4",
+      "Time": 1
     }
   },
   "Quest": {
@@ -180,11 +188,11 @@
     "EventQuest": {
       "Area": 9,
       "Time": 1,
-      "AutoPass": false,
+      "AutoPass": true,
       "State": true
     },
     "EventStory": {
-      "AutoPass": false,
+      "AutoPass": true,
       "State": true
     }
   },

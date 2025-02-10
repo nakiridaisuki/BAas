@@ -67,90 +67,90 @@ LESSON_TICKETS = ButtonWrapper(
     name='LESSON_TICKETS',
     en=Button(
         file='./assets/en/lesson/LESSON_TICKETS.png',
-        area=(238, 86, 280, 117),
-        search=(218, 66, 300, 137),
-        color=(208, 217, 223),
-        button=(238, 86, 280, 117),
+        area=(239, 93, 260, 113),
+        search=(219, 73, 280, 133),
+        color=(193, 204, 211),
+        button=(239, 93, 260, 113),
     ),
 )
 LOCATION_1 = ButtonWrapper(
     name='LOCATION_1',
     en=Button(
         file='./assets/en/lesson/LOCATION_1.png',
-        area=(135, 265, 285, 293),
-        search=(115, 245, 305, 313),
-        color=(223, 228, 231),
-        button=(135, 265, 285, 293),
+        area=(142, 242, 289, 269),
+        search=(122, 222, 309, 289),
+        color=(209, 215, 218),
+        button=(142, 242, 289, 269),
     ),
 )
 LOCATION_2 = ButtonWrapper(
     name='LOCATION_2',
     en=Button(
         file='./assets/en/lesson/LOCATION_2.png',
-        area=(483, 267, 630, 294),
-        search=(463, 247, 650, 314),
-        color=(223, 228, 231),
-        button=(483, 267, 630, 294),
+        area=(484, 242, 634, 268),
+        search=(464, 222, 654, 288),
+        color=(209, 215, 218),
+        button=(484, 242, 634, 268),
     ),
 )
 LOCATION_3 = ButtonWrapper(
     name='LOCATION_3',
     en=Button(
         file='./assets/en/lesson/LOCATION_3.png',
-        area=(826, 263, 975, 297),
-        search=(806, 243, 995, 317),
-        color=(223, 228, 231),
-        button=(826, 263, 975, 297),
+        area=(830, 242, 978, 267),
+        search=(810, 222, 998, 287),
+        color=(208, 214, 217),
+        button=(830, 242, 978, 267),
     ),
 )
 LOCATION_4 = ButtonWrapper(
     name='LOCATION_4',
     en=Button(
         file='./assets/en/lesson/LOCATION_4.png',
-        area=(139, 414, 285, 448),
-        search=(119, 394, 305, 468),
-        color=(223, 228, 231),
-        button=(139, 414, 285, 448),
+        area=(140, 395, 290, 420),
+        search=(120, 375, 310, 440),
+        color=(209, 215, 218),
+        button=(140, 395, 290, 420),
     ),
 )
 LOCATION_5 = ButtonWrapper(
     name='LOCATION_5',
     en=Button(
         file='./assets/en/lesson/LOCATION_5.png',
-        area=(481, 416, 628, 446),
-        search=(461, 396, 648, 466),
-        color=(223, 228, 231),
-        button=(481, 416, 628, 446),
+        area=(487, 395, 633, 418),
+        search=(467, 375, 653, 438),
+        color=(207, 213, 216),
+        button=(487, 395, 633, 418),
     ),
 )
 LOCATION_6 = ButtonWrapper(
     name='LOCATION_6',
     en=Button(
         file='./assets/en/lesson/LOCATION_6.png',
-        area=(825, 415, 974, 445),
-        search=(805, 395, 994, 465),
-        color=(223, 228, 231),
-        button=(825, 415, 974, 445),
+        area=(829, 395, 977, 418),
+        search=(809, 375, 997, 438),
+        color=(207, 213, 216),
+        button=(829, 395, 977, 418),
     ),
 )
 LOCATION_7 = ButtonWrapper(
     name='LOCATION_7',
     en=Button(
         file='./assets/en/lesson/LOCATION_7.png',
-        area=(134, 566, 285, 597),
-        search=(114, 546, 305, 617),
-        color=(223, 228, 231),
-        button=(134, 566, 285, 597),
+        area=(141, 547, 289, 569),
+        search=(121, 527, 309, 589),
+        color=(206, 212, 216),
+        button=(141, 547, 289, 569),
     ),
 )
 LOCATION_8 = ButtonWrapper(
     name='LOCATION_8',
     en=Button(
         file='./assets/en/lesson/LOCATION_8.png',
-        area=(478, 566, 630, 598),
-        search=(458, 546, 650, 618),
-        color=(223, 228, 231),
-        button=(478, 566, 630, 598),
+        area=(485, 545, 634, 570),
+        search=(465, 525, 654, 590),
+        color=(208, 214, 217),
+        button=(485, 545, 634, 570),
     ),
 )
 LOCATION_LIST = ButtonWrapper(

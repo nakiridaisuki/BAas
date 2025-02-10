@@ -365,6 +365,16 @@
         "value": "04:00",
         "display": "hide"
       }
+    },
+    "HardMission": {
+      "Area": {
+        "type": "input",
+        "value": "19-3"
+      },
+      "Time": {
+        "type": "input",
+        "value": 3
+      }
     }
   },
   "Bounty": {
@@ -606,6 +616,16 @@
         "value": "04:00",
         "display": "hide"
       }
+    },
+    "NormalMission": {
+      "Area": {
+        "type": "input",
+        "value": "20-4"
+      },
+      "Time": {
+        "type": "input",
+        "value": 1
+      }
     }
   },
   "Quest": {
@@ -645,7 +665,7 @@
       },
       "AutoPass": {
         "type": "checkbox",
-        "value": false,
+        "value": true,
         "option": [
           true,
           false
@@ -654,13 +674,17 @@
       "State": {
         "type": "checkbox",
         "value": true,
+        "option": [
+          true,
+          false
+        ],
         "display": "hide"
       }
     },
     "EventStory": {
       "AutoPass": {
         "type": "checkbox",
-        "value": false,
+        "value": true,
         "option": [
           true,
           false
@@ -669,6 +693,10 @@
       "State": {
         "type": "checkbox",
         "value": true,
+        "option": [
+          true,
+          false
+        ],
         "display": "hide"
       }
     }

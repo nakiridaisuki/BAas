@@ -157,10 +157,11 @@ NormalMission:
 EventStory:
   AutoPass:
     type: checkbox
-    value: false
+    value: true
     option: [ true, false ]
   State:
-    value: True
+    value: true
+    option: [ true, false ]
     display: hide
 
 EventQuest:
@@ -168,10 +169,11 @@ EventQuest:
   Time: 1
   AutoPass:
     type: checkbox
-    value: false
+    value: true
     option: [ true, false ]
   State:
-    value: True
+    value: true
+    option: [ true, false ]
     display: hide
 
 # ==================== Tool ====================

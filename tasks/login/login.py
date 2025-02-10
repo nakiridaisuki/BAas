@@ -58,7 +58,7 @@ class Login(UI):
             if app_timer.reached():
                 if self.stuck_at_first():
                     logger.error('Game stuck during login')
-                    raise GameStuckError
+                    raise GameNotRunningError
                 else:
                     app_timer.stop()
 

@@ -1,5 +1,6 @@
 from module.ocr.ocr import Digit
 from module.exception import TaskError
+from module.base.decorator import retry
 from module.logger import logger
 from tasks.base.ui import UI
 from tasks.base.assets.assets_base_page import PAGE_EVENT
@@ -11,7 +12,10 @@ from tasks.campaign.assets.assets_campaign_event_battle import *
 
 class Story(UI):
 
-    def find_enter_button(self) -> bool:
+    max_story_level = 0
+
+    @retry()
+    def find_story_enter_button(self, last_level=0) -> bool:
         """
         Return:
             if the finded button is at bottom
@@ -22,18 +26,21 @@ class Story(UI):
         ocr = Digit(EVENT_LEVEL_AREA)
         result = ocr.detect_and_ocr(self.device.image)
         
-        count = 0
         for level in result[::-1]:
+            self.max_story_level = max(self.max_story_level, int(level.ocr_text))
+            if int(level.ocr_text) <= last_level:
+                break
+
             x1, y1, x2, y2 = level.box
             x2 += 450
             y1 -= 20
             y2 += 40
             ENTER.load_search((x1, y1, x2, y2))
             if ENTER.match_template(self.device.image):
-                return count == 0
-            count += 1
+                return int(level.ocr_text)
         
         logger.warning("Didn't find enter button")
+        self.switch_story()
         raise TaskError
 
     def switch_story(self, skip_first_screenshot=False):
@@ -68,7 +75,7 @@ class Story(UI):
                 logger.info('Waiting for battle end...')
                 continue
 
-            if self.appear_then_click(BATTLE_COMPLETE_CONFIRM):
+            if self.appear_then_click(BATTLE_COMPLETE_CONFIRM, interval=2):
                 break
 
     def story_pass(self):
@@ -125,11 +132,15 @@ class Story(UI):
         self.ui_goto_event()
         self.switch_story()
 
+        self.max_story_level = 0
+        level = 0
         while 1:
-            at_bottom = self.find_enter_button()
+            level = self.find_story_enter_button(last_level=level)
+            logger.hr(f'auto pass story {level}')
+
             self.story_pass()
             
-            if at_bottom:
+            if level == self.max_story_level:
                 break
 
 
@@ -137,7 +148,9 @@ class Story(UI):
 if __name__ == '__main__':
     test = Story('src')
     # test.switch_story()
-    test.run()
+    test.auto_story()
+    # test.find_enter_button()
+    # test.device.click(ENTER)
 
         
 

@@ -1,5 +1,7 @@
 from module.logger import logger
 from module.base.timer import Timer
+from module.ocr.ocr import DigitCounter
+from module.exception import TaskError
 from tasks.base.ui import UI
 from tasks.base.page import page_tactical_challenge
 from tasks.campaign.assets.assets_campaign_tactical_challenge import *
@@ -44,19 +46,29 @@ class TacticalChallenge(UI):
                 retry.reset()
                 continue
 
+    def check_tickets(self):
+        """
+        Check current number of tickets
+        Return:
+            if still have ticket
+        """
+        ocr = DigitCounter(TC_TICKETS)
+        ticket, remain, total = ocr.ocr_single_line(self.device.image)
+        if ticket == 0:
+            return False
+        return True
+
     def run(self):
 
-        count = self.config.TacticalChallenge_Counter
-        if count >= 5:
+        has_ticket = self.check_tickets()
+
+        if not has_ticket:
             self.config.task_delay(server_update=True)
-            self.config.TacticalChallenge_Counter = 0
             return
         
         self.ui_ensure(page_tactical_challenge)
-        if count == 0:
-            self.get_reward()
+        self.get_reward()
         self.start_challenge()
-        self.config.TacticalChallenge_Counter = count + 1
         self.config.task_delay(minute=1.1)
 
 # Test

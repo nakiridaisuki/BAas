@@ -35,6 +35,7 @@ Daily:
       - Scheduler
     HardMission:
       - Scheduler
+      - HardMission
     Bounty:
       - Scheduler
       - Bounty
@@ -61,10 +62,14 @@ Dungeon:
       - Commission
     NormalMission:
       - Scheduler
+      - NormalMission
     HardMission:
       - Scheduler
+      - HardMission
     Quest:
       - Scheduler
+      - EventQuest
+      - EventStory
     Crafting:
       - Scheduler
 

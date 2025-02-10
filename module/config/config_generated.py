@@ -89,14 +89,14 @@ class GeneratedConfig:
     NormalMission_Time = 1
 
     # Group `EventStory`
-    EventStory_AutoPass = False  # True, False
-    EventStory_State = True
+    EventStory_AutoPass = True  # True, False
+    EventStory_State = True  # True, False
 
     # Group `EventQuest`
     EventQuest_Area = 9
     EventQuest_Time = 1
-    EventQuest_AutoPass = False  # True, False
-    EventQuest_State = True
+    EventQuest_AutoPass = True  # True, False
+    EventQuest_State = True  # True, False
 
     # Group `Daemon`
     Daemon_Enable = True  # True

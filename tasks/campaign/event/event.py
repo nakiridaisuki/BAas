@@ -16,7 +16,7 @@ class Event(Story, Quest):
     # TODO complete it for scheduler
     def run(self):
         self.ui_ensure(page_campaign)
-        retry = Timer(3)
+        retry = Timer(1)
         while 1:
             self.device.screenshot()
             if retry.reached():
@@ -47,8 +47,10 @@ class Event(Story, Quest):
         time = self.config.EventQuest_Time
         self.sweep(level, time)
 
+        self.config.task_delay(server_update=True)
+
 # Test
 if __name__ == '__main__':
-    test = Quest('src')
+    test = Event('src')
     # test.switch_story()
     test.run()

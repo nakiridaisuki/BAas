@@ -25,7 +25,7 @@ class Charater(UI):
 
         for _ in range(40):
             self.device.screenshot()
-            if button.match_template(self.device.image, similarity=0.6):
+            if button.match_template(self.device.image, similarity=0.7):
                 x1, y1, x2, y2 = button.button
                 y1 -= 20
                 x2 += 380

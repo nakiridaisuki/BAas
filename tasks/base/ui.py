@@ -170,8 +170,12 @@ class UI(ModuleBase):
         """
         This is for going to event page, equal to ui_ensure(page_event)
         """
+        from tasks.base.page import page_campaign, page_event
+
+        if self.ui_page_appear(page_event):
+            logger.info(f'Page arrive: page_event')
+            return
         
-        from tasks.base.page import page_campaign
         self.ui_ensure(page_campaign)
 
         retry = Timer(2)

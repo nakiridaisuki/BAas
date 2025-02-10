@@ -92,6 +92,16 @@ START_CHALLENGE = ButtonWrapper(
         button=(558, 184, 733, 278),
     ),
 )
+TC_TICKETS = ButtonWrapper(
+    name='TC_TICKETS',
+    en=Button(
+        file='./assets/en/campaign/tactical_challenge/TC_TICKETS.png',
+        area=(214, 477, 247, 502),
+        search=(194, 457, 267, 522),
+        color=(213, 215, 217),
+        button=(214, 477, 247, 502),
+    ),
+)
 TIME_REWARD = ButtonWrapper(
     name='TIME_REWARD',
     en=Button(
