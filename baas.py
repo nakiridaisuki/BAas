@@ -72,7 +72,7 @@ class BAAutoScript(AzurLaneAutoScript):
         from tasks.campaign.mission.mission import Mission
         Mission(config=self.config, device=self.device).hard()
 
-    def quest(self):
+    def event(self):
         from tasks.campaign.event.event import Event
         Event(config=self.config, device=self.device).run()
 

@@ -193,11 +193,19 @@
       },
       "ServerUpdate": {
         "type": "input",
-        "value": "04:00",
+        "value": "04:00, 17:00",
         "display": "hide"
       }
     },
     "Invite": {
+      "Interval": {
+        "type": "select",
+        "value": "24hr",
+        "option": [
+          "24hr",
+          "20hr"
+        ]
+      },
       "No1": {
         "type": "input",
         "value": "yuuka",
@@ -207,13 +215,6 @@
         "type": "input",
         "value": "serika",
         "option": []
-      }
-    },
-    "CafeReward": {
-      "ServerUpdate": {
-        "type": "checkbox",
-        "value": true,
-        "display": "hide"
       }
     }
   },
@@ -484,13 +485,6 @@
         "value": "04:00",
         "display": "hide"
       }
-    },
-    "TacticalChallenge": {
-      "Counter": {
-        "type": "input",
-        "value": 0,
-        "display": "hide"
-      }
     }
   },
   "Task": {
@@ -515,14 +509,7 @@
       },
       "ServerUpdate": {
         "type": "input",
-        "value": "04:00",
-        "display": "hide"
-      }
-    },
-    "Task": {
-      "NewDay": {
-        "type": "checkbox",
-        "value": true,
+        "value": "04:00, 17:00",
         "display": "hide"
       }
     }
@@ -628,7 +615,7 @@
       }
     }
   },
-  "Quest": {
+  "Event": {
     "Scheduler": {
       "Enable": {
         "type": "checkbox",
@@ -645,7 +632,7 @@
       },
       "Command": {
         "type": "input",
-        "value": "Quest",
+        "value": "Event",
         "display": "hide"
       },
       "ServerUpdate": {
@@ -655,14 +642,6 @@
       }
     },
     "EventQuest": {
-      "Area": {
-        "type": "input",
-        "value": 9
-      },
-      "Time": {
-        "type": "input",
-        "value": 1
-      },
       "AutoPass": {
         "type": "checkbox",
         "value": true,
@@ -679,6 +658,14 @@
           false
         ],
         "display": "hide"
+      },
+      "Area": {
+        "type": "input",
+        "value": 9
+      },
+      "Time": {
+        "type": "input",
+        "value": 1
       }
     },
     "EventStory": {

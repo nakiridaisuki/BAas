@@ -60,13 +60,13 @@ class TacticalChallenge(UI):
 
     def run(self):
 
-        has_ticket = self.check_tickets()
+        self.ui_ensure(page_tactical_challenge)
 
+        has_ticket = self.check_tickets()
         if not has_ticket:
             self.config.task_delay(server_update=True)
             return
         
-        self.ui_ensure(page_tactical_challenge)
         self.get_reward()
         self.start_challenge()
         self.config.task_delay(minute=1.1)

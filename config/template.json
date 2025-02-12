@@ -40,14 +40,12 @@
       "Enable": false,
       "NextRun": "2020-01-01 00:00:00",
       "Command": "Cafe",
-      "ServerUpdate": "04:00"
+      "ServerUpdate": "04:00, 17:00"
     },
     "Invite": {
+      "Interval": "24hr",
       "No1": "yuuka",
       "No2": "serika"
-    },
-    "CafeReward": {
-      "ServerUpdate": true
     }
   },
   "Lesson": {
@@ -130,9 +128,6 @@
       "NextRun": "2020-01-01 00:00:00",
       "Command": "TacticalChallenge",
       "ServerUpdate": "04:00"
-    },
-    "TacticalChallenge": {
-      "Counter": 0
     }
   },
   "Task": {
@@ -140,10 +135,7 @@
       "Enable": true,
       "NextRun": "2020-01-01 00:00:00",
       "Command": "Task",
-      "ServerUpdate": "04:00"
-    },
-    "Task": {
-      "NewDay": true
+      "ServerUpdate": "04:00, 17:00"
     }
   },
   "Mail": {
@@ -178,18 +170,18 @@
       "Time": 1
     }
   },
-  "Quest": {
+  "Event": {
     "Scheduler": {
       "Enable": false,
       "NextRun": "2020-01-01 00:00:00",
-      "Command": "Quest",
+      "Command": "Event",
       "ServerUpdate": "04:00"
     },
     "EventQuest": {
-      "Area": 9,
-      "Time": 1,
       "AutoPass": true,
-      "State": true
+      "State": true,
+      "Area": 9,
+      "Time": 1
     },
     "EventStory": {
       "AutoPass": true,

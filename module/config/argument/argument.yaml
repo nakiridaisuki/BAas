@@ -93,17 +93,15 @@ Optimization:
 
 # Students' name will be filled in config updater
 Invite:
+  Interval:
+    value: '24hr'
+    option: [ '24hr', '20hr' ]
   No1:
     value: yuuka
     option: [ ]
   No2:
     value: serika
     option: [ ]
-
-CafeReward:
-  ServerUpdate:
-    value: True
-    display: hide
 
 Lesson:
   SchaleOffice: 1
@@ -126,16 +124,6 @@ Scrimmage:
   Trinity: 2
   Gehenna: 2
   Millennium: 2
-
-TacticalChallenge:
-  Counter:
-    value: 0
-    display: hide
-
-Task:
-  NewDay:
-    value: True
-    display: hide
 
 
 # ==================== Dungeon ====================
@@ -165,8 +153,6 @@ EventStory:
     display: hide
 
 EventQuest:
-  Area: 9
-  Time: 1
   AutoPass:
     type: checkbox
     value: true
@@ -175,6 +161,8 @@ EventQuest:
     value: true
     option: [ true, false ]
     display: hide
+  Area: 9
+  Time: 1
 
 # ==================== Tool ====================
 

@@ -12,7 +12,7 @@ class ManualConfig:
     Restart
     > Cafe > Lesson > Club > Crafting > Mail > Task
     > Bounty > Scrimmage > TacticalChallenge
-    > HardMission > Quest > NormalMission
+    > HardMission > Event > NormalMission
     > Freebies > DataUpdate
     > Rogue
     """

@@ -113,7 +113,7 @@ class Story(UI):
                 if self.appear_then_click(MOBILIZE, interval=2):
                     self.battle_pass()
                     continue
-                if self.appear_then_click(BATTLE_COMPLETE_CONFIRM):
+                if self.appear_then_click(BATTLE_COMPLETE_CONFIRM, interval=2):
                     continue
                 
             # Handle reward

@@ -94,8 +94,6 @@ class Cafe(Charater):
             logger.info(f'Relationship retry {retry + 1} time')
             self.device.screenshot()
 
-            if no_click_count > 1:
-                break
 
             img = self.relationship_hint_extract(self.device.image)
             clicked = False
@@ -111,14 +109,19 @@ class Cafe(Charater):
                     clicked = True
                 else:
                     break
-            
+
             retry += 1
-            self.reflash()
             if clicked:
                 no_click_count = 0
             else:
                 no_click_count += 1
+
+            if no_click_count > 1:
+                break
+            if retry >= 5:
+                break
                 
+            self.reflash()
 
 
     def invite_then_relationship(self):
@@ -157,15 +160,9 @@ class Cafe(Charater):
         
         # TODO invite cool is 20hr i think, try to fix it some day
         self.ui_ensure(page_cafe)
-        if self.config.CafeReward_ServerUpdate is True:
-            self.invite_then_relationship()
-            self.reward()
-            self.config.task_delay(720)
-            self.config.CafeReward_ServerUpdate = False
-        else:
-            self.reward()
-            self.config.task_delay(server_update=True)
-            self.config.CafeReward_ServerUpdate = True
+        self.invite_then_relationship()
+        self.reward()
+        self.config.task_delay(180)
             
 
 if __name__ == '__main__':

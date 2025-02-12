@@ -25,7 +25,6 @@ Daily:
     Cafe:
       - Scheduler
       - Invite
-      - CafeReward
     Lesson:
       - Scheduler
       - Lesson
@@ -44,10 +43,8 @@ Daily:
       - Scrimmage
     TacticalChallenge:
       - Scheduler
-      - TacticalChallenge
     Task:
       - Scheduler
-      - Task
     Mail:
       - Scheduler
 
@@ -66,7 +63,7 @@ Dungeon:
     HardMission:
       - Scheduler
       - HardMission
-    Quest:
+    Event:
       - Scheduler
       - EventQuest
       - EventStory
@@ -79,7 +76,7 @@ Event:
   menu: 'list'
   page: 'setting'
   tasks:
-    Quest:
+    Event:
       - Scheduler
       - EventQuest
       - EventStory

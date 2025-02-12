@@ -228,7 +228,7 @@ class UI(ModuleBase):
         self.reward_timer = Timer(interval).start()
         ocr = Ocr(REWARD_ACQUIRED)
         result = ocr.ocr_single_line(self.device.image)
-        if result == 'TOUCH':
+        if result.lower() == 'touch':
             logger.info('Reward acquired')
             self.device.click(REWARD_ACQUIRED)
             return True

@@ -30,7 +30,7 @@
       "Commission",
       "NormalMission",
       "HardMission",
-      "Quest",
+      "Event",
       "Crafting"
     ]
   },
@@ -38,7 +38,7 @@
     "menu": "list",
     "page": "setting",
     "tasks": [
-      "Quest"
+      "Event"
     ]
   },
   "Tool": {

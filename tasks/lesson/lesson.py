@@ -1,6 +1,7 @@
 from module.base.timer import Timer
+from module.base.decorator import retry
 from module.logger import logger
-from module.exception import ScriptError
+from module.exception import ScriptError, TaskError
 from module.ocr.ocr import Digit
 from tasks.base.ui import UI
 from tasks.base.page import page_lesson, Page
@@ -130,6 +131,7 @@ class Lesson(UI):
                 continue
 
     # TODO fix check tickets
+    @retry(3)
     def check_tickets(self, times=0, location=None):
         """
         Check if the current number of tickets is enough for sweeping
@@ -146,7 +148,7 @@ class Lesson(UI):
         if ticket == 0:
             logger.warning("Lesson faild at " + location)
             logger.warning(f"Don't have any tickets")
-            times = 0
+            raise TaskError
         elif ticket < times:
             logger.warning("Lesson warning at " + location)
             logger.warning(f"Don't have enough tickets, need {times} but only have {ticket}")

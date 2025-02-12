@@ -5,6 +5,7 @@ from tasks.mail.assets.assets_mail import *
 
 class Mail(UI):
 
+    # minutes
     retry_delay = 3
 
     def claim(self):
@@ -14,6 +15,8 @@ class Mail(UI):
         """
         while 1:
             self.device.screenshot()
+            if self.ui_reward_acquired():
+                continue
             if self.color_appear_then_click(MAIL_CLAIM):
                 logger.info("Claim mail")
                 continue
@@ -31,7 +34,7 @@ class Mail(UI):
         """
         self.ui_ensure(page_mail)
         success = self.claim()
-        if success:
+        if not success:
             self.config.task_delay(minute=self.retry_delay)
         else:
             self.config.task_delay(server_update=True)

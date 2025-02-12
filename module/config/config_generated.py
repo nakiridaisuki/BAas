@@ -42,11 +42,9 @@ class GeneratedConfig:
     Optimization_WhenTaskQueueEmpty = 'goto_main'  # stay_there, goto_main, close_game
 
     # Group `Invite`
+    Invite_Interval = '24hr'  # 24hr, 20hr
     Invite_No1 = 'yuuka'
     Invite_No2 = 'serika'
-
-    # Group `CafeReward`
-    CafeReward_ServerUpdate = True
 
     # Group `Lesson`
     Lesson_SchaleOffice = 1
@@ -70,12 +68,6 @@ class GeneratedConfig:
     Scrimmage_Gehenna = 2
     Scrimmage_Millennium = 2
 
-    # Group `TacticalChallenge`
-    TacticalChallenge_Counter = 0
-
-    # Group `Task`
-    Task_NewDay = True
-
     # Group `Commission`
     Commission_BaseDefense = 1
     Commission_ItemRetrieval = 1
@@ -93,10 +85,10 @@ class GeneratedConfig:
     EventStory_State = True  # True, False
 
     # Group `EventQuest`
-    EventQuest_Area = 9
-    EventQuest_Time = 1
     EventQuest_AutoPass = True  # True, False
     EventQuest_State = True  # True, False
+    EventQuest_Area = 9
+    EventQuest_Time = 1
 
     # Group `Daemon`
     Daemon_Enable = True  # True
