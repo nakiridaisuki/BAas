@@ -156,10 +156,16 @@ class Cafe(Charater):
                     logger.info('Cafe earning less then 10%')
                     break
 
+    def name_process(self, name:str):
+        name = name.replace(' (', ' ').replace(')', ' ').replace(' ', '_').lower()
+        return name
+
     def run(self):
-        
-        # TODO invite cool is 20hr i think, try to fix it some day
         self.ui_ensure(page_cafe)
+
+        self.name_cafe1 = self.name_process(self.config.Invite_No1)
+        self.name_cafe2 = self.name_process(self.config.Invite_No2)
+
         self.invite_then_relationship()
         self.reward()
         self.config.task_delay(180)

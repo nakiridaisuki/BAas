@@ -192,7 +192,7 @@ class ModuleBase:
         else:
             return self.match_template(button, interval=interval, similarity=similarity)
 
-    def appear_then_click(self, button, interval=5, similarity=0.85):
+    def appear_then_click(self, button, interval=2, similarity=0.85):
         button = self.xpath(button)
         appear = self.appear(button, interval=interval, similarity=similarity)
         if appear:

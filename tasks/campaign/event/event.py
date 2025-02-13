@@ -43,6 +43,7 @@ class Event(Story, Quest):
             self.auto_quest()
             self.config.EventQuest_State = False
 
+        self.switch_quest()
         level = self.config.EventQuest_Area
         time = self.config.EventQuest_Time
         self.sweep(level, time)
