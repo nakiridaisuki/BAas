@@ -424,12 +424,12 @@ class AlasGUI(Frame):
                     ]),
                 ]),
                 put_html('<hr class="hr-group">'),
-                put_scope("dashboard", [
-                    # Empty dashboard, values will be updated in alas_update_overview_task()
-                    put_scope(f"dashboard-row-{arg}", [])
-                    for arg in self.ALAS_STORED.keys() if deep_get(self.ALAS_STORED, keys=[arg, "order"], default=0)
-                    # Empty content to left-align last row
-                ] + [put_html("<i></i>")] * min(len(self.ALAS_STORED), 4))
+                # put_scope("dashboard", [
+                #     # Empty dashboard, values will be updated in alas_update_overview_task()
+                #     put_scope(f"dashboard-row-{arg}", [])
+                #     for arg in self.ALAS_STORED.keys() if deep_get(self.ALAS_STORED, keys=[arg, "order"], default=0)
+                #     # Empty content to left-align last row
+                # ] + [put_html("<i></i>")] * min(len(self.ALAS_STORED), 4))
             ])
             put_scope("log", [put_html("")])
 
@@ -598,16 +598,16 @@ class AlasGUI(Frame):
                 else:
                     put_text(t("Gui.Overview.NoTask")).style("--overview-notask-text--")
 
-        for arg, arg_dict in self.ALAS_STORED.items():
-            # Skip order=0
-            if not arg_dict.get("order", 0):
-                continue
-            path = arg_dict["path"]
-            if self.scope_expired_then_add(f"dashboard-time-value-{arg}", [
-                deep_get(self.alas_config.data, keys=f"{path}.value"),
-                lang.readable_time(deep_get(self.alas_config.data, keys=f"{path}.time")),
-            ]):
-                self.set_dashboard(arg, arg_dict, deep_get(self.alas_config.data, keys=path, default={}))
+        # for arg, arg_dict in self.ALAS_STORED.items():
+        #     # Skip order=0
+        #     if not arg_dict.get("order", 0):
+        #         continue
+        #     path = arg_dict["path"]
+        #     if self.scope_expired_then_add(f"dashboard-time-value-{arg}", [
+        #         deep_get(self.alas_config.data, keys=f"{path}.value"),
+        #         lang.readable_time(deep_get(self.alas_config.data, keys=f"{path}.time")),
+        #     ]):
+        #         self.set_dashboard(arg, arg_dict, deep_get(self.alas_config.data, keys=path, default={}))
 
     @use_scope("content", clear=True)
     def alas_daemon_overview(self, task: str) -> None:
@@ -1033,8 +1033,8 @@ class AlasGUI(Frame):
             def get_unused_name():
                 all_name = alas_instance()
                 for i in range(2, 100):
-                    if f"src{i}" not in all_name:
-                        return f"src{i}"
+                    if f"baas{i}" not in all_name:
+                        return f"baas{i}"
                 else:
                     return ""
 
@@ -1073,7 +1073,7 @@ class AlasGUI(Frame):
                     name="AddAlas_copyfrom",
                     label=t("Gui.AddAlas.CopyFrom"),
                     options=alas_template() + alas_instance(),
-                    value=origin or "template-src",
+                    value=origin or "template-baas",
                     scope=s,
                 ),
                 put_button(label=t("Gui.AddAlas.Confirm"), onclick=add, scope=s)
@@ -1103,11 +1103,11 @@ class AlasGUI(Frame):
             put_text("Select your language / 选择语言").style("text-align: center")
             put_buttons(
                 [
-                    {"label": "简体中文", "value": "zh-CN"},
+                    # {"label": "简体中文", "value": "zh-CN"},
                     {"label": "繁體中文", "value": "zh-TW"},
                     {"label": "English", "value": "en-US"},
-                    {"label": "日本語", "value": "ja-JP"},
-                    {"label": "Español", "value": "es-ES"},
+                    # {"label": "日本語", "value": "ja-JP"},
+                    # {"label": "Español", "value": "es-ES"},
                 ],
                 onclick=lambda l: set_language(l),
             ).style("text-align: center")
@@ -1121,13 +1121,16 @@ class AlasGUI(Frame):
             ).style("text-align: center")
 
             # show something
-            put_markdown(
-                """
-            SRC is a free open source software, if you paid for SRC from any channel, please refund.
-            SRC 是一款免费开源软件，如果你在任何渠道付费购买了SRC，请退款。
-            Project repository 项目地址：`https://github.com/LmeSzinc/StarRailCopilot`
-            """
-            ).style("text-align: center")
+            put_text("BAas is a free open source software, if you paid for BAas from any channel, please refund.\nBAas 是一款免费开源软件，如果你在任何渠道付费购买了BAas，请退款。\nProject repository 项目地址：https://github.com/nakiridaisuki/BAas").style("text-align: center")
+
+            # TODO figure out WTF is it
+            # put_markdown(
+            #     """
+            # BAas is a free open source software, if you paid for BAas from any channel, please refund.
+            # BAas 是一款免费开源软件，如果你在任何渠道付费购买了BAas，请退款。
+            # Project repository 项目地址：`https://github.com/LmeSzinc/StarRailCopilot`
+            # """
+            # ).style("text-align: center")
 
         if lang.TRANSLATE_MODE:
             lang.reload()
@@ -1145,7 +1148,7 @@ class AlasGUI(Frame):
 
     def run(self) -> None:
         # setup gui
-        set_env(title="SRC", output_animation=False)
+        set_env(title="BAas", output_animation=False)
         add_css(filepath_css("alas"))
         if self.is_mobile:
             add_css(filepath_css("alas-mobile"))

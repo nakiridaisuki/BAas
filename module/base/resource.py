@@ -13,20 +13,20 @@ def get_assets_from_file(file):
                 assets.add(result.group(1))
     return assets
 
-
+# TODO figure out what is this
 class PreservedAssets:
     @cached_property
     def ui(self):
         assets = set()
-        assets |= get_assets_from_file(
-            file='./tasks/base/assets/assets_base_page.py',
-        )
-        assets |= get_assets_from_file(
-            file='./tasks/base/assets/assets_base_popup.py',
-        )
-        assets |= get_assets_from_file(
-            file='./tasks/base/assets/assets_base_main_page.py',
-        )
+        # assets |= get_assets_from_file(
+        #     file='./tasks/base/assets/assets_base_page.py',
+        # )
+        # assets |= get_assets_from_file(
+        #     file='./tasks/base/assets/assets_base_popup.py',
+        # )
+        # assets |= get_assets_from_file(
+        #     file='./tasks/base/assets/assets_base_main_page.py',
+        # )
         return assets
 
 
@@ -83,9 +83,9 @@ def release_resources(next_task=''):
 
     # If no task, check in-game text language again at next run
     # cause user may change it
-    if not next_task:
-        from tasks.base.main_page import MainPage
-        MainPage._lang_checked = False
+    # if not next_task:
+    #     from tasks.base.main_page import MainPage
+    #     MainPage._lang_checked = False
 
     # Useless in most cases, but just call it
     # gc.collect()

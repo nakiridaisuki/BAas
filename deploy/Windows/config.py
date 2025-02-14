@@ -14,7 +14,7 @@ class ExecutionError(Exception):
 
 class ConfigModel:
     # Git
-    Repository: str = "https://github.com/LmeSzinc/AzurLaneAutoScript"
+    Repository: str = "https://github.com/nakiridaisuki/BAas"
     Branch: str = "master"
     GitExecutable: str = "./toolkit/Git/mingw64/bin/git.exe"
     GitProxy: Optional[str] = None
@@ -117,7 +117,7 @@ class DeployConfig(ConfigModel):
         # Don't write these into deploy.yaml
         super().__setattr__('GitOverCdn', self.Repository in ['cn'])
         if self.Repository in ['global', 'cn']:
-            super().__setattr__('Repository', 'https://github.com/LmeSzinc/StarRailCopilot')
+            super().__setattr__('Repository', 'https://github.com/nakiridaisuki/BAas')
 
     def filepath(self, path):
         """

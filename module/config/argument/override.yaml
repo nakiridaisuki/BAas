@@ -23,52 +23,9 @@ Restart:
 
 # ==================== Daily ====================
 
-Dungeon:
+Earning:
   Scheduler:
-    Enable:
-      type: state
-      value: true
-      option: [ true, ]
-      option_bold: [ true, ]
-  DungeonSupport:
-    Use:
-      option: [ when_daily, always_use ]
-DailyQuest:
+    ServerUpdate: 04:00, 17:00
+Task:
   Scheduler:
-    Enable:
-      type: state
-      value: true
-      option: [ true, ]
-      option_bold: [ true, ]
-BattlePass:
-  Scheduler:
-    Enable:
-      type: state
-      value: true
-      option: [ true, ]
-      option_bold: [ true, ]
-Assignment:
-  Scheduler:
-    Enable:
-      type: state
-      value: true
-      option: [ true, ]
-      option_bold: [ true, ]
-DataUpdate:
-  Scheduler:
-    Enable:
-      type: state
-      value: true
-      option: [ true, ]
-      option_bold: [ true, ]
-
-# ==================== Weekly ====================
-
-Weekly:
-  DungeonSupport:
-    Use:
-      option: [ always_use, do_not_use ]
-Ornament:
-  DungeonSupport:
-    Use:
-      option: [ when_daily, always_use ]
+    ServerUpdate: 04:00, 17:00

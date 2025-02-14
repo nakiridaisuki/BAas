@@ -1,3 +1,4 @@
+from operator import le
 from lxml import etree
 
 from module.base.timer import Timer

@@ -206,3 +206,47 @@ def run_once(f):
 
     wrapper.has_run = False
     return wrapper
+
+def retry(time=2):
+    """
+    Retry this function if it raise TaskError
+
+    Args:
+        time: (int) How many time you want to retry
+    
+    Raise:
+        TaskEnd: if function still faild after retry x times
+
+    Examples:
+        @retry(time=2)
+        def find_something(self):
+            ...
+
+            if something_happen:
+                raise TaskError
+
+        It will be retried 2 more time before raise TaskEnd
+    """
+    from module.exception import TaskError
+    from module.config.config import TaskEnd
+    from module.logger import logger
+
+    def decorate(func):
+
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            try:
+                return func(*args, **kwargs)
+            except TaskError:
+                for x in range(1, time+1):
+                    logger.info(f'Retry {x} time')
+                    try:
+                        return func(*args, **kwargs)
+                    except TaskError:
+                        pass
+                
+            raise TaskEnd
+        
+        return wrapper
+    
+    return decorate

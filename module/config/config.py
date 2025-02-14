@@ -187,9 +187,10 @@ class AzurLaneConfig(ConfigUpdater, ManualConfig, GeneratedConfig, ConfigWatcher
 
     @property
     def is_cloud_game(self):
-        return deep_get(
-            self.data, keys="Alas.Emulator.GameClient"
-        ) == 'cloud_android'
+        return False
+        # return deep_get(
+        #     self.data, keys="Alas.Emulator.GameClient"
+        # ) == 'cloud_android'
 
     @cached_property
     def stored(self) -> StoredGenerated:

@@ -3,456 +3,633 @@ from module.base.button import Button, ButtonWrapper
 # This file was auto-generated, do not modify it manually. To generate:
 # ``` python -m dev_tools.button_extract ```
 
-ASSIGNMENT_CHECK = ButtonWrapper(
-    name='ASSIGNMENT_CHECK',
-    cn=Button(
-        file='./assets/cn/base/page/ASSIGNMENT_CHECK.png',
-        area=(535, 165, 587, 181),
-        search=(515, 145, 607, 201),
-        color=(207, 199, 181),
-        button=(535, 165, 587, 181),
-    ),
-    en=Button(
-        file='./assets/en/base/page/ASSIGNMENT_CHECK.png',
-        area=(535, 165, 581, 180),
-        search=(515, 145, 601, 200),
-        color=(204, 195, 176),
-        button=(535, 165, 581, 180),
-    ),
-)
 BACK = ButtonWrapper(
     name='BACK',
-    share=Button(
-        file='./assets/share/base/page/BACK.png',
-        area=(1217, 21, 1248, 51),
-        search=(1197, 1, 1268, 71),
-        color=(56, 59, 71),
-        button=(1217, 21, 1248, 51),
+    en=Button(
+        file='./assets/en/base/page/BACK.png',
+        area=(35, 19, 79, 55),
+        search=(15, 0, 99, 75),
+        color=(94, 120, 163),
+        button=(35, 19, 79, 55),
     ),
 )
-BATTLE_PASS_CHECK = ButtonWrapper(
-    name='BATTLE_PASS_CHECK',
-    share=Button(
-        file='./assets/share/base/page/BATTLE_PASS_CHECK.png',
-        area=(42, 22, 72, 55),
-        search=(22, 2, 92, 75),
-        color=(159, 142, 108),
-        button=(42, 22, 72, 55),
+BOUNTY_GOTO_CLASSROOM = ButtonWrapper(
+    name='BOUNTY_GOTO_CLASSROOM',
+    en=Button(
+        file='./assets/en/base/page/BOUNTY_GOTO_CLASSROOM.png',
+        area=(677, 384, 881, 458),
+        search=(657, 364, 901, 478),
+        color=(121, 130, 142),
+        button=(677, 384, 881, 458),
     ),
 )
-CAMERA_CHECK = ButtonWrapper(
-    name='CAMERA_CHECK',
-    share=Button(
-        file='./assets/share/base/page/CAMERA_CHECK.png',
-        area=(1120, 344, 1160, 375),
-        search=(1100, 324, 1180, 395),
-        color=(172, 173, 172),
-        button=(1120, 344, 1160, 375),
+BOUNTY_GOTO_DESERT_RAILROAD = ButtonWrapper(
+    name='BOUNTY_GOTO_DESERT_RAILROAD',
+    en=Button(
+        file='./assets/en/base/page/BOUNTY_GOTO_DESERT_RAILROAD.png',
+        area=(678, 268, 887, 354),
+        search=(658, 248, 907, 374),
+        color=(158, 148, 138),
+        button=(678, 268, 887, 354),
     ),
 )
-CHARACTER_CHECK = ButtonWrapper(
-    name='CHARACTER_CHECK',
-    share=Button(
-        file='./assets/share/base/page/CHARACTER_CHECK.png',
-        area=(41, 18, 73, 47),
-        search=(21, 0, 93, 67),
-        color=(172, 153, 119),
-        button=(41, 18, 73, 47),
+BOUNTY_GOTO_OVERPASS = ButtonWrapper(
+    name='BOUNTY_GOTO_OVERPASS',
+    en=Button(
+        file='./assets/en/base/page/BOUNTY_GOTO_OVERPASS.png',
+        area=(682, 171, 888, 243),
+        search=(662, 151, 908, 263),
+        color=(108, 170, 204),
+        button=(682, 171, 888, 243),
     ),
 )
-CLOSE = ButtonWrapper(
-    name='CLOSE',
-    share=Button(
-        file='./assets/share/base/page/CLOSE.png',
-        area=(1222, 25, 1252, 55),
-        search=(1202, 5, 1272, 75),
-        color=(53, 54, 54),
-        button=(1222, 25, 1252, 55),
+CAMPAIGN_GOTO_BOUNTY = ButtonWrapper(
+    name='CAMPAIGN_GOTO_BOUNTY',
+    en=Button(
+        file='./assets/en/base/page/CAMPAIGN_GOTO_BOUNTY.png',
+        area=(664, 414, 795, 445),
+        search=(644, 394, 815, 465),
+        color=(178, 216, 248),
+        button=(664, 414, 795, 445),
     ),
 )
-EVENT_CHECK = ButtonWrapper(
-    name='EVENT_CHECK',
-    share=Button(
-        file='./assets/share/base/page/EVENT_CHECK.png',
-        area=(39, 19, 75, 56),
-        search=(19, 0, 95, 76),
-        color=(133, 125, 103),
-        button=(39, 19, 75, 56),
+CAMPAIGN_GOTO_COMMISSION = ButtonWrapper(
+    name='CAMPAIGN_GOTO_COMMISSION',
+    en=Button(
+        file='./assets/en/base/page/CAMPAIGN_GOTO_COMMISSION.png',
+        area=(651, 505, 778, 536),
+        search=(631, 485, 798, 556),
+        color=(188, 211, 225),
+        button=(651, 505, 778, 536),
     ),
 )
-FORGOTTEN_HALL_CHECK = ButtonWrapper(
-    name='FORGOTTEN_HALL_CHECK',
-    share=Button(
-        file='./assets/share/base/page/FORGOTTEN_HALL_CHECK.png',
-        area=(41, 21, 73, 53),
-        search=(21, 1, 93, 73),
-        color=(150, 136, 108),
-        button=(41, 21, 73, 53),
+CAMPAIGN_GOTO_EVENT = ButtonWrapper(
+    name='CAMPAIGN_GOTO_EVENT',
+    en=Button(
+        file='./assets/en/base/page/CAMPAIGN_GOTO_EVENT.png',
+        area=(68, 133, 142, 196),
+        search=(48, 113, 162, 216),
+        color=(181, 201, 213),
+        button=(68, 133, 142, 196),
     ),
 )
-GACHA_CHECK = ButtonWrapper(
-    name='GACHA_CHECK',
-    share=[
-        Button(
-            file='./assets/share/base/page/GACHA_CHECK.png',
-            area=(40, 20, 74, 54),
-            search=(20, 0, 94, 74),
-            color=(157, 139, 112),
-            button=(40, 20, 74, 54),
-        ),
-        Button(
-            file='./assets/share/base/page/GACHA_CHECK.2.png',
-            area=(41, 21, 74, 54),
-            search=(21, 1, 94, 74),
-            color=(188, 167, 142),
-            button=(41, 21, 74, 54),
-        ),
-    ],
-)
-GUIDE_CHECK = ButtonWrapper(
-    name='GUIDE_CHECK',
-    share=Button(
-        file='./assets/share/base/page/GUIDE_CHECK.png',
-        area=(64, 297, 83, 326),
-        search=(44, 277, 103, 346),
-        color=(197, 196, 197),
-        button=(64, 297, 83, 326),
+CAMPAIGN_GOTO_GRAND_ASSAULT = ButtonWrapper(
+    name='CAMPAIGN_GOTO_GRAND_ASSAULT',
+    en=Button(
+        file='./assets/en/base/page/CAMPAIGN_GOTO_GRAND_ASSAULT.png',
+        area=(1092, 383, 1170, 512),
+        search=(1072, 363, 1190, 532),
+        color=(147, 177, 208),
+        button=(1092, 383, 1170, 512),
     ),
 )
-GUIDE_CLOSE = ButtonWrapper(
-    name='GUIDE_CLOSE',
-    share=Button(
-        file='./assets/share/base/page/GUIDE_CLOSE.png',
-        area=(1215, 21, 1248, 54),
-        search=(1195, 1, 1268, 74),
-        color=(75, 82, 95),
-        button=(1215, 21, 1248, 54),
+CAMPAIGN_GOTO_JOINT_FIRING_DRILL = ButtonWrapper(
+    name='CAMPAIGN_GOTO_JOINT_FIRING_DRILL',
+    en=Button(
+        file='./assets/en/base/page/CAMPAIGN_GOTO_JOINT_FIRING_DRILL.png',
+        area=(983, 383, 1069, 523),
+        search=(963, 363, 1089, 543),
+        color=(203, 212, 225),
+        button=(983, 383, 1069, 523),
     ),
 )
-ITEM_CHECK = ButtonWrapper(
-    name='ITEM_CHECK',
-    share=Button(
-        file='./assets/share/base/page/ITEM_CHECK.png',
-        area=(43, 23, 72, 54),
-        search=(23, 3, 92, 74),
-        color=(188, 169, 129),
-        button=(43, 23, 72, 54),
+CAMPAIGN_GOTO_MISSION = ButtonWrapper(
+    name='CAMPAIGN_GOTO_MISSION',
+    en=Button(
+        file='./assets/en/base/page/CAMPAIGN_GOTO_MISSION.png',
+        area=(728, 246, 898, 307),
+        search=(708, 226, 918, 327),
+        color=(131, 203, 236),
+        button=(728, 246, 898, 307),
     ),
 )
-MAIN_GOTO_BATTLE_PASS = ButtonWrapper(
-    name='MAIN_GOTO_BATTLE_PASS',
-    share=Button(
-        file='./assets/share/base/page/MAIN_GOTO_BATTLE_PASS.png',
-        area=(860, 36, 889, 56),
-        search=(840, 16, 909, 76),
-        color=(165, 164, 162),
-        button=(860, 36, 889, 56),
+CAMPAIGN_GOTO_SCRIMMAGE = ButtonWrapper(
+    name='CAMPAIGN_GOTO_SCRIMMAGE',
+    en=Button(
+        file='./assets/en/base/page/CAMPAIGN_GOTO_SCRIMMAGE.png',
+        area=(633, 598, 761, 628),
+        search=(613, 578, 781, 648),
+        color=(216, 209, 200),
+        button=(633, 598, 761, 628),
     ),
 )
-MAIN_GOTO_CHARACTER = ButtonWrapper(
-    name='MAIN_GOTO_CHARACTER',
-    share=[
-        Button(
-            file='./assets/share/base/page/MAIN_GOTO_CHARACTER.png',
-            area=(1204, 25, 1234, 51),
-            search=(1184, 5, 1254, 71),
-            color=(184, 185, 187),
-            button=(1204, 25, 1234, 51),
-        ),
-        Button(
-            file='./assets/share/base/page/MAIN_GOTO_CHARACTER.2.png',
-            area=(1204, 25, 1234, 51),
-            search=(1184, 5, 1254, 71),
-            color=(211, 181, 211),
-            button=(1204, 25, 1234, 51),
-        ),
-    ],
-)
-MAIN_GOTO_EVENT = ButtonWrapper(
-    name='MAIN_GOTO_EVENT',
-    share=Button(
-        file='./assets/share/base/page/MAIN_GOTO_EVENT.png',
-        area=(786, 33, 814, 56),
-        search=(766, 13, 834, 76),
-        color=(185, 184, 183),
-        button=(786, 33, 814, 56),
+CAMPAIGN_GOTO_TACTICAL_CHALLENGE = ButtonWrapper(
+    name='CAMPAIGN_GOTO_TACTICAL_CHALLENGE',
+    en=Button(
+        file='./assets/en/base/page/CAMPAIGN_GOTO_TACTICAL_CHALLENGE.png',
+        area=(803, 567, 956, 624),
+        search=(783, 547, 976, 644),
+        color=(184, 197, 213),
+        button=(803, 567, 956, 624),
     ),
 )
-MAIN_GOTO_GACHA = ButtonWrapper(
-    name='MAIN_GOTO_GACHA',
-    share=Button(
-        file='./assets/share/base/page/MAIN_GOTO_GACHA.png',
-        area=(929, 38, 957, 59),
-        search=(909, 18, 977, 79),
-        color=(161, 162, 163),
-        button=(929, 38, 957, 59),
+CAMPAIGN_GOTO_TOTAL_ASSAULT = ButtonWrapper(
+    name='CAMPAIGN_GOTO_TOTAL_ASSAULT',
+    en=Button(
+        file='./assets/en/base/page/CAMPAIGN_GOTO_TOTAL_ASSAULT.png',
+        area=(834, 382, 913, 511),
+        search=(814, 362, 933, 531),
+        color=(160, 183, 204),
+        button=(834, 382, 913, 511),
     ),
 )
-MAIN_GOTO_GUIDE = ButtonWrapper(
-    name='MAIN_GOTO_GUIDE',
-    share=Button(
-        file='./assets/share/base/page/MAIN_GOTO_GUIDE.png',
-        area=(997, 34, 1027, 59),
-        search=(977, 14, 1047, 79),
-        color=(170, 171, 173),
-        button=(997, 34, 1027, 59),
+COMMISSION_GOTO_BASE_DEFENSE = ButtonWrapper(
+    name='COMMISSION_GOTO_BASE_DEFENSE',
+    en=Button(
+        file='./assets/en/base/page/COMMISSION_GOTO_BASE_DEFENSE.png',
+        area=(662, 161, 887, 248),
+        search=(642, 141, 907, 268),
+        color=(78, 127, 170),
+        button=(662, 161, 887, 248),
     ),
 )
-MAIN_GOTO_ITEM = ButtonWrapper(
-    name='MAIN_GOTO_ITEM',
-    share=Button(
-        file='./assets/share/base/page/MAIN_GOTO_ITEM.png',
-        area=(1064, 35, 1098, 59),
-        search=(1044, 15, 1118, 79),
-        color=(179, 180, 182),
-        button=(1064, 35, 1098, 59),
+COMMISSION_GOTO_ITEM_RETRIEVAL = ButtonWrapper(
+    name='COMMISSION_GOTO_ITEM_RETRIEVAL',
+    en=Button(
+        file='./assets/en/base/page/COMMISSION_GOTO_ITEM_RETRIEVAL.png',
+        area=(667, 271, 907, 355),
+        search=(647, 251, 927, 375),
+        color=(122, 120, 119),
+        button=(667, 271, 907, 355),
     ),
 )
-MAIN_GOTO_MAP = ButtonWrapper(
-    name='MAIN_GOTO_MAP',
-    share=Button(
-        file='./assets/share/base/page/MAIN_GOTO_MAP.png',
-        area=(70, 78, 166, 174),
-        search=(50, 58, 186, 194),
-        color=(91, 105, 119),
-        button=(70, 78, 166, 174),
+GOTO_MAIN = ButtonWrapper(
+    name='GOTO_MAIN',
+    en=Button(
+        file='./assets/en/base/page/GOTO_MAIN.png',
+        area=(1208, 2, 1261, 44),
+        search=(1188, 0, 1280, 64),
+        color=(205, 214, 226),
+        button=(1208, 2, 1261, 44),
     ),
 )
-MAIN_GOTO_MENU = ButtonWrapper(
-    name='MAIN_GOTO_MENU',
-    share=Button(
-        file='./assets/share/base/page/MAIN_GOTO_MENU.png',
-        area=(22, 60, 51, 81),
-        search=(2, 40, 71, 101),
-        color=(176, 177, 179),
-        button=(22, 60, 51, 81),
+MAIN_GOTO_CAFE = ButtonWrapper(
+    name='MAIN_GOTO_CAFE',
+    en=Button(
+        file='./assets/en/base/page/MAIN_GOTO_CAFE.png',
+        area=(72, 641, 112, 676),
+        search=(52, 621, 132, 696),
+        color=(178, 209, 224),
+        button=(72, 641, 112, 676),
     ),
 )
-MAIN_GOTO_MESSAGE = ButtonWrapper(
-    name='MAIN_GOTO_MESSAGE',
-    share=Button(
-        file='./assets/share/base/page/MAIN_GOTO_MESSAGE.png',
-        area=(184, 182, 203, 212),
-        search=(164, 162, 223, 232),
-        color=(230, 230, 230),
-        button=(184, 182, 203, 212),
+MAIN_GOTO_CAMPAIGN = ButtonWrapper(
+    name='MAIN_GOTO_CAMPAIGN',
+    en=Button(
+        file='./assets/en/base/page/MAIN_GOTO_CAMPAIGN.png',
+        area=(1141, 529, 1250, 574),
+        search=(1121, 509, 1270, 594),
+        color=(94, 190, 240),
+        button=(1141, 529, 1250, 574),
     ),
 )
-MAIN_GOTO_MISSION = ButtonWrapper(
-    name='MAIN_GOTO_MISSION',
-    share=Button(
-        file='./assets/share/base/page/MAIN_GOTO_MISSION.png',
-        area=(21, 199, 51, 221),
-        search=(1, 179, 71, 241),
-        color=(168, 169, 172),
-        button=(21, 199, 51, 221),
+MAIN_GOTO_CRAFTING = ButtonWrapper(
+    name='MAIN_GOTO_CRAFTING',
+    en=Button(
+        file='./assets/en/base/page/MAIN_GOTO_CRAFTING.png',
+        area=(667, 623, 695, 658),
+        search=(647, 603, 715, 678),
+        color=(193, 232, 241),
+        button=(667, 623, 695, 658),
     ),
 )
-MAIN_GOTO_TEAM = ButtonWrapper(
-    name='MAIN_GOTO_TEAM',
-    share=Button(
-        file='./assets/share/base/page/MAIN_GOTO_TEAM.png',
-        area=(1135, 41, 1166, 58),
-        search=(1115, 21, 1186, 78),
-        color=(160, 161, 164),
-        button=(1135, 41, 1166, 58),
+MAIN_GOTO_LESSON = ButtonWrapper(
+    name='MAIN_GOTO_LESSON',
+    en=Button(
+        file='./assets/en/base/page/MAIN_GOTO_LESSON.png',
+        area=(195, 653, 227, 675),
+        search=(175, 633, 247, 695),
+        color=(156, 195, 216),
+        button=(195, 653, 227, 675),
     ),
 )
-MAIN_GOTO_TUTORIAL = ButtonWrapper(
-    name='MAIN_GOTO_TUTORIAL',
-    share=Button(
-        file='./assets/share/base/page/MAIN_GOTO_TUTORIAL.png',
-        area=(195, 58, 207, 82),
-        search=(175, 38, 227, 102),
-        color=(127, 131, 139),
-        button=(195, 58, 207, 82),
+MAIN_GOTO_MAIL = ButtonWrapper(
+    name='MAIN_GOTO_MAIL',
+    en=Button(
+        file='./assets/en/base/page/MAIN_GOTO_MAIL.png',
+        area=(1121, 19, 1167, 58),
+        search=(1101, 0, 1187, 78),
+        color=(184, 202, 223),
+        button=(1121, 19, 1167, 58),
     ),
 )
-MAP_CHECK = ButtonWrapper(
-    name='MAP_CHECK',
-    share=Button(
-        file='./assets/share/base/page/MAP_CHECK.png',
-        area=(46, 19, 68, 54),
-        search=(26, 0, 88, 74),
-        color=(75, 75, 75),
-        button=(46, 19, 68, 54),
+MAIN_GOTO_MOMOTALK = ButtonWrapper(
+    name='MAIN_GOTO_MOMOTALK',
+    en=Button(
+        file='./assets/en/base/page/MAIN_GOTO_MOMOTALK.png',
+        area=(154, 132, 177, 163),
+        search=(134, 112, 197, 183),
+        color=(251, 209, 219),
+        button=(154, 132, 177, 163),
     ),
 )
-MAP_EXIT = ButtonWrapper(
-    name='MAP_EXIT',
-    share=[
-        Button(
-            file='./assets/share/base/page/MAP_EXIT.png',
-            area=(27, 46, 44, 74),
-            search=(7, 26, 64, 94),
-            color=(142, 144, 148),
-            button=(27, 46, 44, 74),
-        ),
-        Button(
-            file='./assets/share/base/page/MAP_EXIT.2.png',
-            area=(27, 46, 44, 74),
-            search=(7, 26, 64, 94),
-            color=(160, 187, 206),
-            button=(27, 46, 44, 74),
-        ),
-    ],
-)
-MAP_EXIT_OE = ButtonWrapper(
-    name='MAP_EXIT_OE',
-    share=Button(
-        file='./assets/share/base/page/MAP_EXIT_OE.png',
-        area=(51, 55, 68, 84),
-        search=(31, 35, 88, 104),
-        color=(141, 140, 141),
-        button=(51, 55, 68, 84),
+MAIN_GOTO_SHOP = ButtonWrapper(
+    name='MAIN_GOTO_SHOP',
+    en=Button(
+        file='./assets/en/base/page/MAIN_GOTO_SHOP.png',
+        area=(773, 631, 816, 666),
+        search=(753, 611, 836, 686),
+        color=(145, 208, 232),
+        button=(773, 631, 816, 666),
     ),
 )
-MAP_GOTO_WORLD = ButtonWrapper(
-    name='MAP_GOTO_WORLD',
-    share=Button(
-        file='./assets/share/base/page/MAP_GOTO_WORLD.png',
-        area=(896, 80, 1225, 116),
-        search=(876, 60, 1245, 136),
-        color=(132, 132, 132),
-        button=(896, 80, 1225, 116),
+MAIN_GOTO_SOCIAL = ButtonWrapper(
+    name='MAIN_GOTO_SOCIAL',
+    en=Button(
+        file='./assets/en/base/page/MAIN_GOTO_SOCIAL.png',
+        area=(542, 631, 582, 671),
+        search=(522, 611, 602, 691),
+        color=(164, 218, 232),
+        button=(542, 631, 582, 671),
     ),
 )
-MENU_CHECK = ButtonWrapper(
-    name='MENU_CHECK',
-    share=Button(
-        file='./assets/share/base/page/MENU_CHECK.png',
-        area=(1222, 298, 1237, 326),
-        search=(1202, 278, 1257, 346),
-        color=(65, 65, 68),
-        button=(1222, 298, 1237, 326),
+MAIN_GOTO_STUDENT = ButtonWrapper(
+    name='MAIN_GOTO_STUDENT',
+    en=Button(
+        file='./assets/en/base/page/MAIN_GOTO_STUDENT.png',
+        area=(311, 634, 345, 672),
+        search=(291, 614, 365, 692),
+        color=(173, 209, 225),
+        button=(311, 634, 345, 672),
     ),
 )
-MENU_GOTO_ASSIGNMENT = ButtonWrapper(
-    name='MENU_GOTO_ASSIGNMENT',
-    share=Button(
-        file='./assets/share/base/page/MENU_GOTO_ASSIGNMENT.png',
-        area=(1090, 269, 1153, 328),
-        search=(1070, 249, 1173, 348),
-        color=(71, 71, 74),
-        button=(1090, 269, 1153, 328),
+MAIN_GOTO_TASKS = ButtonWrapper(
+    name='MAIN_GOTO_TASKS',
+    en=Button(
+        file='./assets/en/base/page/MAIN_GOTO_TASKS.png',
+        area=(49, 220, 81, 246),
+        search=(29, 200, 101, 266),
+        color=(216, 204, 205),
+        button=(49, 220, 81, 246),
     ),
 )
-MENU_GOTO_CAMERA = ButtonWrapper(
-    name='MENU_GOTO_CAMERA',
-    share=Button(
-        file='./assets/share/base/page/MENU_GOTO_CAMERA.png',
-        area=(1219, 465, 1255, 495),
-        search=(1199, 445, 1275, 515),
-        color=(51, 52, 53),
-        button=(1219, 465, 1255, 495),
+MOMOTALK_GOTO_MAIN = ButtonWrapper(
+    name='MOMOTALK_GOTO_MAIN',
+    en=Button(
+        file='./assets/en/base/page/MOMOTALK_GOTO_MAIN.png',
+        area=(0, 0, 1280, 720),
+        search=(0, 0, 1280, 720),
+        color=(161, 158, 163),
+        button=(0, 0, 1280, 720),
     ),
 )
-MENU_GOTO_SYNTHESIZE = ButtonWrapper(
-    name='MENU_GOTO_SYNTHESIZE',
-    share=Button(
-        file='./assets/share/base/page/MENU_GOTO_SYNTHESIZE.png',
-        area=(994, 389, 1035, 424),
-        search=(974, 369, 1055, 444),
-        color=(85, 85, 85),
-        button=(994, 389, 1035, 424),
+NOW_LOADING = ButtonWrapper(
+    name='NOW_LOADING',
+    en=Button(
+        file='./assets/en/base/page/NOW_LOADING.png',
+        area=(920, 640, 1127, 688),
+        search=(900, 620, 1147, 708),
+        color=(56, 69, 82),
+        button=(920, 640, 1127, 688),
     ),
 )
-MENU_SCROLL = ButtonWrapper(
-    name='MENU_SCROLL',
-    share=Button(
-        file='./assets/share/base/page/MENU_SCROLL.png',
-        area=(1178, 261, 1184, 681),
-        search=(1158, 241, 1204, 701),
-        color=(100, 100, 105),
-        button=(1178, 261, 1184, 681),
+PAGE_BASE_DEFENSE = ButtonWrapper(
+    name='PAGE_BASE_DEFENSE',
+    en=Button(
+        file='./assets/en/base/page/PAGE_BASE_DEFENSE.png',
+        area=(90, 340, 616, 520),
+        search=(70, 320, 636, 540),
+        color=(121, 125, 135),
+        button=(90, 340, 616, 520),
     ),
 )
-MESSAGE_CLOSE = ButtonWrapper(
-    name='MESSAGE_CLOSE',
-    share=Button(
-        file='./assets/share/base/page/MESSAGE_CLOSE.png',
-        area=(863, 95, 895, 127),
-        search=(843, 75, 915, 147),
-        color=(175, 174, 175),
-        button=(863, 95, 895, 127),
+PAGE_BOUNTY = ButtonWrapper(
+    name='PAGE_BOUNTY',
+    en=Button(
+        file='./assets/en/base/page/PAGE_BOUNTY.png',
+        area=(679, 645, 717, 683),
+        search=(659, 625, 737, 703),
+        color=(115, 133, 116),
+        button=(679, 645, 717, 683),
     ),
 )
-MISSION_CHECK = ButtonWrapper(
-    name='MISSION_CHECK',
-    share=Button(
-        file='./assets/share/base/page/MISSION_CHECK.png',
-        area=(44, 33, 70, 55),
-        search=(24, 13, 90, 75),
-        color=(194, 177, 139),
-        button=(44, 33, 70, 55),
+PAGE_CAFE = ButtonWrapper(
+    name='PAGE_CAFE',
+    en=Button(
+        file='./assets/en/base/page/PAGE_CAFE.png',
+        area=(38, 611, 495, 658),
+        search=(18, 591, 515, 678),
+        color=(91, 111, 133),
+        button=(38, 611, 495, 658),
     ),
 )
-PLANNER_CHECK = ButtonWrapper(
-    name='PLANNER_CHECK',
-    share=Button(
-        file='./assets/share/base/page/PLANNER_CHECK.png',
-        area=(39, 47, 74, 74),
-        search=(19, 27, 94, 94),
-        color=(148, 131, 98),
-        button=(39, 47, 74, 74),
+PAGE_CAMPAIGN = ButtonWrapper(
+    name='PAGE_CAMPAIGN',
+    en=Button(
+        file='./assets/en/base/page/PAGE_CAMPAIGN.png',
+        area=(728, 246, 898, 307),
+        search=(708, 226, 918, 327),
+        color=(131, 203, 236),
+        button=(728, 246, 898, 307),
     ),
 )
-ROGUE_CHECK = ButtonWrapper(
-    name='ROGUE_CHECK',
-    share=[
-        Button(
-            file='./assets/share/base/page/ROGUE_CHECK.png',
-            area=(39, 17, 76, 51),
-            search=(19, 0, 96, 71),
-            color=(81, 74, 76),
-            button=(39, 17, 76, 51),
-        ),
-        Button(
-            file='./assets/share/base/page/ROGUE_CHECK.2.png',
-            area=(39, 22, 75, 52),
-            search=(19, 2, 95, 72),
-            color=(110, 100, 79),
-            button=(39, 22, 75, 52),
-        ),
-    ],
-)
-SYNTHESIZE_CHECK = ButtonWrapper(
-    name='SYNTHESIZE_CHECK',
-    share=Button(
-        file='./assets/share/base/page/SYNTHESIZE_CHECK.png',
-        area=(39, 23, 75, 52),
-        search=(19, 3, 95, 72),
-        color=(109, 101, 89),
-        button=(39, 23, 75, 52),
+PAGE_CLASSROOM = ButtonWrapper(
+    name='PAGE_CLASSROOM',
+    en=Button(
+        file='./assets/en/base/page/PAGE_CLASSROOM.png',
+        area=(95, 295, 618, 418),
+        search=(75, 275, 638, 438),
+        color=(219, 203, 194),
+        button=(95, 295, 618, 418),
     ),
 )
-TEAM_CHECK = ButtonWrapper(
-    name='TEAM_CHECK',
-    share=Button(
-        file='./assets/share/base/page/TEAM_CHECK.png',
-        area=(41, 34, 73, 54),
-        search=(21, 14, 93, 74),
-        color=(138, 123, 101),
-        button=(41, 34, 73, 54),
+PAGE_CLUB = ButtonWrapper(
+    name='PAGE_CLUB',
+    en=Button(
+        file='./assets/en/base/page/PAGE_CLUB.png',
+        area=(1072, 654, 1103, 684),
+        search=(1052, 634, 1123, 704),
+        color=(213, 216, 220),
+        button=(1072, 654, 1103, 684),
     ),
 )
-TUTORIAL_CHECK = ButtonWrapper(
-    name='TUTORIAL_CHECK',
-    share=Button(
-        file='./assets/share/base/page/TUTORIAL_CHECK.png',
-        area=(44, 30, 70, 56),
-        search=(24, 10, 90, 76),
-        color=(141, 126, 99),
-        button=(44, 30, 70, 56),
+PAGE_COMMISSION = ButtonWrapper(
+    name='PAGE_COMMISSION',
+    en=Button(
+        file='./assets/en/base/page/PAGE_COMMISSION.png',
+        area=(806, 160, 915, 356),
+        search=(786, 140, 935, 376),
+        color=(136, 166, 186),
+        button=(806, 160, 915, 356),
     ),
 )
-WORLD_CHECK = ButtonWrapper(
-    name='WORLD_CHECK',
-    share=Button(
-        file='./assets/share/base/page/WORLD_CHECK.png',
-        area=(46, 19, 68, 54),
-        search=(26, 0, 88, 74),
-        color=(110, 102, 87),
-        button=(46, 19, 68, 54),
+PAGE_CRAFTING = ButtonWrapper(
+    name='PAGE_CRAFTING',
+    en=Button(
+        file='./assets/en/base/page/PAGE_CRAFTING.png',
+        area=(99, 6, 218, 45),
+        search=(79, 0, 238, 65),
+        color=(202, 208, 202),
+        button=(99, 6, 218, 45),
+    ),
+)
+PAGE_DESERT_RAILROAD = ButtonWrapper(
+    name='PAGE_DESERT_RAILROAD',
+    en=Button(
+        file='./assets/en/base/page/PAGE_DESERT_RAILROAD.png',
+        area=(94, 292, 617, 418),
+        search=(74, 272, 637, 438),
+        color=(204, 167, 136),
+        button=(94, 292, 617, 418),
+    ),
+)
+PAGE_EVENT = ButtonWrapper(
+    name='PAGE_EVENT',
+    en=Button(
+        file='./assets/en/base/page/PAGE_EVENT.png',
+        area=(106, 10, 184, 39),
+        search=(86, 0, 204, 59),
+        color=(188, 198, 207),
+        button=(106, 10, 184, 39),
+    ),
+)
+PAGE_FORMATION = ButtonWrapper(
+    name='PAGE_FORMATION',
+    en=Button(
+        file='./assets/en/base/page/PAGE_FORMATION.png',
+        area=(107, 12, 245, 36),
+        search=(87, 0, 265, 56),
+        color=(174, 184, 195),
+        button=(107, 12, 245, 36),
+    ),
+)
+PAGE_GEHENNA = ButtonWrapper(
+    name='PAGE_GEHENNA',
+    en=Button(
+        file='./assets/en/base/page/PAGE_GEHENNA.png',
+        area=(94, 346, 613, 541),
+        search=(74, 326, 633, 561),
+        color=(132, 118, 108),
+        button=(94, 346, 613, 541),
+    ),
+)
+PAGE_GRAND_ASSAULT = ButtonWrapper(
+    name='PAGE_GRAND_ASSAULT',
+    en=Button(
+        file='./assets/en/base/page/PAGE_GRAND_ASSAULT.png',
+        area=(105, 12, 293, 36),
+        search=(85, 0, 313, 56),
+        color=(174, 184, 195),
+        button=(105, 12, 293, 36),
+    ),
+)
+PAGE_ITEM_RETRIEVAL = ButtonWrapper(
+    name='PAGE_ITEM_RETRIEVAL',
+    en=Button(
+        file='./assets/en/base/page/PAGE_ITEM_RETRIEVAL.png',
+        area=(90, 344, 618, 518),
+        search=(70, 324, 638, 538),
+        color=(102, 114, 108),
+        button=(90, 344, 618, 518),
+    ),
+)
+PAGE_JOINT_FIRING_DRILL = ButtonWrapper(
+    name='PAGE_JOINT_FIRING_DRILL',
+    en=Button(
+        file='./assets/en/base/page/PAGE_JOINT_FIRING_DRILL.png',
+        area=(101, 10, 309, 42),
+        search=(81, 0, 329, 62),
+        color=(190, 198, 204),
+        button=(101, 10, 309, 42),
+    ),
+)
+PAGE_LESSON = ButtonWrapper(
+    name='PAGE_LESSON',
+    en=Button(
+        file='./assets/en/base/page/PAGE_LESSON.png',
+        area=(58, 93, 82, 113),
+        search=(38, 73, 102, 133),
+        color=(197, 212, 229),
+        button=(58, 93, 82, 113),
+    ),
+)
+PAGE_MAIL = ButtonWrapper(
+    name='PAGE_MAIL',
+    en=Button(
+        file='./assets/en/base/page/PAGE_MAIL.png',
+        area=(153, 563, 214, 615),
+        search=(133, 543, 234, 635),
+        color=(198, 221, 234),
+        button=(153, 563, 214, 615),
+    ),
+)
+PAGE_MAIN = ButtonWrapper(
+    name='PAGE_MAIN',
+    en=Button(
+        file='./assets/en/base/page/PAGE_MAIN.png',
+        area=(1038, 25, 1237, 53),
+        search=(1018, 5, 1257, 73),
+        color=(196, 209, 226),
+        button=(1038, 25, 1237, 53),
+    ),
+)
+PAGE_MILLENNIUM = ButtonWrapper(
+    name='PAGE_MILLENNIUM',
+    en=Button(
+        file='./assets/en/base/page/PAGE_MILLENNIUM.png',
+        area=(89, 355, 616, 546),
+        search=(69, 335, 636, 566),
+        color=(146, 174, 211),
+        button=(89, 355, 616, 546),
+    ),
+)
+PAGE_MISSION = ButtonWrapper(
+    name='PAGE_MISSION',
+    en=Button(
+        file='./assets/en/base/page/PAGE_MISSION.png',
+        area=(102, 567, 131, 592),
+        search=(82, 547, 151, 612),
+        color=(240, 236, 213),
+        button=(102, 567, 131, 592),
+    ),
+)
+PAGE_MOMOTALK = ButtonWrapper(
+    name='PAGE_MOMOTALK',
+    en=Button(
+        file='./assets/en/base/page/PAGE_MOMOTALK.png',
+        area=(170, 102, 315, 135),
+        search=(150, 82, 335, 155),
+        color=(249, 181, 194),
+        button=(170, 102, 315, 135),
+    ),
+)
+PAGE_OVERPASS = ButtonWrapper(
+    name='PAGE_OVERPASS',
+    en=Button(
+        file='./assets/en/base/page/PAGE_OVERPASS.png',
+        area=(93, 291, 620, 414),
+        search=(73, 271, 640, 434),
+        color=(136, 134, 144),
+        button=(93, 291, 620, 414),
+    ),
+)
+PAGE_SCRIMMAGE = ButtonWrapper(
+    name='PAGE_SCRIMMAGE',
+    en=Button(
+        file='./assets/en/base/page/PAGE_SCRIMMAGE.png',
+        area=(781, 157, 881, 462),
+        search=(761, 137, 901, 482),
+        color=(169, 191, 205),
+        button=(781, 157, 881, 462),
+    ),
+)
+PAGE_SELECT_LOCATION = ButtonWrapper(
+    name='PAGE_SELECT_LOCATION',
+    en=Button(
+        file='./assets/en/base/page/PAGE_SELECT_LOCATION.png',
+        area=(103, 7, 305, 39),
+        search=(83, 0, 325, 59),
+        color=(194, 202, 210),
+        button=(103, 7, 305, 39),
+    ),
+)
+PAGE_SHOP = ButtonWrapper(
+    name='PAGE_SHOP',
+    en=Button(
+        file='./assets/en/base/page/PAGE_SHOP.png',
+        area=(105, 10, 174, 43),
+        search=(85, 0, 194, 63),
+        color=(189, 197, 199),
+        button=(105, 10, 174, 43),
+    ),
+)
+PAGE_SOCIAL = ButtonWrapper(
+    name='PAGE_SOCIAL',
+    en=Button(
+        file='./assets/en/base/page/PAGE_SOCIAL.png',
+        area=(519, 169, 593, 241),
+        search=(499, 149, 613, 261),
+        color=(139, 195, 218),
+        button=(519, 169, 593, 241),
+    ),
+)
+PAGE_STUDENT = ButtonWrapper(
+    name='PAGE_STUDENT',
+    en=Button(
+        file='./assets/en/base/page/PAGE_STUDENT.png',
+        area=(104, 10, 226, 38),
+        search=(84, 0, 246, 58),
+        color=(183, 192, 202),
+        button=(104, 10, 226, 38),
+    ),
+)
+PAGE_TACTICAL_CHALLENGE = ButtonWrapper(
+    name='PAGE_TACTICAL_CHALLENGE',
+    en=Button(
+        file='./assets/en/base/page/PAGE_TACTICAL_CHALLENGE.png',
+        area=(902, 134, 928, 162),
+        search=(882, 114, 948, 182),
+        color=(122, 191, 230),
+        button=(902, 134, 928, 162),
+    ),
+)
+PAGE_TASK = ButtonWrapper(
+    name='PAGE_TASK',
+    en=Button(
+        file='./assets/en/base/page/PAGE_TASK.png',
+        area=(870, 650, 907, 681),
+        search=(850, 630, 927, 701),
+        color=(177, 228, 251),
+        button=(870, 650, 907, 681),
+    ),
+)
+PAGE_TOTAL_ASSAULT = ButtonWrapper(
+    name='PAGE_TOTAL_ASSAULT',
+    en=Button(
+        file='./assets/en/base/page/PAGE_TOTAL_ASSAULT.png',
+        area=(105, 10, 277, 37),
+        search=(85, 0, 297, 57),
+        color=(181, 190, 201),
+        button=(105, 10, 277, 37),
+    ),
+)
+PAGE_TRINITY = ButtonWrapper(
+    name='PAGE_TRINITY',
+    en=Button(
+        file='./assets/en/base/page/PAGE_TRINITY.png',
+        area=(93, 361, 618, 543),
+        search=(73, 341, 638, 563),
+        color=(175, 177, 149),
+        button=(93, 361, 618, 543),
+    ),
+)
+SCRIMMAGE_GOTO_GEHENNA = ButtonWrapper(
+    name='SCRIMMAGE_GOTO_GEHENNA',
+    en=Button(
+        file='./assets/en/base/page/SCRIMMAGE_GOTO_GEHENNA.png',
+        area=(663, 268, 903, 355),
+        search=(643, 248, 923, 375),
+        color=(171, 183, 198),
+        button=(663, 268, 903, 355),
+    ),
+)
+SCRIMMAGE_GOTO_MILLENNIUM = ButtonWrapper(
+    name='SCRIMMAGE_GOTO_MILLENNIUM',
+    en=Button(
+        file='./assets/en/base/page/SCRIMMAGE_GOTO_MILLENNIUM.png',
+        area=(661, 380, 907, 462),
+        search=(641, 360, 927, 482),
+        color=(146, 174, 189),
+        button=(661, 380, 907, 462),
+    ),
+)
+SCRIMMAGE_GOTO_TRINITY = ButtonWrapper(
+    name='SCRIMMAGE_GOTO_TRINITY',
+    en=Button(
+        file='./assets/en/base/page/SCRIMMAGE_GOTO_TRINITY.png',
+        area=(664, 162, 905, 249),
+        search=(644, 142, 925, 269),
+        color=(193, 205, 209),
+        button=(664, 162, 905, 249),
+    ),
+)
+SOCIAL_GOTO_CLUB = ButtonWrapper(
+    name='SOCIAL_GOTO_CLUB',
+    en=Button(
+        file='./assets/en/base/page/SOCIAL_GOTO_CLUB.png',
+        area=(191, 308, 393, 451),
+        search=(171, 288, 413, 471),
+        color=(211, 220, 231),
+        button=(191, 308, 393, 451),
     ),
 )

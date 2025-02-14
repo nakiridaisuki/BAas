@@ -1,5 +1,7 @@
 import traceback
 
+from numpy import empty
+
 from tasks.base.assets.assets_base_page import *
 
 
@@ -16,27 +18,29 @@ class Page:
     @classmethod
     def init_connection(cls, destination):
         """
-        Initialize an A* path finding among pages.
+        Find path amoung pages useing BFS
 
         Args:
+            now (Page):
             destination (Page):
+        Return:
+            path: A list of Button
         """
         cls.clear_connection()
 
-        visited = [destination]
-        visited = set(visited)
+        visited = []
+        que = [destination]
+
         while 1:
-            new = visited.copy()
-            for page in visited:
-                for link in cls.iter_pages():
-                    if link in visited:
-                        continue
-                    if page in link.links:
-                        link.parent = page
-                        new.add(link)
-            if len(new) == len(visited):
+            try:
+                node = que.pop(0)
+            except:
                 break
-            visited = new
+            for next in node.neighbor:
+                if next in visited: continue
+                visited.append(next)
+                que.append(next)
+                next.parent = node
 
     @classmethod
     def iter_pages(cls):
@@ -50,6 +54,7 @@ class Page:
     def __init__(self, check_button):
         self.check_button = check_button
         self.links = {}
+        self.neighbor = []
         (filename, line_number, function_name, text) = traceback.extract_stack()[-2]
         self.name = text[:text.find('=')].strip()
         self.parent = None
@@ -66,99 +71,183 @@ class Page:
 
     def link(self, button, destination):
         self.links[destination] = button
+        destination.neighbor.append(self)
 
 
+# Bottom area
 # Main page
-page_main = Page(MAIN_GOTO_CHARACTER)
+page_main = Page(PAGE_MAIN)
 
-# Menu, entered from phone
-page_menu = Page(MENU_CHECK)
-page_menu.link(CLOSE, destination=page_main)
-page_main.link(MAIN_GOTO_MENU, destination=page_menu)
+# Cafe
+page_cafe = Page(PAGE_CAFE)
+page_cafe.link(GOTO_MAIN, destination=page_main)
+page_main.link(MAIN_GOTO_CAFE, destination=page_cafe)
 
-# Character
-page_character = Page(CHARACTER_CHECK)
-page_character.link(CLOSE, destination=page_main)
-page_main.link(MAIN_GOTO_CHARACTER, destination=page_character)
+# Lesson
+page_lesson = Page(PAGE_LESSON)
+page_lesson.link(GOTO_MAIN, destination=page_main)
+page_main.link(MAIN_GOTO_LESSON, destination=page_lesson)
 
-# Team
-page_team = Page(TEAM_CHECK)
-page_team.link(CLOSE, destination=page_main)
-page_main.link(MAIN_GOTO_TEAM, destination=page_team)
+# Student
+page_student = Page(PAGE_STUDENT)
+page_student.link(GOTO_MAIN, destination=page_main)
+page_main.link(MAIN_GOTO_STUDENT, destination=page_student)
 
-# Item, storage
-page_item = Page(ITEM_CHECK)
-page_item.link(CLOSE, destination=page_main)
-page_main.link(MAIN_GOTO_ITEM, destination=page_item)
+# Social
+page_social = Page(PAGE_SOCIAL)
+page_social.link(GOTO_MAIN, destination=page_main)
+page_main.link(MAIN_GOTO_SOCIAL, destination=page_social)
 
-# Guide, which includes beginners' guide, daily missions and dungeons
-page_guide = Page(GUIDE_CHECK)
-page_guide.link(GUIDE_CLOSE, destination=page_main)
-page_main.link(MAIN_GOTO_GUIDE, destination=page_guide)
+# From social to club
+page_club = Page(PAGE_CLUB)
+page_club.link(GOTO_MAIN, destination=page_main)
+page_social.link(SOCIAL_GOTO_CLUB, destination=page_club)
 
-# Gacha
-page_gacha = Page(GACHA_CHECK)
-page_gacha.link(CLOSE, destination=page_main)
-page_main.link(MAIN_GOTO_GACHA, destination=page_gacha)
+# Crafting
+page_crafting = Page(PAGE_CRAFTING)
+page_crafting.link(GOTO_MAIN, destination=page_main)
+page_main.link(MAIN_GOTO_CRAFTING, destination=page_crafting)
 
-# Battle Pass
-page_battle_pass = Page(BATTLE_PASS_CHECK)
-page_battle_pass.link(CLOSE, destination=page_main)
-page_main.link(MAIN_GOTO_BATTLE_PASS, destination=page_battle_pass)
+# Shop
+page_shop = Page(PAGE_SHOP)
+page_shop.link(GOTO_MAIN, destination=page_main)
+page_main.link(MAIN_GOTO_SHOP, destination=page_shop)
 
-# Event
-page_event = Page(EVENT_CHECK)
-page_event.link(CLOSE, destination=page_main)
-page_main.link(MAIN_GOTO_EVENT, destination=page_event)
+# Mail
+page_mail = Page(PAGE_MAIL)
+page_mail.link(GOTO_MAIN, destination=page_main)
+page_main.link(MAIN_GOTO_MAIL, destination=page_mail)
 
-# Map
-page_map = Page(MAP_CHECK)
-page_map.link(CLOSE, destination=page_main)
-page_main.link(MAIN_GOTO_MAP, destination=page_map)
+# Left area
+# Task
+page_task = Page(PAGE_TASK)
+page_task.link(GOTO_MAIN, destination=page_main)
+page_main.link(MAIN_GOTO_TASKS, destination=page_task)
 
-# page_world, subpage of map, used to choose a world/planet e.g. Herta Space Station
-page_world = Page(WORLD_CHECK)
-page_world.link(BACK, destination=page_map)
-page_map.link(MAP_GOTO_WORLD, destination=page_world)
+# Momotalk
+page_momotalk = Page(PAGE_MOMOTALK)
+page_momotalk.link(MOMOTALK_GOTO_MAIN, destination=page_main)
+page_main.link(MAIN_GOTO_MOMOTALK, destination=page_momotalk)
 
-# Tutorial
-page_tutorial = Page(TUTORIAL_CHECK)
-page_tutorial.link(CLOSE, destination=page_main)
-page_main.link(MAIN_GOTO_TUTORIAL, destination=page_tutorial)
+# Campaign area
+## Campaign
+page_campaign = Page(PAGE_CAMPAIGN)
+page_campaign.link(GOTO_MAIN, destination=page_main)
+page_main.link(MAIN_GOTO_CAMPAIGN, destination=page_campaign)
 
-# Mission
-page_mission = Page(MISSION_CHECK)
-page_mission.link(CLOSE, destination=page_main)
-page_main.link(MAIN_GOTO_MISSION, destination=page_mission)
+##############
+### Bounty ###
+##############
+# From campaign to bounty
+page_bounty = Page(PAGE_BOUNTY)
+page_bounty.link(BACK, destination=page_campaign)
+page_bounty.link(GOTO_MAIN, destination=page_main)
+page_campaign.link(CAMPAIGN_GOTO_BOUNTY, destination=page_bounty)
 
-# Message
-page_message = Page(MESSAGE_CLOSE)
-page_message.link(MESSAGE_CLOSE, destination=page_main)
-page_main.link(MAIN_GOTO_MESSAGE, destination=page_message)
+# From bounty to overpass
+page_overpass = Page(PAGE_OVERPASS)
+page_overpass.link(BACK, destination=page_bounty)
+page_overpass.link(GOTO_MAIN, destination=page_main)
+page_bounty.link(BOUNTY_GOTO_OVERPASS, destination=page_overpass)
 
-# Camera
-page_camera = Page(CAMERA_CHECK)
-page_camera.link(CLOSE, destination=page_menu)
-page_menu.link(MENU_GOTO_CAMERA, destination=page_camera)
+# From bounty to desert_railroad
+page_desert_railroad = Page(PAGE_DESERT_RAILROAD)
+page_desert_railroad.link(BACK, destination=page_bounty)
+page_desert_railroad.link(GOTO_MAIN, destination=page_main)
+page_bounty.link(BOUNTY_GOTO_DESERT_RAILROAD, destination=page_desert_railroad)
 
-# Synthesize
-page_synthesize = Page(SYNTHESIZE_CHECK)
-page_synthesize.link(CLOSE, destination=page_menu)
-page_menu.link(MENU_GOTO_SYNTHESIZE, destination=page_synthesize)
+# From bounty to classroom
+page_classroom = Page(PAGE_CLASSROOM)
+page_classroom.link(BACK, destination=page_bounty)
+page_classroom.link(GOTO_MAIN, destination=page_main)
+page_bounty.link(BOUNTY_GOTO_CLASSROOM, destination=page_classroom)
 
-# Assignment
-page_assignment = Page(ASSIGNMENT_CHECK)
-page_assignment.link(CLOSE, destination=page_main)
-page_menu.link(MENU_GOTO_ASSIGNMENT, destination=page_assignment)
+##################
+### Commission ###
+##################
+# From campaign to commissions
+page_commissions = Page(PAGE_COMMISSION)
+page_commissions.link(BACK, destination=page_campaign)
+page_commissions.link(GOTO_MAIN, destination=page_main)
+page_campaign.link(CAMPAIGN_GOTO_COMMISSION, destination=page_commissions)
 
-# Forgotten Hall
-page_forgotten_hall = Page(FORGOTTEN_HALL_CHECK)
-page_forgotten_hall.link(CLOSE, destination=page_main)
+# From commission goto base defense
+page_base_defense = Page(PAGE_BASE_DEFENSE)
+page_base_defense.link(BACK, destination=page_commissions)
+page_base_defense.link(GOTO_MAIN, destination=page_main)
+page_commissions.link(COMMISSION_GOTO_BASE_DEFENSE, destination=page_base_defense)
 
-# Rogue, Simulated Universe
-page_rogue = Page(ROGUE_CHECK)
-page_rogue.link(CLOSE, destination=page_main)
+# From commission goto item retrieval
+page_item_retrieval = Page(PAGE_ITEM_RETRIEVAL)
+page_item_retrieval.link(BACK, destination=page_commissions)
+page_item_retrieval.link(GOTO_MAIN, destination=page_main)
+page_commissions.link(COMMISSION_GOTO_ITEM_RETRIEVAL, destination=page_item_retrieval)
 
-# Planner result
-page_planner = Page(PLANNER_CHECK)
-page_planner.link(CLOSE, destination=page_menu)
+#################
+### Scrimmage ###
+#################
+# From campaign to scrimmage
+page_scrimmage = Page(PAGE_SCRIMMAGE)
+page_scrimmage.link(BACK, destination=page_campaign)
+page_scrimmage.link(GOTO_MAIN, destination=page_main)
+page_campaign.link(CAMPAIGN_GOTO_SCRIMMAGE, destination=page_scrimmage)
+
+# From scrimmage goto trinity
+page_trinity = Page(PAGE_TRINITY)
+page_trinity.link(BACK, destination=page_scrimmage)
+page_trinity.link(GOTO_MAIN, destination=page_main)
+page_scrimmage.link(SCRIMMAGE_GOTO_TRINITY, destination=page_trinity)
+
+# From scrimmage goto gehenna
+page_gehenna = Page(PAGE_GEHENNA)
+page_gehenna.link(BACK, destination=page_scrimmage)
+page_gehenna.link(GOTO_MAIN, destination=page_main)
+page_scrimmage.link(SCRIMMAGE_GOTO_GEHENNA, destination=page_gehenna)
+
+# From scrimmage goto millennium
+page_millennium = Page(PAGE_MILLENNIUM)
+page_millennium.link(BACK, destination=page_scrimmage)
+page_millennium.link(GOTO_MAIN, destination=page_main)
+page_scrimmage.link(SCRIMMAGE_GOTO_MILLENNIUM, destination=page_millennium)
+
+##########################
+### Tactical challenge ###
+##########################
+# From campaign to tactical_challenge
+page_tactical_challenge = Page(PAGE_TACTICAL_CHALLENGE)
+page_tactical_challenge.link(BACK, destination=page_campaign)
+page_tactical_challenge.link(GOTO_MAIN, destination=page_main)
+page_campaign.link(CAMPAIGN_GOTO_TACTICAL_CHALLENGE, destination=page_tactical_challenge)
+
+#############
+### Event ###
+#############
+page_event = Page(PAGE_EVENT)
+page_event.link(BACK, destination=page_campaign)
+page_event.link(GOTO_MAIN, destination=page_main)
+# Since event icon always change, page_campaign don't need and can't link to page_event
+# Please use ui_goto_event to goto event
+
+# From campaign to mission
+page_mission = Page(PAGE_MISSION)
+page_mission.link(BACK, destination=page_campaign)
+page_mission.link(GOTO_MAIN, destination=page_main)
+page_campaign.link(CAMPAIGN_GOTO_MISSION, destination=page_mission)
+
+# From campaign to total_assault
+page_total_assault = Page(PAGE_TOTAL_ASSAULT)
+page_total_assault.link(BACK, destination=page_campaign)
+page_total_assault.link(GOTO_MAIN, destination=page_main)
+page_campaign.link(CAMPAIGN_GOTO_TOTAL_ASSAULT, destination=page_total_assault)
+
+# From campaign to joint_firing_drill
+page_joint_firing_drill = Page(PAGE_JOINT_FIRING_DRILL)
+page_joint_firing_drill.link(BACK, destination=page_campaign)
+page_joint_firing_drill.link(GOTO_MAIN, destination=page_main)
+page_campaign.link(CAMPAIGN_GOTO_JOINT_FIRING_DRILL, destination=page_joint_firing_drill)
+
+# From campaign to grand_assault
+page_grand_assault = Page(PAGE_GRAND_ASSAULT)
+page_grand_assault.link(BACK, destination=page_campaign)
+page_grand_assault.link(GOTO_MAIN, destination=page_main)
+page_campaign.link(CAMPAIGN_GOTO_GRAND_ASSAULT, destination=page_grand_assault)
