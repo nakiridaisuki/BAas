@@ -41,12 +41,13 @@ class Relationship(UI):
                 if reflashed:
                     break
                 else:
-                    self.device.click(EDIT)
+                    self.device.click(EDIT, control_check=False)
                     continue
             
             if self.color_appear_then_click(RELATIONSHIP_RANKUP):
                 continue
-            if self.appear_then_click(FINISH_EDIT, interval=2):
+            if self.appear(FINISH_EDIT, interval=2):
+                self.device.click(FINISH_EDIT, control_check=False)
                 reflashed = True
                 continue
 

@@ -12,6 +12,8 @@ VALID_SERVER = {
 }
 
 VALID_PACKAGE = set(list(VALID_SERVER.values()))
+VALID_CLOUD_SERVER = {}
+VALID_CLOUD_PACKAGE = set(list(VALID_CLOUD_SERVER.values()))
 
 DICT_PACKAGE_TO_ACTIVITY = {
     'com.miHoYo.hkrpg': 'com.mihoyo.combosdk.ComboSDKActivity',

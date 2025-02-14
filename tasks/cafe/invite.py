@@ -16,6 +16,9 @@ class Invite(UI):
         Find the invite button of student in invite list
         INVITE_BUTTON.search will be chenged after calling this function
         so you can use functhons like self.appear(INVITE_BUTTON) directly
+
+        Return:
+            True if success
         """
         if name is None:
             logger.error("Don't set name")
@@ -26,7 +29,7 @@ class Invite(UI):
 
         #TODO add list button check
 
-        for _ in range(40):
+        for _ in range(30):
             self.device.screenshot()
             if button.match_template(self.device.image, similarity=0.7):
                 x1, y1, x2, y2 = button.button
@@ -35,17 +38,23 @@ class Invite(UI):
                 y2 += 20
 
                 INVITE_BUTTON.load_search((x1, y1, x2, y2))
-                break
+                return True
 
             self.ui_scroll((0, -1), INVITE_SWIPE_AREA)
             self.device.click_record_clear()
             self.device.sleep(0.6)
+        return False
 
+    def name_process(self, name:str):
+        name = name.replace(' (', ' ').replace(')', ' ').replace(' ', '_').lower()
+        return name
+    
     def invite(self, name:str):
         """
         Args:
             name: (str) student's name
         """
+        logger.hr(f'Invite student {name}')
 
         # Open invite list
         while 1:
@@ -57,8 +66,15 @@ class Invite(UI):
                 continue
             if self.appear(INVITE_LIST):
                 break
-        
-        self.find_student(name=name)
+
+        logger.info("Find student")
+        success = self.find_student(name=self.name_process(name))
+        if not success:
+            logger.warning(f"Can't find student {name}")
+            logger.info('Choose random student')
+            x1, y1, x2, y2 = INVITE_SWIPE_AREA.area
+            x2 += 150
+            INVITE_BUTTON.load_search((x1, y1, x2, y2))
 
         # Invite
         while 1:
@@ -82,15 +98,9 @@ class Invite(UI):
             if self.appear(NOW_LOADING):
                 break
 
-    def name_process(self, name:str):
-        name = name.replace(' (', ' ').replace(')', ' ').replace(' ', '_').lower()
-        return name
 
     def run(self):
         self.ui_ensure(page_cafe)
-
-        self.name_cafe1 = self.name_process(self.config.Invite_No1)
-        self.name_cafe2 = self.name_process(self.config.Invite_No2)
 
         self.invite(self.name_cafe1)
         self.switch_cafe()

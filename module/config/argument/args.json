@@ -627,7 +627,7 @@
       },
       "No1": {
         "type": "select",
-        "value": "yuuka",
+        "value": "Yuuka",
         "option": [
           "Airi",
           "Akane",
@@ -738,7 +738,7 @@
       },
       "No2": {
         "type": "select",
-        "value": "serika",
+        "value": "Serika",
         "option": [
           "Airi",
           "Akane",

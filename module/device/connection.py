@@ -1127,12 +1127,12 @@ class Connection(ConnectionAttr):
             if set_config:
                 with self.config.multi_set():
                     self.config.Emulator_PackageName = server_.to_server(self.package)
-                    if self.package in server_.VALID_CLOUD_PACKAGE:
-                        if self.config.Emulator_GameClient != 'cloud_android':
-                            self.config.Emulator_GameClient = 'cloud_android'
-                    else:
-                        if self.config.Emulator_GameClient != 'android':
-                            self.config.Emulator_GameClient = 'android'
+                    # if self.package in server_.VALID_CLOUD_PACKAGE:
+                    #     if self.config.Emulator_GameClient != 'cloud_android':
+                    #         self.config.Emulator_GameClient = 'cloud_android'
+                    # else:
+                    #     if self.config.Emulator_GameClient != 'android':
+                    #         self.config.Emulator_GameClient = 'android'
             # Set server
             # logger.info('Server changed, release resources')
             # set_server(self.package)
