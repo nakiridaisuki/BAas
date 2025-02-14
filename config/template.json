@@ -2,12 +2,10 @@
   "Alas": {
     "Emulator": {
       "Serial": "auto",
-      "GameClient": "android",
       "PackageName": "auto",
-      "GameLanguage": "auto",
+      "GameLanguage": "en",
       "ScreenshotMethod": "scrcpy",
       "ControlMethod": "MaaTouch",
-      "CloudPriorQueue": false,
       "AdbRestart": false
     },
     "EmulatorInfo": {
@@ -35,17 +33,12 @@
       "ServerUpdate": "04:00"
     }
   },
-  "Cafe": {
+  "Task": {
     "Scheduler": {
-      "Enable": false,
+      "Enable": true,
       "NextRun": "2020-01-01 00:00:00",
-      "Command": "Cafe",
+      "Command": "Task",
       "ServerUpdate": "04:00, 17:00"
-    },
-    "Invite": {
-      "Interval": "24hr",
-      "No1": "yuuka",
-      "No2": "serika"
     }
   },
   "Lesson": {
@@ -73,14 +66,6 @@
       "Enable": true,
       "NextRun": "2020-01-01 00:00:00",
       "Command": "Club",
-      "ServerUpdate": "04:00"
-    }
-  },
-  "Crafting": {
-    "Scheduler": {
-      "Enable": true,
-      "NextRun": "2020-01-01 00:00:00",
-      "Command": "Crafting",
       "ServerUpdate": "04:00"
     }
   },
@@ -130,46 +115,6 @@
       "ServerUpdate": "04:00"
     }
   },
-  "Task": {
-    "Scheduler": {
-      "Enable": true,
-      "NextRun": "2020-01-01 00:00:00",
-      "Command": "Task",
-      "ServerUpdate": "04:00, 17:00"
-    }
-  },
-  "Mail": {
-    "Scheduler": {
-      "Enable": true,
-      "NextRun": "2020-01-01 00:00:00",
-      "Command": "Mail",
-      "ServerUpdate": "04:00"
-    }
-  },
-  "Commission": {
-    "Scheduler": {
-      "Enable": false,
-      "NextRun": "2020-01-01 00:00:00",
-      "Command": "Commission",
-      "ServerUpdate": "04:00"
-    },
-    "Commission": {
-      "BaseDefense": 1,
-      "ItemRetrieval": 1
-    }
-  },
-  "NormalMission": {
-    "Scheduler": {
-      "Enable": false,
-      "NextRun": "2020-01-01 00:00:00",
-      "Command": "NormalMission",
-      "ServerUpdate": "04:00"
-    },
-    "NormalMission": {
-      "Area": "20-4",
-      "Time": 1
-    }
-  },
   "Event": {
     "Scheduler": {
       "Enable": false,
@@ -188,15 +133,65 @@
       "State": true
     }
   },
-  "Daemon": {
-    "Daemon": {
-      "Enable": true,
-      "AimClicker": "do_not_click"
+  "NormalMission": {
+    "Scheduler": {
+      "Enable": false,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "NormalMission",
+      "ServerUpdate": "04:00"
+    },
+    "NormalMission": {
+      "Area": "20-4",
+      "Time": 1
     }
   },
-  "PlannerScan": {
-    "PlannerScan": {
-      "ResultAdd": false
+  "Earning": {
+    "Scheduler": {
+      "Enable": true,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "Earning",
+      "ServerUpdate": "04:00, 17:00"
+    }
+  },
+  "Mail": {
+    "Scheduler": {
+      "Enable": true,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "Mail",
+      "ServerUpdate": "04:00"
+    }
+  },
+  "Invite": {
+    "Scheduler": {
+      "Enable": true,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "Invite",
+      "ServerUpdate": "04:00"
+    },
+    "Invite": {
+      "Interval": 24,
+      "No1": "yuuka",
+      "No2": "serika"
+    }
+  },
+  "Relationship": {
+    "Scheduler": {
+      "Enable": true,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "Relationship",
+      "ServerUpdate": "04:00"
+    }
+  },
+  "Commission": {
+    "Scheduler": {
+      "Enable": false,
+      "NextRun": "2020-01-01 00:00:00",
+      "Command": "Commission",
+      "ServerUpdate": "04:00"
+    },
+    "Commission": {
+      "BaseDefense": 1,
+      "ItemRetrieval": 1
     }
   }
 }

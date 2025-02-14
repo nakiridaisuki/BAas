@@ -1,6 +1,6 @@
 {
   "Alas": {
-    "menu": "list",
+    "menu": "collapse",
     "page": "setting",
     "tasks": [
       "Alas",
@@ -8,45 +8,61 @@
     ]
   },
   "Daily": {
-    "menu": "list",
+    "menu": "collapse",
     "page": "setting",
     "tasks": [
-      "Cafe",
+      "Task",
       "Lesson",
       "Club",
-      "Crafting",
       "HardMission",
       "Bounty",
       "Scrimmage",
       "TacticalChallenge",
-      "Task",
-      "Mail"
+      "Event",
+      "NormalMission"
     ]
   },
-  "Dungeon": {
-    "menu": "list",
+  "Reward": {
+    "menu": "collapse",
     "page": "setting",
     "tasks": [
-      "Commission",
+      "Earning",
+      "Club",
+      "Mail",
+      "Task"
+    ]
+  },
+  "Cafe": {
+    "menu": "collapse",
+    "page": "setting",
+    "tasks": [
+      "Earning",
+      "Invite",
+      "Relationship"
+    ]
+  },
+  "Mission": {
+    "menu": "collapse",
+    "page": "setting",
+    "tasks": [
       "NormalMission",
-      "HardMission",
-      "Event",
-      "Crafting"
+      "HardMission"
     ]
   },
   "Event": {
-    "menu": "list",
+    "menu": "collapse",
     "page": "setting",
     "tasks": [
       "Event"
     ]
   },
-  "Tool": {
-    "menu": "list",
-    "page": "tool",
+  "Dungeon": {
+    "menu": "collapse",
+    "page": "setting",
     "tasks": [
-      "Daemon",
-      "PlannerScan"
+      "Bounty",
+      "Commission",
+      "Scrimmage"
     ]
   }
 }

@@ -6,28 +6,18 @@
         "value": "auto",
         "valuetype": "str"
       },
-      "GameClient": {
-        "type": "select",
-        "value": "android",
-        "option": [
-          "android",
-          "cloud_android"
-        ]
-      },
       "PackageName": {
         "type": "select",
         "value": "auto",
         "option": [
           "auto",
-          "BAtest"
+          "GL"
         ]
       },
       "GameLanguage": {
         "type": "select",
-        "value": "auto",
+        "value": "en",
         "option": [
-          "auto",
-          "cn",
           "en"
         ]
       },
@@ -57,10 +47,6 @@
           "MaaTouch"
         ],
         "display": "hide"
-      },
-      "CloudPriorQueue": {
-        "type": "checkbox",
-        "value": false
       },
       "AdbRestart": {
         "type": "checkbox",
@@ -171,7 +157,276 @@
       }
     }
   },
-  "Cafe": {
+  "Task": {
+    "Scheduler": {
+      "Enable": {
+        "type": "checkbox",
+        "value": true,
+        "option": [
+          true,
+          false
+        ]
+      },
+      "NextRun": {
+        "type": "datetime",
+        "value": "2020-01-01 00:00:00",
+        "validate": "datetime"
+      },
+      "Command": {
+        "type": "input",
+        "value": "Task",
+        "display": "hide"
+      },
+      "ServerUpdate": {
+        "type": "input",
+        "value": "04:00, 17:00",
+        "display": "hide"
+      }
+    }
+  },
+  "Lesson": {
+    "Scheduler": {
+      "Enable": {
+        "type": "checkbox",
+        "value": true,
+        "option": [
+          true,
+          false
+        ]
+      },
+      "NextRun": {
+        "type": "datetime",
+        "value": "2020-01-01 00:00:00",
+        "validate": "datetime"
+      },
+      "Command": {
+        "type": "input",
+        "value": "Lesson",
+        "display": "hide"
+      },
+      "ServerUpdate": {
+        "type": "input",
+        "value": "04:00",
+        "display": "hide"
+      }
+    },
+    "Lesson": {
+      "SchaleOffice": {
+        "type": "input",
+        "value": 1
+      },
+      "SchaleResidenceHall": {
+        "type": "input",
+        "value": 1
+      },
+      "Gehenna": {
+        "type": "input",
+        "value": 1
+      },
+      "Abydos": {
+        "type": "input",
+        "value": 1
+      },
+      "Millennium": {
+        "type": "input",
+        "value": 1
+      },
+      "Trinity": {
+        "type": "input",
+        "value": 1
+      },
+      "Red_winter": {
+        "type": "input",
+        "value": 1
+      },
+      "Hyakkiyako": {
+        "type": "input",
+        "value": 0
+      },
+      "DuShiratori": {
+        "type": "input",
+        "value": 0
+      },
+      "Shanhaijing": {
+        "type": "input",
+        "value": 0
+      }
+    }
+  },
+  "Club": {
+    "Scheduler": {
+      "Enable": {
+        "type": "checkbox",
+        "value": true,
+        "option": [
+          true,
+          false
+        ]
+      },
+      "NextRun": {
+        "type": "datetime",
+        "value": "2020-01-01 00:00:00",
+        "validate": "datetime"
+      },
+      "Command": {
+        "type": "input",
+        "value": "Club",
+        "display": "hide"
+      },
+      "ServerUpdate": {
+        "type": "input",
+        "value": "04:00",
+        "display": "hide"
+      }
+    }
+  },
+  "HardMission": {
+    "Scheduler": {
+      "Enable": {
+        "type": "checkbox",
+        "value": true,
+        "option": [
+          true,
+          false
+        ]
+      },
+      "NextRun": {
+        "type": "datetime",
+        "value": "2020-01-01 00:00:00",
+        "validate": "datetime"
+      },
+      "Command": {
+        "type": "input",
+        "value": "HardMission",
+        "display": "hide"
+      },
+      "ServerUpdate": {
+        "type": "input",
+        "value": "04:00",
+        "display": "hide"
+      }
+    },
+    "HardMission": {
+      "Area": {
+        "type": "input",
+        "value": "19-3"
+      },
+      "Time": {
+        "type": "input",
+        "value": 3
+      }
+    }
+  },
+  "Bounty": {
+    "Scheduler": {
+      "Enable": {
+        "type": "checkbox",
+        "value": true,
+        "option": [
+          true,
+          false
+        ]
+      },
+      "NextRun": {
+        "type": "datetime",
+        "value": "2020-01-01 00:00:00",
+        "validate": "datetime"
+      },
+      "Command": {
+        "type": "input",
+        "value": "Bounty",
+        "display": "hide"
+      },
+      "ServerUpdate": {
+        "type": "input",
+        "value": "04:00",
+        "display": "hide"
+      }
+    },
+    "Bounty": {
+      "Overpass": {
+        "type": "input",
+        "value": 2
+      },
+      "DesertRailrode": {
+        "type": "input",
+        "value": 2
+      },
+      "Classroom": {
+        "type": "input",
+        "value": 2
+      }
+    }
+  },
+  "Scrimmage": {
+    "Scheduler": {
+      "Enable": {
+        "type": "checkbox",
+        "value": true,
+        "option": [
+          true,
+          false
+        ]
+      },
+      "NextRun": {
+        "type": "datetime",
+        "value": "2020-01-01 00:00:00",
+        "validate": "datetime"
+      },
+      "Command": {
+        "type": "input",
+        "value": "Scrimmage",
+        "display": "hide"
+      },
+      "ServerUpdate": {
+        "type": "input",
+        "value": "04:00",
+        "display": "hide"
+      }
+    },
+    "Scrimmage": {
+      "Trinity": {
+        "type": "input",
+        "value": 2
+      },
+      "Gehenna": {
+        "type": "input",
+        "value": 2
+      },
+      "Millennium": {
+        "type": "input",
+        "value": 2
+      }
+    }
+  },
+  "TacticalChallenge": {
+    "Scheduler": {
+      "Enable": {
+        "type": "checkbox",
+        "value": true,
+        "option": [
+          true,
+          false
+        ]
+      },
+      "NextRun": {
+        "type": "datetime",
+        "value": "2020-01-01 00:00:00",
+        "validate": "datetime"
+      },
+      "Command": {
+        "type": "input",
+        "value": "TacticalChallenge",
+        "display": "hide"
+      },
+      "ServerUpdate": {
+        "type": "input",
+        "value": "04:00",
+        "display": "hide"
+      }
+    }
+  },
+  "Event": {
     "Scheduler": {
       "Enable": {
         "type": "checkbox",
@@ -188,7 +443,117 @@
       },
       "Command": {
         "type": "input",
-        "value": "Cafe",
+        "value": "Event",
+        "display": "hide"
+      },
+      "ServerUpdate": {
+        "type": "input",
+        "value": "04:00",
+        "display": "hide"
+      }
+    },
+    "EventQuest": {
+      "AutoPass": {
+        "type": "checkbox",
+        "value": true,
+        "option": [
+          true,
+          false
+        ]
+      },
+      "State": {
+        "type": "checkbox",
+        "value": true,
+        "option": [
+          true,
+          false
+        ],
+        "display": "hide"
+      },
+      "Area": {
+        "type": "input",
+        "value": 9
+      },
+      "Time": {
+        "type": "input",
+        "value": 1
+      }
+    },
+    "EventStory": {
+      "AutoPass": {
+        "type": "checkbox",
+        "value": true,
+        "option": [
+          true,
+          false
+        ]
+      },
+      "State": {
+        "type": "checkbox",
+        "value": true,
+        "option": [
+          true,
+          false
+        ],
+        "display": "hide"
+      }
+    }
+  },
+  "NormalMission": {
+    "Scheduler": {
+      "Enable": {
+        "type": "checkbox",
+        "value": false,
+        "option": [
+          true,
+          false
+        ]
+      },
+      "NextRun": {
+        "type": "datetime",
+        "value": "2020-01-01 00:00:00",
+        "validate": "datetime"
+      },
+      "Command": {
+        "type": "input",
+        "value": "NormalMission",
+        "display": "hide"
+      },
+      "ServerUpdate": {
+        "type": "input",
+        "value": "04:00",
+        "display": "hide"
+      }
+    },
+    "NormalMission": {
+      "Area": {
+        "type": "input",
+        "value": "20-4"
+      },
+      "Time": {
+        "type": "input",
+        "value": 1
+      }
+    }
+  },
+  "Earning": {
+    "Scheduler": {
+      "Enable": {
+        "type": "checkbox",
+        "value": true,
+        "option": [
+          true,
+          false
+        ]
+      },
+      "NextRun": {
+        "type": "datetime",
+        "value": "2020-01-01 00:00:00",
+        "validate": "datetime"
+      },
+      "Command": {
+        "type": "input",
+        "value": "Earning",
         "display": "hide"
       },
       "ServerUpdate": {
@@ -196,14 +561,68 @@
         "value": "04:00, 17:00",
         "display": "hide"
       }
+    }
+  },
+  "Mail": {
+    "Scheduler": {
+      "Enable": {
+        "type": "checkbox",
+        "value": true,
+        "option": [
+          true,
+          false
+        ]
+      },
+      "NextRun": {
+        "type": "datetime",
+        "value": "2020-01-01 00:00:00",
+        "validate": "datetime"
+      },
+      "Command": {
+        "type": "input",
+        "value": "Mail",
+        "display": "hide"
+      },
+      "ServerUpdate": {
+        "type": "input",
+        "value": "04:00",
+        "display": "hide"
+      }
+    }
+  },
+  "Invite": {
+    "Scheduler": {
+      "Enable": {
+        "type": "checkbox",
+        "value": true,
+        "option": [
+          true,
+          false
+        ]
+      },
+      "NextRun": {
+        "type": "datetime",
+        "value": "2020-01-01 00:00:00",
+        "validate": "datetime"
+      },
+      "Command": {
+        "type": "input",
+        "value": "Invite",
+        "display": "hide"
+      },
+      "ServerUpdate": {
+        "type": "input",
+        "value": "04:00",
+        "display": "hide"
+      }
     },
     "Invite": {
       "Interval": {
         "type": "select",
-        "value": "24hr",
+        "value": "24",
         "option": [
-          "24hr",
-          "20hr"
+          "24",
+          "20"
         ]
       },
       "No1": {
@@ -430,7 +849,7 @@
       }
     }
   },
-  "Lesson": {
+  "Relationship": {
     "Scheduler": {
       "Enable": {
         "type": "checkbox",
@@ -447,303 +866,7 @@
       },
       "Command": {
         "type": "input",
-        "value": "Lesson",
-        "display": "hide"
-      },
-      "ServerUpdate": {
-        "type": "input",
-        "value": "04:00",
-        "display": "hide"
-      }
-    },
-    "Lesson": {
-      "SchaleOffice": {
-        "type": "input",
-        "value": 1
-      },
-      "SchaleResidenceHall": {
-        "type": "input",
-        "value": 1
-      },
-      "Gehenna": {
-        "type": "input",
-        "value": 1
-      },
-      "Abydos": {
-        "type": "input",
-        "value": 1
-      },
-      "Millennium": {
-        "type": "input",
-        "value": 1
-      },
-      "Trinity": {
-        "type": "input",
-        "value": 1
-      },
-      "Red_winter": {
-        "type": "input",
-        "value": 1
-      },
-      "Hyakkiyako": {
-        "type": "input",
-        "value": 0
-      },
-      "DuShiratori": {
-        "type": "input",
-        "value": 0
-      },
-      "Shanhaijing": {
-        "type": "input",
-        "value": 0
-      }
-    }
-  },
-  "Club": {
-    "Scheduler": {
-      "Enable": {
-        "type": "checkbox",
-        "value": true,
-        "option": [
-          true,
-          false
-        ]
-      },
-      "NextRun": {
-        "type": "datetime",
-        "value": "2020-01-01 00:00:00",
-        "validate": "datetime"
-      },
-      "Command": {
-        "type": "input",
-        "value": "Club",
-        "display": "hide"
-      },
-      "ServerUpdate": {
-        "type": "input",
-        "value": "04:00",
-        "display": "hide"
-      }
-    }
-  },
-  "Crafting": {
-    "Scheduler": {
-      "Enable": {
-        "type": "checkbox",
-        "value": true,
-        "option": [
-          true,
-          false
-        ]
-      },
-      "NextRun": {
-        "type": "datetime",
-        "value": "2020-01-01 00:00:00",
-        "validate": "datetime"
-      },
-      "Command": {
-        "type": "input",
-        "value": "Crafting",
-        "display": "hide"
-      },
-      "ServerUpdate": {
-        "type": "input",
-        "value": "04:00",
-        "display": "hide"
-      }
-    }
-  },
-  "HardMission": {
-    "Scheduler": {
-      "Enable": {
-        "type": "checkbox",
-        "value": true,
-        "option": [
-          true,
-          false
-        ]
-      },
-      "NextRun": {
-        "type": "datetime",
-        "value": "2020-01-01 00:00:00",
-        "validate": "datetime"
-      },
-      "Command": {
-        "type": "input",
-        "value": "HardMission",
-        "display": "hide"
-      },
-      "ServerUpdate": {
-        "type": "input",
-        "value": "04:00",
-        "display": "hide"
-      }
-    },
-    "HardMission": {
-      "Area": {
-        "type": "input",
-        "value": "19-3"
-      },
-      "Time": {
-        "type": "input",
-        "value": 3
-      }
-    }
-  },
-  "Bounty": {
-    "Scheduler": {
-      "Enable": {
-        "type": "checkbox",
-        "value": true,
-        "option": [
-          true,
-          false
-        ]
-      },
-      "NextRun": {
-        "type": "datetime",
-        "value": "2020-01-01 00:00:00",
-        "validate": "datetime"
-      },
-      "Command": {
-        "type": "input",
-        "value": "Bounty",
-        "display": "hide"
-      },
-      "ServerUpdate": {
-        "type": "input",
-        "value": "04:00",
-        "display": "hide"
-      }
-    },
-    "Bounty": {
-      "Overpass": {
-        "type": "input",
-        "value": 2
-      },
-      "DesertRailrode": {
-        "type": "input",
-        "value": 2
-      },
-      "Classroom": {
-        "type": "input",
-        "value": 2
-      }
-    }
-  },
-  "Scrimmage": {
-    "Scheduler": {
-      "Enable": {
-        "type": "checkbox",
-        "value": true,
-        "option": [
-          true,
-          false
-        ]
-      },
-      "NextRun": {
-        "type": "datetime",
-        "value": "2020-01-01 00:00:00",
-        "validate": "datetime"
-      },
-      "Command": {
-        "type": "input",
-        "value": "Scrimmage",
-        "display": "hide"
-      },
-      "ServerUpdate": {
-        "type": "input",
-        "value": "04:00",
-        "display": "hide"
-      }
-    },
-    "Scrimmage": {
-      "Trinity": {
-        "type": "input",
-        "value": 2
-      },
-      "Gehenna": {
-        "type": "input",
-        "value": 2
-      },
-      "Millennium": {
-        "type": "input",
-        "value": 2
-      }
-    }
-  },
-  "TacticalChallenge": {
-    "Scheduler": {
-      "Enable": {
-        "type": "checkbox",
-        "value": true,
-        "option": [
-          true,
-          false
-        ]
-      },
-      "NextRun": {
-        "type": "datetime",
-        "value": "2020-01-01 00:00:00",
-        "validate": "datetime"
-      },
-      "Command": {
-        "type": "input",
-        "value": "TacticalChallenge",
-        "display": "hide"
-      },
-      "ServerUpdate": {
-        "type": "input",
-        "value": "04:00",
-        "display": "hide"
-      }
-    }
-  },
-  "Task": {
-    "Scheduler": {
-      "Enable": {
-        "type": "checkbox",
-        "value": true,
-        "option": [
-          true,
-          false
-        ]
-      },
-      "NextRun": {
-        "type": "datetime",
-        "value": "2020-01-01 00:00:00",
-        "validate": "datetime"
-      },
-      "Command": {
-        "type": "input",
-        "value": "Task",
-        "display": "hide"
-      },
-      "ServerUpdate": {
-        "type": "input",
-        "value": "04:00, 17:00",
-        "display": "hide"
-      }
-    }
-  },
-  "Mail": {
-    "Scheduler": {
-      "Enable": {
-        "type": "checkbox",
-        "value": true,
-        "option": [
-          true,
-          false
-        ]
-      },
-      "NextRun": {
-        "type": "datetime",
-        "value": "2020-01-01 00:00:00",
-        "validate": "datetime"
-      },
-      "Command": {
-        "type": "input",
-        "value": "Mail",
+        "value": "Relationship",
         "display": "hide"
       },
       "ServerUpdate": {
@@ -787,148 +910,6 @@
       "ItemRetrieval": {
         "type": "input",
         "value": 1
-      }
-    }
-  },
-  "NormalMission": {
-    "Scheduler": {
-      "Enable": {
-        "type": "checkbox",
-        "value": false,
-        "option": [
-          true,
-          false
-        ]
-      },
-      "NextRun": {
-        "type": "datetime",
-        "value": "2020-01-01 00:00:00",
-        "validate": "datetime"
-      },
-      "Command": {
-        "type": "input",
-        "value": "NormalMission",
-        "display": "hide"
-      },
-      "ServerUpdate": {
-        "type": "input",
-        "value": "04:00",
-        "display": "hide"
-      }
-    },
-    "NormalMission": {
-      "Area": {
-        "type": "input",
-        "value": "20-4"
-      },
-      "Time": {
-        "type": "input",
-        "value": 1
-      }
-    }
-  },
-  "Event": {
-    "Scheduler": {
-      "Enable": {
-        "type": "checkbox",
-        "value": false,
-        "option": [
-          true,
-          false
-        ]
-      },
-      "NextRun": {
-        "type": "datetime",
-        "value": "2020-01-01 00:00:00",
-        "validate": "datetime"
-      },
-      "Command": {
-        "type": "input",
-        "value": "Event",
-        "display": "hide"
-      },
-      "ServerUpdate": {
-        "type": "input",
-        "value": "04:00",
-        "display": "hide"
-      }
-    },
-    "EventQuest": {
-      "AutoPass": {
-        "type": "checkbox",
-        "value": true,
-        "option": [
-          true,
-          false
-        ]
-      },
-      "State": {
-        "type": "checkbox",
-        "value": true,
-        "option": [
-          true,
-          false
-        ],
-        "display": "hide"
-      },
-      "Area": {
-        "type": "input",
-        "value": 9
-      },
-      "Time": {
-        "type": "input",
-        "value": 1
-      }
-    },
-    "EventStory": {
-      "AutoPass": {
-        "type": "checkbox",
-        "value": true,
-        "option": [
-          true,
-          false
-        ]
-      },
-      "State": {
-        "type": "checkbox",
-        "value": true,
-        "option": [
-          true,
-          false
-        ],
-        "display": "hide"
-      }
-    }
-  },
-  "Daemon": {
-    "Daemon": {
-      "Enable": {
-        "type": "state",
-        "value": true,
-        "option": [
-          true
-        ],
-        "option_bold": [
-          true
-        ]
-      },
-      "AimClicker": {
-        "type": "select",
-        "value": "do_not_click",
-        "option": [
-          "item_enemy",
-          "item",
-          "enemy",
-          "do_not_click"
-        ]
-      }
-    }
-  },
-  "PlannerScan": {
-    "PlannerScan": {
-      "ResultAdd": {
-        "type": "checkbox",
-        "value": false
       }
     }
   }

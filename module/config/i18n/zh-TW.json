@@ -1,37 +1,45 @@
 {
   "Menu": {
     "Alas": {
-      "name": "SRC",
+      "name": "BAas",
       "help": ""
     },
     "Daily": {
       "name": "每日",
       "help": ""
     },
-    "Dungeon": {
-      "name": "副本",
+    "Reward": {
+      "name": "獎勵",
+      "help": ""
+    },
+    "Cafe": {
+      "name": "咖啡廳",
+      "help": ""
+    },
+    "Mission": {
+      "name": "任務關卡",
       "help": ""
     },
     "Event": {
-      "name": "活動",
+      "name": "活動關卡",
       "help": ""
     },
-    "Tool": {
-      "name": "工具",
+    "Dungeon": {
+      "name": "材料副本",
       "help": ""
     }
   },
   "Task": {
     "Alas": {
-      "name": "SRC設定",
+      "name": "BAas設定",
       "help": ""
     },
     "Restart": {
       "name": "除錯",
       "help": ""
     },
-    "Cafe": {
-      "name": "咖啡廳",
+    "Task": {
+      "name": "任務獎勵",
       "help": ""
     },
     "Lesson": {
@@ -40,10 +48,6 @@
     },
     "Club": {
       "name": "社團",
-      "help": ""
-    },
-    "Crafting": {
-      "name": "製造",
       "help": ""
     },
     "HardMission": {
@@ -62,32 +66,32 @@
       "name": "戰術大賽",
       "help": ""
     },
-    "Task": {
-      "name": "任務",
-      "help": ""
-    },
-    "Mail": {
-      "name": "信箱",
-      "help": ""
-    },
-    "Commission": {
-      "name": "特殊任務",
+    "Event": {
+      "name": "活動",
       "help": ""
     },
     "NormalMission": {
       "name": "普通任務",
       "help": ""
     },
-    "Event": {
-      "name": "活動",
+    "Earning": {
+      "name": "咖啡廳收益",
       "help": ""
     },
-    "Daemon": {
-      "name": "劇情連點器",
+    "Mail": {
+      "name": "信箱",
       "help": ""
     },
-    "PlannerScan": {
-      "name": "角色養成規劃",
+    "Invite": {
+      "name": "邀請",
+      "help": ""
+    },
+    "Relationship": {
+      "name": "好感度",
+      "help": ""
+    },
+    "Commission": {
+      "name": "特殊任務",
       "help": ""
     }
   },
@@ -124,24 +128,16 @@
       "name": "模擬器 Serial",
       "help": "常見的模擬器 Serial 可以查詢下方列表\n填 \"auto\" 自動檢測模擬器，多個模擬器正在運行或使用不支援自動檢測的模擬器時無法使用 \"auto\"，必須手動填寫\n模擬器預設 Serial：\n- 藍疊模擬器 127.0.0.1:5555\n- 藍疊模擬器4 Hyper-v版，填\"bluestacks4-hyperv\"自動連接，多開填\"bluestacks4-hyperv-2\"以此類推\n- 藍疊模擬器5 Hyper-v版，填\"bluestacks5-hyperv\"自動連接，多開填\"bluestacks5-hyperv-1\"以此類推\n- 夜神模擬器 127.0.0.1:62001\n- 夜神模擬器64位元 127.0.0.1:59865\n- MuMu模擬器/MuMu模擬器X 127.0.0.1:7555\n- MuMu模擬器12 127.0.0.1:16384\n- 逍遙模擬器 127.0.0.1:21503\n- 雷電模擬器 emulator-5554 或 127.0.0.1:5555\n- WSA，填\"wsa-0\"使遊戲在後臺運行，需要使用第三方軟件操控或關閉\n如果你使用了模擬器的多開功能，他們的 Serial 將不是預設的，可以在 console.bat 中執行 `adb devices` 查詢，或根據模擬器官方的教程填寫"
     },
-    "GameClient": {
-      "name": "遊戲客戶端",
-      "help": "選擇雲端遊戲時，將自動排隊登入，雲端遊戲目前僅有國服",
-      "android": "安卓端",
-      "cloud_android": "雲端遊戲安卓端"
-    },
     "PackageName": {
       "name": "遊戲伺服器",
       "help": "無法區分國際服的不同地區，請手動選擇伺服器",
       "auto": "自動檢測",
-      "BAtest": "BAtest"
+      "GL": "國際服"
     },
     "GameLanguage": {
       "name": "遊戲內文本語言",
-      "help": "目前僅支援簡體中文和英文，請在遊戲內設定文本語言為其中的一種",
-      "auto": "自動檢測",
-      "cn": "简体中文",
-      "en": "English"
+      "help": "目前僅支援英文，請在遊戲內設定文本語言為其中的一種",
+      "en": "英文"
     },
     "ScreenshotMethod": {
       "name": "模擬器截圖方案",
@@ -163,10 +159,6 @@
       "help": "速度: MaaTouch = minitouch > Hermit >>> uiautomator2 ~= ADB\n建議選MaaTouch",
       "minitouch": "minitouch",
       "MaaTouch": "MaaTouch"
-    },
-    "CloudPriorQueue": {
-      "name": "在雲端遊戲中使用星雲幣快速排隊",
-      "help": ""
     },
     "AdbRestart": {
       "name": "在檢測不到設備的時候嘗試重啟adb",
@@ -256,10 +248,10 @@
       "help": "若邀請失敗會隨機邀請一個"
     },
     "Interval": {
-      "name": "邀請時間間隔",
+      "name": "每隔 X 小時邀請一次",
       "help": "邀請劵每 20 小時刷新一次，學生摸頭每 3 小時刷新一次\n因為不是倍數，所以有可能才剛邀請，學生就被刷新了",
-      "24hr": "每 24 小時",
-      "20hr": "每 20 小時"
+      "24": "24",
+      "20": "20"
     },
     "No1": {
       "name": "1 號咖啡廳邀請",
@@ -646,35 +638,6 @@
     "Time": {
       "name": "掃蕩次數",
       "help": ""
-    }
-  },
-  "Daemon": {
-    "_info": {
-      "name": "劇情連點器",
-      "help": "工具需要停止調度器再單獨運作"
-    },
-    "Enable": {
-      "name": "劇情連點器",
-      "help": "監聽畫面自動點擊劇情、手機聊天、模擬宇宙祝福（遵循模擬宇宙任務設定）",
-      "True": "已啟用"
-    },
-    "AimClicker": {
-      "name": "點擊被瞄準破壞物和敵人",
-      "help": "",
-      "item_enemy": "點擊破壞物和敵人",
-      "item": "僅點擊破壞物",
-      "enemy": "僅點擊敵人",
-      "do_not_click": "不點擊"
-    }
-  },
-  "PlannerScan": {
-    "_info": {
-      "name": "辨識角色養成規劃計算結果",
-      "help": "工具需要停止調度器再單獨運行\n使用前需要在遊戲內養成計算器中設定養成目標，併計算出結果，在計算結果頁面啟動養成規劃識別。詳細使用教程 請參閱：\nhttps://github.com/LmeSzinc/StarRailCopilot/wiki/Planner_cn"
-    },
-    "ResultAdd": {
-      "name": "累加多次掃描結果",
-      "help": "需要養成多個角色時勾選，同時養成多個角色\n只養成一個角色不勾選，每次掃描時刷新養成目標"
     }
   },
   "Gui": {

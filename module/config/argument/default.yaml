@@ -5,6 +5,18 @@
 # ==================== Alas ====================
 
 
+# ==================== Cafe ====================
+
+Relationship:
+  Scheduler:
+    Enable: True
+Invite:
+  Scheduler:
+    Enable: True
+Earning:
+  Scheduler:
+    Enable: True
+
 # ==================== Daily ====================
 
 Lesson:

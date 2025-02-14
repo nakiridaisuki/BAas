@@ -10,7 +10,8 @@ class ManualConfig:
 
     SCHEDULER_PRIORITY = """
     Restart
-    > Cafe > Lesson > Club > Crafting > Mail > Task
+    > Earning > Invite > Relationship
+    > Lesson > Club > Crafting > Mail > Task
     > Bounty > Scrimmage > TacticalChallenge
     > HardMission > Event > NormalMission
     > Freebies > DataUpdate

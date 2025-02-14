@@ -1,37 +1,45 @@
 {
   "Menu": {
     "Alas": {
-      "name": "SRC",
+      "name": "BAas",
       "help": ""
     },
     "Daily": {
-      "name": "Daily",
+      "name": "Daily Quest",
+      "help": ""
+    },
+    "Reward": {
+      "name": "Reward",
+      "help": ""
+    },
+    "Cafe": {
+      "name": "Cafe",
+      "help": ""
+    },
+    "Mission": {
+      "name": "Mission",
+      "help": ""
+    },
+    "Event": {
+      "name": "Event",
       "help": ""
     },
     "Dungeon": {
-      "name": "Menu.Dungeon.name",
-      "help": "Menu.Dungeon.help"
-    },
-    "Event": {
-      "name": "Menu.Event.name",
-      "help": "Menu.Event.help"
-    },
-    "Tool": {
-      "name": "Tools",
+      "name": "Dungeon",
       "help": ""
     }
   },
   "Task": {
     "Alas": {
-      "name": "SRC Settings",
+      "name": "BAas Settings",
       "help": ""
     },
     "Restart": {
       "name": "Error Handling",
       "help": ""
     },
-    "Cafe": {
-      "name": "Cafe",
+    "Task": {
+      "name": "Tasks Reward",
       "help": ""
     },
     "Lesson": {
@@ -40,10 +48,6 @@
     },
     "Club": {
       "name": "Club",
-      "help": ""
-    },
-    "Crafting": {
-      "name": "Crafting",
       "help": ""
     },
     "HardMission": {
@@ -62,32 +66,32 @@
       "name": "Tactical Challenge",
       "help": ""
     },
-    "Task": {
-      "name": "Tasks Reward",
-      "help": ""
-    },
-    "Mail": {
-      "name": "Mail",
-      "help": ""
-    },
-    "Commission": {
-      "name": "Commission",
+    "Event": {
+      "name": "Event",
       "help": ""
     },
     "NormalMission": {
       "name": "Normal Mission",
       "help": ""
     },
-    "Event": {
-      "name": "Event",
+    "Earning": {
+      "name": "Cafe Earning",
       "help": ""
     },
-    "Daemon": {
-      "name": "Dialogue Clicker",
+    "Mail": {
+      "name": "Mail",
       "help": ""
     },
-    "PlannerScan": {
-      "name": "Character Planner",
+    "Invite": {
+      "name": "Invite",
+      "help": ""
+    },
+    "Relationship": {
+      "name": "Relationship",
+      "help": ""
+    },
+    "Commission": {
+      "name": "Commission",
       "help": ""
     }
   },
@@ -124,23 +128,15 @@
       "name": "Serial",
       "help": "Common emulator Serial can be queried in the list below\nUse \"auto\" to auto-detect emulators, but if multiple emulators are running or use emulators that do not support auto-detect, \"auto\" cannot be used and serial must be filled in manually\nDefault serial for select emulators:\n- BlueStacks 127.0.0.1:5555\n- BlueStacks4 Hyper-V use \"bluestacks4-hyperv\", \"bluestacks4-hyperv-2\" for multi instance, and so on\n- BlueStacks5 Hyper-V use \"bluestacks5-hyperv\", \"bluestacks5-hyperv-1\" for multi instance, and so on\n- NoxPlayer 127.0.0.1:62001\n- NoxPlayer64bit 127.0.0.1:59865\n- MuMuPlayer/MuMuPlayer X 127.0.0.1:7555\n- MuMuPlayer12 127.0.0.1:16384\n- MemuPlayer 127.0.0.1:21503\n- LDPlayer emulator-5554 or 127.0.0.1:5555\n- WSA use \"wsa-0\" to make the game run in the background, which needs to be controlled or closed by third-party software\nIf there are multiple emulator instances running, the default is reserved for one of them and the others will use different serials to avoid conflicts\nOpen console.bat and run `adb devices` to find them or follow the emulator's official tutorial"
     },
-    "GameClient": {
-      "name": "Game Client",
-      "help": "When using cloud, you will be automatically queued to log in. Cloud game is available in CN only",
-      "android": "Android client",
-      "cloud_android": "Cloud game android client"
-    },
     "PackageName": {
       "name": "Game Server",
       "help": "Can't distinguish different regions of oversea servers, please select the server manually.",
       "auto": "Auto-detect",
-      "BAtest": "BAtest"
+      "GL": "GL"
     },
     "GameLanguage": {
       "name": "In-game Text Language",
-      "help": "Currently, only Simplified Chinese and English are supported. Please set the text language in game to one of them.",
-      "auto": "Auto-detect",
-      "cn": "简体中文",
+      "help": "Currently, only English are supported. Please set the text language in game to one of them.",
       "en": "English"
     },
     "ScreenshotMethod": {
@@ -163,10 +159,6 @@
       "help": "Speed: MaaTouch = minitouch >>> uiautomator2 ~= ADB\nMaaTouch is recommended",
       "minitouch": "minitouch",
       "MaaTouch": "MaaTouch"
-    },
-    "CloudPriorQueue": {
-      "name": "Use paid coins to queue up quickly in cloud games",
-      "help": ""
     },
     "AdbRestart": {
       "name": "Try to restart adb when no device found",
@@ -256,10 +248,10 @@
       "help": "The student you want to invite in the cafe"
     },
     "Interval": {
-      "name": "Invite Interval",
+      "name": "Invite student every X hour(s)",
       "help": "The interval between two invitations.\nInvitation reflashes every 20hr.\nRelationship can rank up every 3hr.",
-      "24hr": "24hr",
-      "20hr": "20hr"
+      "24": "24",
+      "20": "20"
     },
     "No1": {
       "name": "Cafe No.1",
@@ -646,35 +638,6 @@
     "Time": {
       "name": "Sweep X times",
       "help": ""
-    }
-  },
-  "Daemon": {
-    "_info": {
-      "name": "Dialogue Clicker",
-      "help": "Tools need to stop the scheduler and then run independently"
-    },
-    "Enable": {
-      "name": "Dialogue Clicker",
-      "help": "Monitor game, automatically click dialogue, phone chatting, and blessing in simulated universe (follow the simulated universe task settings)",
-      "True": "Enabled"
-    },
-    "AimClicker": {
-      "name": "Click Aimed Items and Enemies",
-      "help": "",
-      "item_enemy": "Click items and enemies",
-      "item": "Click items only",
-      "enemy": "Click enemies only",
-      "do_not_click": "Don't click"
-    }
-  },
-  "PlannerScan": {
-    "_info": {
-      "name": "Scan Character Planner Results",
-      "help": "Tools need to stop the scheduler and then run independently\nBefore use, set planner goal in the in-game planner, calculate the results, and start scanning from the result page. Detailed usage see: https://github.com/LmeSzinc/StarRailCopilot/wiki/Planner_en"
-    },
-    "ResultAdd": {
-      "name": "Accumulate multiple scan results",
-      "help": "Turn on when planning multiple characters, will raise multiple characters all together\nTurn off when planning one character, planning goal will be refreshed at every scan"
     }
   },
   "Gui": {

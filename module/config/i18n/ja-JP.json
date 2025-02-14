@@ -8,17 +8,25 @@
       "name": "Menu.Daily.name",
       "help": "Menu.Daily.help"
     },
-    "Dungeon": {
-      "name": "Menu.Dungeon.name",
-      "help": "Menu.Dungeon.help"
+    "Reward": {
+      "name": "Menu.Reward.name",
+      "help": "Menu.Reward.help"
+    },
+    "Cafe": {
+      "name": "Menu.Cafe.name",
+      "help": "Menu.Cafe.help"
+    },
+    "Mission": {
+      "name": "Menu.Mission.name",
+      "help": "Menu.Mission.help"
     },
     "Event": {
       "name": "Menu.Event.name",
       "help": "Menu.Event.help"
     },
-    "Tool": {
-      "name": "Menu.Tool.name",
-      "help": "Menu.Tool.help"
+    "Dungeon": {
+      "name": "Menu.Dungeon.name",
+      "help": "Menu.Dungeon.help"
     }
   },
   "Task": {
@@ -30,9 +38,9 @@
       "name": "再起動設定",
       "help": ""
     },
-    "Cafe": {
-      "name": "Task.Cafe.name",
-      "help": "Task.Cafe.help"
+    "Task": {
+      "name": "Task.Task.name",
+      "help": "Task.Task.help"
     },
     "Lesson": {
       "name": "Task.Lesson.name",
@@ -41,10 +49,6 @@
     "Club": {
       "name": "Task.Club.name",
       "help": "Task.Club.help"
-    },
-    "Crafting": {
-      "name": "Task.Crafting.name",
-      "help": "Task.Crafting.help"
     },
     "HardMission": {
       "name": "Task.HardMission.name",
@@ -62,33 +66,33 @@
       "name": "Task.TacticalChallenge.name",
       "help": "Task.TacticalChallenge.help"
     },
-    "Task": {
-      "name": "Task.Task.name",
-      "help": "Task.Task.help"
-    },
-    "Mail": {
-      "name": "Task.Mail.name",
-      "help": "Task.Mail.help"
-    },
-    "Commission": {
-      "name": "Task.Commission.name",
-      "help": "Task.Commission.help"
+    "Event": {
+      "name": "Task.Event.name",
+      "help": "Task.Event.help"
     },
     "NormalMission": {
       "name": "Task.NormalMission.name",
       "help": "Task.NormalMission.help"
     },
-    "Event": {
-      "name": "Task.Event.name",
-      "help": "Task.Event.help"
+    "Earning": {
+      "name": "Task.Earning.name",
+      "help": "Task.Earning.help"
     },
-    "Daemon": {
-      "name": "Task.Daemon.name",
-      "help": "Task.Daemon.help"
+    "Mail": {
+      "name": "Task.Mail.name",
+      "help": "Task.Mail.help"
     },
-    "PlannerScan": {
-      "name": "Task.PlannerScan.name",
-      "help": "Task.PlannerScan.help"
+    "Invite": {
+      "name": "Task.Invite.name",
+      "help": "Task.Invite.help"
+    },
+    "Relationship": {
+      "name": "Task.Relationship.name",
+      "help": "Task.Relationship.help"
+    },
+    "Commission": {
+      "name": "Task.Commission.name",
+      "help": "Task.Commission.help"
     }
   },
   "Scheduler": {
@@ -124,23 +128,15 @@
       "name": "Emulator.Serial.name",
       "help": "Emulator.Serial.help"
     },
-    "GameClient": {
-      "name": "Emulator.GameClient.name",
-      "help": "Emulator.GameClient.help",
-      "android": "android",
-      "cloud_android": "cloud_android"
-    },
     "PackageName": {
       "name": "Emulator.PackageName.name",
       "help": "Emulator.PackageName.help",
       "auto": "auto",
-      "BAtest": "BAtest"
+      "GL": "GL"
     },
     "GameLanguage": {
       "name": "Emulator.GameLanguage.name",
       "help": "Emulator.GameLanguage.help",
-      "auto": "auto",
-      "cn": "cn",
       "en": "en"
     },
     "ScreenshotMethod": {
@@ -163,10 +159,6 @@
       "help": "Emulator.ControlMethod.help",
       "minitouch": "minitouch",
       "MaaTouch": "MaaTouch"
-    },
-    "CloudPriorQueue": {
-      "name": "Emulator.CloudPriorQueue.name",
-      "help": "Emulator.CloudPriorQueue.help"
     },
     "AdbRestart": {
       "name": "Emulator.AdbRestart.name",
@@ -258,8 +250,8 @@
     "Interval": {
       "name": "Invite.Interval.name",
       "help": "Invite.Interval.help",
-      "24hr": "24hr",
-      "20hr": "20hr"
+      "24": "24",
+      "20": "20"
     },
     "No1": {
       "name": "Invite.No1.name",
@@ -646,35 +638,6 @@
     "Time": {
       "name": "EventQuest.Time.name",
       "help": "EventQuest.Time.help"
-    }
-  },
-  "Daemon": {
-    "_info": {
-      "name": "Daemon._info.name",
-      "help": "Daemon._info.help"
-    },
-    "Enable": {
-      "name": "Daemon.Enable.name",
-      "help": "Daemon.Enable.help",
-      "True": "True"
-    },
-    "AimClicker": {
-      "name": "Daemon.AimClicker.name",
-      "help": "Daemon.AimClicker.help",
-      "item_enemy": "item_enemy",
-      "item": "item",
-      "enemy": "enemy",
-      "do_not_click": "do_not_click"
-    }
-  },
-  "PlannerScan": {
-    "_info": {
-      "name": "PlannerScan._info.name",
-      "help": "PlannerScan._info.help"
-    },
-    "ResultAdd": {
-      "name": "PlannerScan.ResultAdd.name",
-      "help": "PlannerScan.ResultAdd.help"
     }
   },
   "Gui": {

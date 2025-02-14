@@ -60,9 +60,17 @@ class BAAutoScript(AzurLaneAutoScript):
         from tasks.mail.mail import Mail
         Mail(config=self.config, device=self.device).run()
     
-    def cafe(self):
-        from tasks.cafe.cafe import Cafe
-        Cafe(config=self.config, device=self.device).run()
+    def invite(self):
+        from tasks.cafe.invite import Invite
+        Invite(config=self.config, device=self.device).run()
+    
+    def earning(self):
+        from tasks.cafe.earning import Earning
+        Earning(config=self.config, device=self.device).run()
+
+    def relationship(self): 
+        from tasks.cafe.relationship import Relationship
+        Relationship(config=self.config, device=self.device).run()
 
     def normal_mission(self):
         from tasks.campaign.mission.mission import Mission

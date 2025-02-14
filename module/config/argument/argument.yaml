@@ -18,15 +18,12 @@ Emulator:
   Serial:
     value: auto
     valuetype: str
-  GameClient:
-    value: android
-    option: [ android, cloud_android ]
   PackageName:
     value: auto
     option: [ auto, ]
   GameLanguage:
-    value: auto
-    option: [ auto, cn, en ]
+    value: en
+    option: [ en ]
   ScreenshotMethod:
     value: auto
     option: [
@@ -45,7 +42,6 @@ Emulator:
   ControlMethod:
     value: MaaTouch
     option: [ minitouch, MaaTouch ]
-  CloudPriorQueue: false
   AdbRestart: false
 EmulatorInfo:
   Emulator:
@@ -94,8 +90,8 @@ Optimization:
 # Students' name will be filled in config updater
 Invite:
   Interval:
-    value: '24hr'
-    option: [ '24hr', '20hr' ]
+    value: '24'
+    option: [ '24', '20' ]
   No1:
     value: yuuka
     option: [ ]
@@ -164,16 +160,3 @@ EventQuest:
   Area: 9
   Time: 1
 
-# ==================== Tool ====================
-
-Daemon:
-  Enable:
-    type: state
-    value: true
-    option: [ true ]
-    option_bold: [ true, ]
-  AimClicker:
-    value: do_not_click
-    option: [ item_enemy, item, enemy, do_not_click ]
-PlannerScan:
-  ResultAdd: false

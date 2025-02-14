@@ -5,7 +5,7 @@
 # ==================== Alas ====================
 
 Alas:
-  menu: 'list'
+  menu: 'collapse'
   page: 'setting'
   tasks:
     Alas:
@@ -19,18 +19,15 @@ Alas:
 # ==================== Daily ====================
 
 Daily:
-  menu: 'list'
+  menu: 'collapse'
   page: 'setting'
   tasks:
-    Cafe:
+    Task:
       - Scheduler
-      - Invite
     Lesson:
       - Scheduler
       - Lesson
     Club:
-      - Scheduler
-    Crafting:
       - Scheduler
     HardMission:
       - Scheduler
@@ -43,37 +40,62 @@ Daily:
       - Scrimmage
     TacticalChallenge:
       - Scheduler
-    Task:
+    Event:
+      - Scheduler
+      - EventQuest
+      - EventStory
+    NormalMission:
+      - Scheduler
+      - NormalMission
+    # Crafting:
+    #   - Scheduler
+
+# ==================== Reward ====================
+
+Reward:
+  menu: 'collapse'
+  page: 'setting'
+  tasks:
+    Earning:
+      - Scheduler
+    Club:
       - Scheduler
     Mail:
       - Scheduler
+    Task:
+      - Scheduler
 
-# ==================== Dungeon ====================
+# ==================== Cafe ====================
 
-Dungeon:
-  menu: 'list'
+Cafe:
+  menu: 'collapse'
   page: 'setting'
   tasks:
-    Commission:
+    Earning:
       - Scheduler
-      - Commission
+    Invite:
+      - Scheduler
+      - Invite
+    Relationship:
+      - Scheduler
+
+# ==================== Mission ====================
+
+Mission:
+  menu: 'collapse'
+  page: 'setting'
+  tasks:
     NormalMission:
       - Scheduler
       - NormalMission
     HardMission:
       - Scheduler
       - HardMission
-    Event:
-      - Scheduler
-      - EventQuest
-      - EventStory
-    Crafting:
-      - Scheduler
 
 # ==================== Event ====================
 
 Event:
-  menu: 'list'
+  menu: 'collapse'
   page: 'setting'
   tasks:
     Event:
@@ -81,13 +103,20 @@ Event:
       - EventQuest
       - EventStory
 
-# ==================== Tool ====================
+# ==================== Dungeon ====================
 
-Tool:
-  menu: 'list'
-  page: 'tool'
+Dungeon:
+  menu: 'collapse'
+  page: 'setting'
   tasks:
-    Daemon:
-      - Daemon
-    PlannerScan:
-      - PlannerScan
+    Bounty:
+      - Scheduler
+      - Bounty
+    Commission:
+      - Scheduler
+      - Commission
+    Scrimmage:
+      - Scheduler
+      - Scrimmage
+
+

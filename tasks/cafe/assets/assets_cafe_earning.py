@@ -6,7 +6,7 @@ from module.base.button import Button, ButtonWrapper
 CAFE_EARNING = ButtonWrapper(
     name='CAFE_EARNING',
     en=Button(
-        file='./assets/en/cafe/CAFE_EARNING.png',
+        file='./assets/en/cafe/earning/CAFE_EARNING.png',
         area=(1100, 642, 1203, 673),
         search=(1080, 622, 1223, 693),
         color=(95, 113, 134),
@@ -16,7 +16,7 @@ CAFE_EARNING = ButtonWrapper(
 EARNING_CLAIM = ButtonWrapper(
     name='EARNING_CLAIM',
     en=Button(
-        file='./assets/en/cafe/EARNING_CLAIM.png',
+        file='./assets/en/cafe/earning/EARNING_CLAIM.png',
         area=(545, 541, 736, 557),
         search=(525, 521, 756, 577),
         color=(245, 229, 71),

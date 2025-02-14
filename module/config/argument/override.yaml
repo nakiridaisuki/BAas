@@ -23,7 +23,7 @@ Restart:
 
 # ==================== Daily ====================
 
-Cafe:
+Earning:
   Scheduler:
     ServerUpdate: 04:00, 17:00
 Task:

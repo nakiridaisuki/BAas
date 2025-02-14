@@ -17,12 +17,10 @@ class GeneratedConfig:
 
     # Group `Emulator`
     Emulator_Serial = 'auto'
-    Emulator_GameClient = 'android'  # android, cloud_android
-    Emulator_PackageName = 'auto'  # auto, BAtest
-    Emulator_GameLanguage = 'auto'  # auto, cn, en
+    Emulator_PackageName = 'auto'  # auto, GL
+    Emulator_GameLanguage = 'en'  # en
     Emulator_ScreenshotMethod = 'auto'  # auto, ADB, ADB_nc, uiautomator2, aScreenCap, aScreenCap_nc, DroidCast, DroidCast_raw, scrcpy, nemu_ipc, ldopengl
     Emulator_ControlMethod = 'MaaTouch'  # minitouch, MaaTouch
-    Emulator_CloudPriorQueue = False
     Emulator_AdbRestart = False
 
     # Group `EmulatorInfo`
@@ -42,7 +40,7 @@ class GeneratedConfig:
     Optimization_WhenTaskQueueEmpty = 'goto_main'  # stay_there, goto_main, close_game
 
     # Group `Invite`
-    Invite_Interval = '24hr'  # 24hr, 20hr
+    Invite_Interval = 24  # 24, 20
     Invite_No1 = 'yuuka'  # Airi, Akane, Akane_Bunny, Akari, Ako, Ako_Dress, Aru, Asuna, Ayane, Ayane_Swimsuit, Azusa, Azusa_Swimsuit, Cherino, Chihiro, Chinatsu, Chinatsu_Hot_Spring, Chise, Fuuka, Fuuka_New_Year, Hanae, Hanae_Christmas, Hanako, Hanako_Swimsuit, Hare, Haruka, Haruka_New_Year, Haruna, Haruna_Track, Hasumi, Hasumi_Track, Hibiki_Cheer_Squad, Hifumi, Himari, Hina, Hina_Dress, Hina_Swimsuit, Hoshino, Hoshino_Swimsuit, Ibuki, Iroha, Izumi, Junko, Junko_New_Year, Juri, Kaede, Kaho, Kayoko, Kayoko_New_Year, Kazusa, Kikyou, Kirino, Koharu, Koharu_Swimsuit, Kotama, Kotori, Maki, Makoto, Mari, Mari_Track, Mashiro, Megu, Michiru, Misaki, Miyu, Miyu_Swimsuit, Moe, Momiji, Momoi, Mutsuki, Mutsuki_New_Year, Natsu, Nodoka, Nodoka_Hot_Spring, Nonomi, Nonomi_Swimsuit, Pina, Saki, Saten_Ruiko, Saya, Sena, Serika, Serika_New_Year, Serika_Swimsuit, Serina, Shimiko, Shiroko, Shiroko_Cycling, Shizuko, Shizuko_Swimsuit, Shun, Suzumi, Tsubaki, Tsukuyo, Tsurugi, Ui, Ui_Swimsuit, Utaha, Utaha_Cheer_Squad, Wakamo, Yoshimi, Yukari, Yuuka, Yuuka_Track, Yuzu, Yuzu_Maid
     Invite_No2 = 'serika'  # Airi, Akane, Akane_Bunny, Akari, Ako, Ako_Dress, Aru, Asuna, Ayane, Ayane_Swimsuit, Azusa, Azusa_Swimsuit, Cherino, Chihiro, Chinatsu, Chinatsu_Hot_Spring, Chise, Fuuka, Fuuka_New_Year, Hanae, Hanae_Christmas, Hanako, Hanako_Swimsuit, Hare, Haruka, Haruka_New_Year, Haruna, Haruna_Track, Hasumi, Hasumi_Track, Hibiki_Cheer_Squad, Hifumi, Himari, Hina, Hina_Dress, Hina_Swimsuit, Hoshino, Hoshino_Swimsuit, Ibuki, Iroha, Izumi, Junko, Junko_New_Year, Juri, Kaede, Kaho, Kayoko, Kayoko_New_Year, Kazusa, Kikyou, Kirino, Koharu, Koharu_Swimsuit, Kotama, Kotori, Maki, Makoto, Mari, Mari_Track, Mashiro, Megu, Michiru, Misaki, Miyu, Miyu_Swimsuit, Moe, Momiji, Momoi, Mutsuki, Mutsuki_New_Year, Natsu, Nodoka, Nodoka_Hot_Spring, Nonomi, Nonomi_Swimsuit, Pina, Saki, Saten_Ruiko, Saya, Sena, Serika, Serika_New_Year, Serika_Swimsuit, Serina, Shimiko, Shiroko, Shiroko_Cycling, Shizuko, Shizuko_Swimsuit, Shun, Suzumi, Tsubaki, Tsukuyo, Tsurugi, Ui, Ui_Swimsuit, Utaha, Utaha_Cheer_Squad, Wakamo, Yoshimi, Yukari, Yuuka, Yuuka_Track, Yuzu, Yuzu_Maid
 
@@ -89,10 +87,3 @@ class GeneratedConfig:
     EventQuest_State = True  # True, False
     EventQuest_Area = 9
     EventQuest_Time = 1
-
-    # Group `Daemon`
-    Daemon_Enable = True  # True
-    Daemon_AimClicker = 'do_not_click'  # item_enemy, item, enemy, do_not_click
-
-    # Group `PlannerScan`
-    PlannerScan_ResultAdd = False

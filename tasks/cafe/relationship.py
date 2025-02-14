@@ -1,49 +1,14 @@
 import numpy as np
 import cv2
-from module.ocr.ocr import Digit
-from module.base.timer import Timer
 from module.logger import logger
-from tasks.cafe.charater import Charater
+from tasks.base.ui import UI
 from tasks.base.page import page_cafe
 from tasks.base.assets.assets_base_page import NOW_LOADING
 from tasks.lesson.assets.assets_lesson import RELATIONSHIP_RANKUP
-from tasks.cafe.assets.assets_cafe import *
-from tasks.cafe.assets.assets_cafe_invite import *
+from tasks.cafe.assets.assets_cafe_invite import MOVE_CAFE, GOTO_CAFE_1, GOTO_CAFE_2
+from tasks.cafe.assets.assets_cafe_relationship import *
 
-class Cafe(Charater):
-
-    name_cafe1 = 'yuuka'
-    name_cafe2 = 'serika'
-
-    def invite(self, name:str):
-        """
-        Args:
-            name: (str) student's name
-        """
-        self.ui_ensure(page_cafe)
-
-        # Open invite list
-        while 1:
-            self.device.screenshot()
-            if self.appear(CANNOT_INVITE):
-                logger.warning("Can't invite student now")
-                return
-            if self.appear_then_click(INVITATION):
-                continue
-            if self.appear(INVITE_LIST):
-                break
-        
-        self.find_student(name=name)
-
-        # Invite
-        while 1:
-            self.device.screenshot()
-            if self.appear_then_click(INVITE_BUTTON):
-                continue
-            if self.color_appear_then_click(INVITE_CONFIRM):
-                continue
-            if self.appear(INVITE_COMPLETE):
-                break
+class Relationship(UI):
 
     def switch_cafe(self):
         while 1:
@@ -123,60 +88,11 @@ class Cafe(Charater):
                 
             self.reflash()
 
-
-    def invite_then_relationship(self):
-        self.invite(self.name_cafe1)
-        self.relationship()
-
-        self.switch_cafe()
-
-        self.invite(self.name_cafe2)
-        self.relationship()
-
-    def reward(self):
-        logger.info('Get cafe earning')
-        ocr = Digit(CAFE_EARNING)
-        ocr_timer = Timer(2)
-        while 1:
-            self.device.screenshot()
-
-            if self.ui_reward_acquired(interval=5):
-                break
-
-            if self.color_appear_then_click(EARNING_CLAIM, interval=2):
-                continue
-
-            if ocr_timer.reached():
-                ocr_timer.reset()
-                result = ocr.ocr_single_line(self.device.image)
-                if result > 10:
-                    self.device.click(CAFE_EARNING)
-                    continue
-                else:
-                    logger.info('Cafe earning less then 10%')
-                    break
-
-    def name_process(self, name:str):
-        name = name.replace(' (', ' ').replace(')', ' ').replace(' ', '_').lower()
-        return name
-
     def run(self):
         self.ui_ensure(page_cafe)
 
-        self.name_cafe1 = self.name_process(self.config.Invite_No1)
-        self.name_cafe2 = self.name_process(self.config.Invite_No2)
+        self.relationship()
+        self.switch_cafe()
+        self.relationship()
 
-        self.invite_then_relationship()
-        self.reward()
         self.config.task_delay(180)
-            
-
-if __name__ == '__main__':
-    test = Cafe('src')
-    # test.invite('hoshino')
-    # test.color_appear(INVITE_CONFIRM)
-    test.device.screenshot()
-    # test.invite_then_relationship()
-    # test.relationship()
-    # test.invite('hoshino')
-    test.find_student('yuuka')

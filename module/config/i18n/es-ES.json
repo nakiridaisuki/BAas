@@ -8,17 +8,25 @@
       "name": "Diario",
       "help": ""
     },
-    "Dungeon": {
-      "name": "Menu.Dungeon.name",
-      "help": "Menu.Dungeon.help"
+    "Reward": {
+      "name": "Menu.Reward.name",
+      "help": "Menu.Reward.help"
+    },
+    "Cafe": {
+      "name": "Menu.Cafe.name",
+      "help": "Menu.Cafe.help"
+    },
+    "Mission": {
+      "name": "Menu.Mission.name",
+      "help": "Menu.Mission.help"
     },
     "Event": {
       "name": "Menu.Event.name",
       "help": "Menu.Event.help"
     },
-    "Tool": {
-      "name": "útiles",
-      "help": ""
+    "Dungeon": {
+      "name": "Menu.Dungeon.name",
+      "help": "Menu.Dungeon.help"
     }
   },
   "Task": {
@@ -30,9 +38,9 @@
       "name": "Gestión de errores",
       "help": ""
     },
-    "Cafe": {
-      "name": "Task.Cafe.name",
-      "help": "Task.Cafe.help"
+    "Task": {
+      "name": "Task.Task.name",
+      "help": "Task.Task.help"
     },
     "Lesson": {
       "name": "Task.Lesson.name",
@@ -41,10 +49,6 @@
     "Club": {
       "name": "Task.Club.name",
       "help": "Task.Club.help"
-    },
-    "Crafting": {
-      "name": "Task.Crafting.name",
-      "help": "Task.Crafting.help"
     },
     "HardMission": {
       "name": "Task.HardMission.name",
@@ -62,33 +66,33 @@
       "name": "Task.TacticalChallenge.name",
       "help": "Task.TacticalChallenge.help"
     },
-    "Task": {
-      "name": "Task.Task.name",
-      "help": "Task.Task.help"
-    },
-    "Mail": {
-      "name": "Task.Mail.name",
-      "help": "Task.Mail.help"
-    },
-    "Commission": {
-      "name": "Task.Commission.name",
-      "help": "Task.Commission.help"
+    "Event": {
+      "name": "Task.Event.name",
+      "help": "Task.Event.help"
     },
     "NormalMission": {
       "name": "Task.NormalMission.name",
       "help": "Task.NormalMission.help"
     },
-    "Event": {
-      "name": "Task.Event.name",
-      "help": "Task.Event.help"
+    "Earning": {
+      "name": "Task.Earning.name",
+      "help": "Task.Earning.help"
     },
-    "Daemon": {
-      "name": "Clic de diálogo",
-      "help": ""
+    "Mail": {
+      "name": "Task.Mail.name",
+      "help": "Task.Mail.help"
     },
-    "PlannerScan": {
-      "name": "Planificador de personajes",
-      "help": ""
+    "Invite": {
+      "name": "Task.Invite.name",
+      "help": "Task.Invite.help"
+    },
+    "Relationship": {
+      "name": "Task.Relationship.name",
+      "help": "Task.Relationship.help"
+    },
+    "Commission": {
+      "name": "Task.Commission.name",
+      "help": "Task.Commission.help"
     }
   },
   "Scheduler": {
@@ -124,23 +128,15 @@
       "name": "Serial",
       "help": "Los serial de emuladores comunes pueden ser consultados aquí:\nUsa \"auto\" para detectar automáticamente el emulador, pero si hay varios ejecutando a la vez o no se puede detectar de forma automática, \"auto\" no podrá ser usado y tendrás que ajustarlo manualmente.\nSerial comunes de algunos emuladores:\n- BlueStacks 127.0.0.1:5555\n- BlueStacks4 Hyper-V usa \"bluestacks4-hyperv\", \"bluestacks4-hyperv-2\" para multi-instancia, etc...\n- BlueStacks5 Hyper-V usa \"bluestacks5-hyperv\", \"bluestacks5-hyperv-1\" para multi-instancia, etc...\n- NoxPlayer 127.0.0.1:62001\n- NoxPlayer64bit 127.0.0.1:59865\n- MuMuPlayer/MuMuPlayer X 127.0.0.1:7555\n- MuMuPlayer12 127.0.0.1:16384\n- MemuPlayer 127.0.0.1:21503\n- LDPlayer emulator-5554 or 127.0.0.1:5555\n- WSA usa \"wsa-0\" para ejecutar el juego en segundo plano, que será cerrado/controlado por software externo.\nSi hay varias instancias ejecutándose a la vez, se usará la predeterminada para la primera y las demás se reajustarán.\nAbre console.bat y ejecuta `adb devices` para encontrarlas o usa la guía oficial del emulador."
     },
-    "GameClient": {
-      "name": "Cliente del juego",
-      "help": "Al usar la nube, automáticamente se pondrá en cola para iniciar sesión. El juego en la nube está disponible solo en CN",
-      "android": "Cliente Android",
-      "cloud_android": "Cliente de juego en la nube para Android"
-    },
     "PackageName": {
       "name": "Región del juego",
       "help": "No es posible detectar regiones que no sean de China, por tanto, ajústalo manualmente si se da la situación.",
       "auto": "Detectar automaticamente",
-      "BAtest": "BAtest"
+      "GL": "GL"
     },
     "GameLanguage": {
       "name": "Idioma dentro del juego",
       "help": "En la actualidad, solo funcionan el Chino simplificado y el inglés.",
-      "auto": "Detectar automaticamente",
-      "cn": "Chino simplificado",
       "en": "Inglés"
     },
     "ScreenshotMethod": {
@@ -163,10 +159,6 @@
       "help": "Velocidad: MaaTouch = minitouch >>> uiautomator2 ~= ADB\nMaaTouch es el recomendado.",
       "minitouch": "minitouch",
       "MaaTouch": "MaaTouch"
-    },
-    "CloudPriorQueue": {
-      "name": "Utilice monedas pagadas para hacer cola rápidamente en los juegos en la nube",
-      "help": ""
     },
     "AdbRestart": {
       "name": "Intentar reiniciar el ADB cuando no se encuentre ninguno.",
@@ -258,8 +250,8 @@
     "Interval": {
       "name": "Invite.Interval.name",
       "help": "Invite.Interval.help",
-      "24hr": "24hr",
-      "20hr": "20hr"
+      "24": "24",
+      "20": "20"
     },
     "No1": {
       "name": "Invite.No1.name",
@@ -646,35 +638,6 @@
     "Time": {
       "name": "EventQuest.Time.name",
       "help": "EventQuest.Time.help"
-    }
-  },
-  "Daemon": {
-    "_info": {
-      "name": "Clic de diálogo",
-      "help": "Las herramientas necesitan detener el programador y luego ejecutarlo de forma independiente"
-    },
-    "Enable": {
-      "name": "Clic de diálogo",
-      "help": "Monitorear el juego, hacer clic automáticamente en el diálogo, chatear por teléfono y bendecir en el universo simulado (sigue la configuración de tareas del universo simulado)",
-      "True": "Activado"
-    },
-    "AimClicker": {
-      "name": "Haz clic en Objetos y enemigos apuntados",
-      "help": "",
-      "item_enemy": "Haz clic en elementos y enemigos",
-      "item": "Haz clic solo en elementos",
-      "enemy": "Haz clic solo en enemigos",
-      "do_not_click": "No hacer clic"
-    }
-  },
-  "PlannerScan": {
-    "_info": {
-      "name": "Escanear resultados del planificador de caracteres",
-      "help": "Las herramientas deben detener el programador y luego ejecutarse de forma independiente\nAntes de usarlo, establezca el objetivo del planificador en el planificador del juego, calcule los resultados y comience a escanear desde la página de resultados. Para uso detallado, consulte: https://github .com/LmeSzinc/StarRailCopilot/wiki/Planner_en"
-    },
-    "ResultAdd": {
-      "name": "Acumular múltiples resultados de escaneo",
-      "help": "Activar cuando se planifican varios personajes, generará varios personajes todos juntos\nDesactivar cuando se planifica un personaje, el objetivo de planificación se actualizará en cada escaneo"
     }
   },
   "Gui": {

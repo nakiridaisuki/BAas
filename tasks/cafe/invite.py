@@ -1,0 +1,102 @@
+from module.logger import logger
+from module.exception import ScriptError
+from tasks.base.ui import UI
+from tasks.base.page import page_cafe
+from tasks.base.assets.assets_base_page import NOW_LOADING
+from tasks.cafe.assets.assets_cafe_invite import *
+from tasks.cafe.assets.assets_cafe_charater import *
+
+class Invite(UI):
+
+    name_cafe1 = 'yuuka'
+    name_cafe2 = 'serika'
+
+    def find_student(self, name:str = None):
+        """
+        Find the invite button of student in invite list
+        INVITE_BUTTON.search will be chenged after calling this function
+        so you can use functhons like self.appear(INVITE_BUTTON) directly
+        """
+        if name is None:
+            logger.error("Don't set name")
+            raise ScriptError
+        
+        button:ButtonWrapper = globals()['INVITE_' + name.upper()]
+        button.load_search(STUDENT_AREA.search)
+
+        #TODO add list button check
+
+        for _ in range(40):
+            self.device.screenshot()
+            if button.match_template(self.device.image, similarity=0.7):
+                x1, y1, x2, y2 = button.button
+                y1 -= 20
+                x2 += 380
+                y2 += 20
+
+                INVITE_BUTTON.load_search((x1, y1, x2, y2))
+                break
+
+            self.ui_scroll((0, -1), INVITE_SWIPE_AREA)
+            self.device.click_record_clear()
+            self.device.sleep(0.6)
+
+    def invite(self, name:str):
+        """
+        Args:
+            name: (str) student's name
+        """
+
+        # Open invite list
+        while 1:
+            self.device.screenshot()
+            if self.appear(CANNOT_INVITE):
+                logger.warning("Can't invite student now")
+                return
+            if self.appear_then_click(INVITATION):
+                continue
+            if self.appear(INVITE_LIST):
+                break
+        
+        self.find_student(name=name)
+
+        # Invite
+        while 1:
+            self.device.screenshot()
+            if self.appear_then_click(INVITE_BUTTON):
+                continue
+            if self.color_appear_then_click(INVITE_CONFIRM):
+                continue
+            if self.appear(INVITE_COMPLETE):
+                break
+
+    def switch_cafe(self):
+        while 1:
+            self.device.screenshot()
+            if self.appear_then_click(MOVE_CAFE):
+                continue
+            if self.appear_then_click(GOTO_CAFE_1):
+                continue
+            if self.appear_then_click(GOTO_CAFE_2):
+                continue
+            if self.appear(NOW_LOADING):
+                break
+
+    def name_process(self, name:str):
+        name = name.replace(' (', ' ').replace(')', ' ').replace(' ', '_').lower()
+        return name
+
+    def run(self):
+        self.ui_ensure(page_cafe)
+
+        self.name_cafe1 = self.name_process(self.config.Invite_No1)
+        self.name_cafe2 = self.name_process(self.config.Invite_No2)
+
+        self.invite(self.name_cafe1)
+        self.switch_cafe()
+        self.invite(self.name_cafe2)
+
+        if self.config.Invite_Interval == '20':
+            self.config.task_delay(60 * 20)
+        else:
+            self.config.task_delay(server_update=True)

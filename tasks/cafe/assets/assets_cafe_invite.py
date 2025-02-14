@@ -13,26 +13,6 @@ CANNOT_INVITE = ButtonWrapper(
         button=(799, 626, 864, 664),
     ),
 )
-EDIT = ButtonWrapper(
-    name='EDIT',
-    en=Button(
-        file='./assets/en/cafe/invite/EDIT.png',
-        area=(42, 610, 92, 656),
-        search=(22, 590, 112, 676),
-        color=(97, 116, 137),
-        button=(42, 610, 92, 656),
-    ),
-)
-FINISH_EDIT = ButtonWrapper(
-    name='FINISH_EDIT',
-    en=Button(
-        file='./assets/en/cafe/invite/FINISH_EDIT.png',
-        area=(1083, 77, 1254, 114),
-        search=(1063, 57, 1274, 134),
-        color=(196, 201, 210),
-        button=(1083, 77, 1254, 114),
-    ),
-)
 GOTO_CAFE_1 = ButtonWrapper(
     name='GOTO_CAFE_1',
     en=Button(
@@ -121,16 +101,6 @@ MOVE_CAFE = ButtonWrapper(
         search=(32, 68, 116, 138),
         color=(220, 231, 241),
         button=(52, 88, 96, 118),
-    ),
-)
-RELATIONSHIP_HINT = ButtonWrapper(
-    name='RELATIONSHIP_HINT',
-    en=Button(
-        file='./assets/en/cafe/invite/RELATIONSHIP_HINT.png',
-        area=(584, 436, 620, 492),
-        search=(564, 416, 640, 512),
-        color=(65, 55, 1),
-        button=(584, 436, 620, 492),
     ),
 )
 STUDENT_AREA = ButtonWrapper(
