@@ -1121,16 +1121,7 @@ class AlasGUI(Frame):
             ).style("text-align: center")
 
             # show something
-            put_text("BAas is a free open source software, if you paid for BAas from any channel, please refund.\nBAas 是一款免费开源软件，如果你在任何渠道付费购买了BAas，请退款。\nProject repository 项目地址：https://github.com/nakiridaisuki/BAas").style("text-align: center")
-
-            # TODO figure out WTF is it
-            # put_markdown(
-            #     """
-            # BAas is a free open source software, if you paid for BAas from any channel, please refund.
-            # BAas 是一款免费开源软件，如果你在任何渠道付费购买了BAas，请退款。
-            # Project repository 项目地址：`https://github.com/LmeSzinc/StarRailCopilot`
-            # """
-            # ).style("text-align: center")
+            put_markdown("").style("text-align: center")
 
         if lang.TRANSLATE_MODE:
             lang.reload()
