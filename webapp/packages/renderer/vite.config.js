@@ -89,7 +89,7 @@ const config = {
       ],
     }),
     new vitePluginForArco({
-      theme: '@arco-themes/vue-am-alas',
+      theme: '@arco-themes/vue-am-baas',
     }),
     VueI18nPlugin({
       include: resolve(PACKAGE_ROOT, './src/locales/lang/**'),

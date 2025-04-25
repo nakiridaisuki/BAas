@@ -1,4 +1,4 @@
 
-export const primaryColor = '#C079F2';
+export const primaryColor = '#478AF1';
 export const darkMode = 'light';
 

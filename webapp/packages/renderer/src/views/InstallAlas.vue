@@ -103,10 +103,10 @@ const repositoryOptions = computed(() => [
     label: t('common.global'),
     value: 'global',
   },
-  {
-    label: t('common.china'),
-    value: 'china',
-  },
+  // {
+  //   label: t('common.china'),
+  //   value: 'china',
+  // },
 ]);
 
 const themeOptions = computed(() => [

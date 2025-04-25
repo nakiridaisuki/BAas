@@ -18,18 +18,18 @@ export const localeList: {label: string; value: keyof typeof LOCALE}[] = [
     label: 'English',
     value: LOCALE.EN_US,
   },
-  {
-    label: '日本語',
-    value: LOCALE.JA_JP,
-  },
+  // {
+  //   label: '日本語',
+  //   value: LOCALE.JA_JP,
+  // },
   {
     label: '繁體中文',
     value: LOCALE.ZH_TW,
   },
-  {
-    label: 'Español',
-    value: LOCALE.ES_ES,
-  },
+  // {
+  //   label: 'Español',
+  //   value: LOCALE.ES_ES,
+  // },
 ];
 
 export const localeSetting: LocaleSetting = {
