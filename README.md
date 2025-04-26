@@ -1,31 +1,44 @@
-**| [English](README_en.md) | 简体中文 | [Español](README_es.md)** |
+**| 繁體中文 | [English](README_en.md)**
 
 
-# StarRailCopilot
+# Blue Archive auto script
 
-Star Rail auto script | 星铁速溶茶，崩坏：星穹铁道脚本，基于下一代Alas框架。
+Blue Archive auto script | 蔚藍檔案自動化腳本，基于下一代Alas框架。
 
-![gui](https://raw.githubusercontent.com/wiki/LmeSzinc/StarRailCopilot/README.assets/gui_cn.png)
+在經過了約一年的遊玩後，深深的見識到了長草期對遊戲熱情的消耗力。\
+在網路上找了一圈後，BA 的腳本都有點小毛病，所以索性自己動手，豐衣足食。
 
-![setting](https://raw.githubusercontent.com/wiki/LmeSzinc/StarRailCopilot/README.assets/setting_cn.png)
+\\\\\\ 感謝大佬 [LmeSzinc](https://github.com/LmeSzinc) 造出了又大又圓的輪子 ///\
+本專案 Fork 自大佬 [LmeSzinc](https://github.com/LmeSzinc) 的 [StarRailCopilot](https://github.com/LmeSzinc/StarRailCopilot)，加上了對 Blue Archive 的支援，使用方式基本一樣，目前完成了 BA 大部分日常的自動化功能，請各位老師把寶貴的時間用來與學生培養感情，枯燥乏味的日常工作就交給 BAas 吧！
+
+## 預覽
+![gui](./doc/README.assets/gui_tw.png)
+
+![setting](./doc/README.assets/setting_tw.png)
 
 ## 功能
 
-- **打本**：[角色养成规划](https://github.com/LmeSzinc/StarRailCopilot/wiki/Planner_cn)，每日副本，双倍活动副本，历战余响。
-- **收获**：完成每日任务，收派委托，收取无名勋礼奖励。
-- **模拟宇宙**：刷模拟宇宙，使用开拓力刷内圈遗器。
-- **后台托管**：自动启动模拟器和游戏，后台托管清体力和每日，通过仪表盘了解资源情况。
-- **云游戏**：（仅国服）[在云崩坏星穹铁道上运行SRC](https://github.com/LmeSzinc/StarRailCopilot/wiki/Cloud_cn)
+- **每日任務**: 自動完成幾乎所有每日任務
+- **咖啡廳**: 自動邀約與摸頭，讓所有學生感受老師的溫暖
+- **刷本**: 可設定需刷取的材料與裝備，每日自動刷本
+- **活動**: 活動自動推圖，包括劇情與任務
 
-## 安装 [![](https://img.shields.io/github/downloads/LmeSzinc/StarRailCopilot/total?color=4e4c97)](https://github.com/LmeSzinc/StarRailCopilot/releases)
 
-[中文安装教程](https://github.com/LmeSzinc/StarRailCopilot/wiki/Installation_cn)，包含自动安装教程，使用教程，手动安装教程。
+## 安装 
 
-> **为什么使用模拟器？** 如果你用桌面端来运行脚本的话，游戏窗口必须保持在前台，我猜你也不想运行脚本的时候不能动鼠标键盘像个傻宝一样坐在那吧，所以用模拟器。
+請參考 [安裝方法](https://github.com/LmeSzinc/StarRailCopilot/wiki/Installation_cn)，包含自動安裝，使用方法，手動安裝。\
+兩者只有文字與顏色不同，其餘皆一樣
 
-> **模拟器的性能表现如何？** Lme 的 8700k+1080ti 使用 MuMu 12 模拟器画质设置非常高是有 40fps 的，如果你的配置稍微新一点的话，特效最高 60fps 不是问题。
 
-## 开发
+## 目前進度
+1. 目前僅支援國際服英文版本，正在加入繁體中文版的支持
+2. 完善副本刷取的選項
+3. 未來打算加入以學生為導向的副本刷取模式
+
+## 註
+~~因為我實在沒再玩 BA 了，所以隨時有可能棄坑~~
+
+<!-- ## 开发
 
 Discord https://discord.gg/aJkt3mKDEr QQ群 752620927
 
@@ -33,14 +46,14 @@ Discord https://discord.gg/aJkt3mKDEr QQ群 752620927
 - 开发文档（目录在侧边栏）：[Alas wiki](https://github.com/LmeSzinc/AzurLaneAutoScript/wiki/1.-Start)，但很多内容是新写的，建议阅读源码和历史提交。
 - 开发路线图：见置顶 issue，欢迎提交 PR，挑选你感兴趣的部分进行开发即可。
 
-> **如何添加多语言/多服务器支持？** 需要适配 assets，参考 [开发文档 “添加一个 Button” 一节](https://github.com/LmeSzinc/AzurLaneAutoScript/wiki/4.1.-Detection-objects#%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AA-button)。
+> **如何添加多语言/多服务器支持？** 需要适配 assets，参考 [开发文档 “添加一个 Button” 一节](https://github.com/LmeSzinc/AzurLaneAutoScript/wiki/4.1.-Detection-objects#%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AA-button)。 -->
 
-## 关于 Alas
+<!-- ## 关于 Alas
 
 SRC 基于碧蓝航线脚本 [AzurLaneAutoScript](https://github.com/LmeSzinc/AzurLaneAutoScript) 开发，Alas 经过三年的发展现在已经达到一个高完成度，但也累积了不少屎山难以改动，我们希望在新项目上解决这些问题。
 
 - 更新 OCR 库。Alas 在 cnocr==1.2.2 上训练了多个模型，但依赖的 [mxnet](https://github.com/apache/mxnet) 已经不怎么活跃了，机器学习发展迅速，新模型的速度和正确率都碾压旧模型。
 - 配置文件 [pydantic](https://github.com/pydantic/pydantic) 化。自任务和调度器的概念加入后用户设置数量倍增，Alas 土制了一个代码生成器来完成配置文件的更新和访问，pydantic 将让这部分更加简洁。
 - 更好的 Assets 管理。button_extract 帮助 Alas 轻易维护了 4000+ 模板图片，但它有严重的性能问题，对外服缺失 Assets 的提示也淹没在了大量垃圾 log 中。
-- 减少对于碧蓝的耦合。Alas 框架和 Alas GUI 有对接其他游戏及其脚本的能力，但已经完成的明日方舟 [MAA](https://github.com/MaaAssistantArknights/MaaAssistantArknights) 插件和正在开发的 [fgo-py](https://github.com/hgjazhgj/FGO-py) 插件都发现了 Alas 与碧蓝航线游戏本身耦合严重的问题。
+- 减少对于碧蓝的耦合。Alas 框架和 Alas GUI 有对接其他游戏及其脚本的能力，但已经完成的明日方舟 [MAA](https://github.com/MaaAssistantArknights/MaaAssistantArknights) 插件和正在开发的 [fgo-py](https://github.com/hgjazhgj/FGO-py) 插件都发现了 Alas 与碧蓝航线游戏本身耦合严重的问题。 -->
 

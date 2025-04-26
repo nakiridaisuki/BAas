@@ -1,46 +1,33 @@
-**| English | [简体中文](README.md) | [Español](README_es.md) |**
+# Blue Archive Auto Script
 
-# StarRailCopilot
+Blue Archive Auto Script | 蔚藍檔案自動化腳本, based on the next-generation Alas framework.
 
-Star Rail Instant Tea, a bot for Honkai: Star Rail, based on the next generation of ALAS framework.
+After playing for about a year, I deeply experienced how the long periods of inactivity can diminish the enthusiasm for the game. After searching online for a while, I found that existing Blue Archive scripts had some minor issues, so I decided to take matters into my own hands.
 
-![gui](https://raw.githubusercontent.com/wiki/LmeSzinc/StarRailCopilot/README.assets/gui_en.png)
+\\\\\\ Many thanks to [LmeSzinc](https://github.com/LmeSzinc) for creating such a great framework! ///\
+This project is forked from [LmeSzinc](https://github.com/LmeSzinc)'s [StarRailCopilot](https://github.com/LmeSzinc/StarRailCopilot), with added support for Blue Archive. The usage is basically the same. Currently, most of Blue Archive's daily automation features have been completed. Teachers, please use your precious time to bond with your students, and leave the tedious daily tasks to BAas!
 
-![setting](https://raw.githubusercontent.com/wiki/LmeSzinc/StarRailCopilot/README.assets/setting_en.png)
+## Preview
+![gui](./doc/README.assets/gui_en.png)
+
+![setting](./doc/README.assets/setting_en.png)
 
 ## Features
 
-- **Dungeons**: [Character Planner](https://github.com/LmeSzinc/StarRailCopilot/wiki/Planner_en), Dungeons, dungeons at double event, echo of war.
-- **Rewards**: Complete daily quests, do assignment, claim nameless horner rewards.
-- **Simulated Universe**: Farm SU, farm planers using trailbalze power.
-- **AFK Auto Farming**: Automatically launch emulators and games, do dungeons and quests at background, keep track of resources through dashboard.
-- **Cloud Gaming**: [CN only] [Run SRC on cloud HSR](https://github.com/LmeSzinc/StarRailCopilot/wiki/Cloud_cn)
+-   **Daily Missions**: Automatically completes almost all daily missions.
+-   **Cafe**: Automatically invites and head-pats students, allowing all students to feel the teacher's warmth.
+-   **Farming**: Can set the required materials and equipment to farm, automatically farming daily.
+-   **Events**: Automatically clears event stages, including story and missions.
 
-## Install [![](https://img.shields.io/github/downloads/LmeSzinc/StarRailCopilot/total?color=4e4c97)](https://github.com/LmeSzinc/StarRailCopilot/releases)
+## Installation
+Please refer to the [Installation Guide](https://github.com/LmeSzinc/StarRailCopilot/wiki/Installation_en), which includes automatic installation, usage instructions, and manual installation. The text and colors are the only differences; everything else is the same.
 
-Refers to [Installation tutorial](https://github.com/LmeSzinc/StarRailCopilot/wiki/Installation_en), including easy-installer manual, use manual, manual installation tutorial.
+## Current Progress
 
-> **Why use emulators?** If you run a bot on the desktop client, game windows must stay at front. I guess you don't wanna baby-sit there without being able to move the mouse and keyboard while running the bot, so use the emulators.
+1.  Currently, only the international English version is supported. Traditional Chinese version support is being added.
+2.  Improving the options for farming stages.
+3.  Future plans include adding a student-oriented stage farming mode.
 
-> **How's the performance?** Lme's 8700k+1080ti using MuMu12 emulator with graphic settings very high  gets 40 fps. It shouldn't be a problem to run with maximum graphic settings and 60 fps if you have newer PC specs.
+## Note
 
-## Develpment
-
-Discord https://discord.gg/aJkt3mKDEr
-
-- [Minimap Tracking](https://github.com/LmeSzinc/StarRailCopilot/wiki/MinimapTracking)
-
-- Development Docs (menu is on sidebar): [Alas wiki](https://github.com/LmeSzinc/AzurLaneAutoScript/wiki/1.-Start) (in Chinese). However, there is ton of code newly written, it is recommended to read the source code and historical commits.
-
-- Development Road Map: See pinned issues. Pull Requests are welcomed, just pick the part you interested to work on.
-
-> **How to add multi-language or multi-server support?** Need assets updates, see ["Adding a Button" in development docs](https://github.com/LmeSzinc/AzurLaneAutoScript/wiki/4.1.-Detection-objects#%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AA-button).
-
-## About ALAS
-
-SRC is based on an Azur Lane bot [AzurLaneAutoScript](https://github.com/LmeSzinc/AzurLaneAutoScript). After 3 years of development, ALAS has reached a high degree of completion, but it has also accumulated a lot of shit code that is difficult to change. We hope that Fix these issues on a new project.
-
-- Update OCR. ALAS has trained multiple models on cnocr==1.2.2, but the dependent [mxnet](https://github.com/apache/mxnet) is no longer active, machine learning is developing rapidly, and the speed of new models and the correct rate crushes the old model.
-- Converting setting files into [pydantic](https://github.com/pydantic/pydantic) models. Since the concept of task and scheduler was added, the number of user settings greatly increased. ALAS has built a code generator to implement setting read and update. pydantic will make things more elegantly.
-- Better Assets management. button_extract helps ALAS to easily maintain 4000+ template images, but it has a serious performance issue, and the reminder of multi-server supported is also submerged in a large amount of meaningless logs.
-- Reduced coupling to Azur Lane. The ALAS framework and ALAS GUI have the ability to interface with other games and their not, but the completed [MAA](https://github.com/MaaAssistantArknights/MaaAssistantArknights) plug-in for Arknights and [fgo-py](https: //github.com/hgjazhgj/FGO-py) plug-in under development have found serious coupling problems between ALAS and the Azur Lane game itself.
+~~Because I'm really not playing BA anymore, I might drop this project at any time.~~
